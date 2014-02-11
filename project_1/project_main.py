@@ -1,4 +1,5 @@
 import urllib2
+import json
 import base64
 
 def main():
@@ -11,9 +12,27 @@ def main():
   req = urllib2.Request(bingUrl, headers = headers)
   response = urllib2.urlopen(req)
   content = response.read()
-  #content contains the xml/json response from Bing. 
-  print content
+  data = json.loads(content)
+  #content contains the xml/json response from Bing.
+  positives = []
+  negatives = []
+  #Take input from user
+  for result in data['d']['results']:
+      print '\nTitle:\n' + result['Title']
+      print 'Description:\n'+ result['Description']
+      flag = 0
+      while flag==0:
+          var = raw_input("Relevant or irrelevant(y/n)? :")
+          if str(var)=='y':
+              positives.append(result['Description'])
+              flag = 1
+          elif str(var)=='n':
+              negatives.append(result['Description'])
+              flag = 1
+          else:
+              print 'Wrong Input. Enter again:'
+  print 'precision = ', str(len(positives)*1.0/10)
+  #print content
 
 if __name__ == '__main__':
   main()
-
