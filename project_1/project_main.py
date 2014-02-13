@@ -7,6 +7,8 @@ import string
 from nltk import stem
 import sys
 
+# TODO boost title
+
 def main():
   if (len(sys.argv) == 4):
     accountKey = str(sys.argv[1])
@@ -40,38 +42,40 @@ def main():
     q=10
     a=5
     b=1
-    for word in preProcess(Query):
-      vocab[word]=q
+    #for word in preProcess(Query):
+    #  vocab[word]=q
           
     #Take input from user
     for result in data['d']['results']:
       print '\nTitle:\n' + result['Title']
       print 'Description:\n'+ result['Description']
-      flag = 0
-      while flag==0:
+      flag = 1
+      while flag==1:
         var = raw_input("Relevant or irrelevant(y/n)? :")
         if str(var)=='y':
           positives.append(result['Description'])
           for word in preProcess(result['Description']):
-            if word not in vocab.keys():
+            if word not in vocab.keys() and word not in QueryTerms:
               vocab[word]=a
-            else:
+            elif word not in QueryTerms:
               vocab[word]+=a
-              flag = 1
+          flag=0
         elif str(var)=='n':
           negatives.append(result['Description'])
           for word in preProcess(result['Description']):
-            if word not in vocab.keys():
+            if word not in vocab.keys() and word not in QueryTerms:
               vocab[word]=-b
-            else:
+            elif word not in QueryTerms:
               vocab[word]-=b
-              flag = 1
+          flag=0
         else:
           print 'Wrong Input. Enter again:'
+          flag = 1
     current_precision = len(positives)*1.0/10
     print 'precision = ', str(current_precision)
-    size_new = len(Query.split('%20'))+2
-    QueryTerms = sorted(vocab.keys(), key=vocab.get)[-size_new:]
+    #size_new = len(Query.split('%20'))+2
+    # Pick just two new relevant terms
+    QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
     print 'New Query :\n', QueryTerms
     trial_num += 1
 
