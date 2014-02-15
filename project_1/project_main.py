@@ -8,6 +8,7 @@ from nltk import stem
 import sys
 
 # TODO boost title
+# Add steps to include nltk on clic
 
 def main():
   if (len(sys.argv) == 4):
