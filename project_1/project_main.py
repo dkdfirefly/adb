@@ -8,7 +8,7 @@ from nltk import stem
 import sys
 
 # TODO boost title - sarah
-# Add steps to include nltk on clic
+# Add steps to include nltk on clic - dhaivat
 
 def main():
   if (len(sys.argv) == 4):
@@ -75,9 +75,9 @@ def main():
     print 'precision = ', str(current_precision)
     #size_new = len(Query.split('%20'))+2
     # Pick just two new relevant terms
-    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user - 
+    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user - sarah
     #TODO: use of authoritative sites
-    #TODO: identify noisy words
+    #TODO: identify noisy words - dhaivat
     QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
     print 'New Query :\n', QueryTerms
     trial_num += 1
@@ -89,7 +89,7 @@ def preProcess(text):
     text=text.replace(w,' ')
   words = text.split()
   words = [w for w in words if not w in stopwords.words('english')]
-  #TODO : punctuation list not to remove & +
+  #TODO : punctuation list not to remove & + - sarah
   #removed stemming for now
 ##stemmed =[]
 ##for w in words:
