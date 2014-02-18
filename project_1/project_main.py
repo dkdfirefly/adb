@@ -7,7 +7,7 @@ import string
 from nltk import stem
 import sys
 
-# TODO boost title
+# TODO boost title - sarah
 # Add steps to include nltk on clic
 
 def main():
@@ -23,7 +23,6 @@ def main():
   trial_num = 0
 
   while (current_precision < precision and current_precision != 0) or trial_num == 0:
-    # TODO - build url dynamically
     Query = '%20'.join(QueryTerms)
     bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?$format=json&Query=%27' + Query + '%27&$top=10'
     #Provide your account key here
@@ -76,7 +75,7 @@ def main():
     print 'precision = ', str(current_precision)
     #size_new = len(Query.split('%20'))+2
     # Pick just two new relevant terms
-    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user
+    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user - 
     #TODO: use of authoritative sites
     #TODO: identify noisy words
     QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
