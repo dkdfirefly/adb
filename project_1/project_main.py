@@ -3,11 +3,11 @@ import json
 import base64
 import nltk
 from nltk.corpus import stopwords
+from nltk.corpus import wordnet as wn
 import string
 from nltk import stem
 import sys
 
-# TODO boost title - sarah
 # Add steps to include nltk on clic - dhaivat
 
 def main():
@@ -17,6 +17,9 @@ def main():
     Query = str(sys.argv[3])
   else:
     print 'Usage: ./project_main.py <account-key> <precision> <query>'
+
+  precision = 0.8
+  Query = 'Candy skull'
 
   QueryTerms = Query.split()
   current_precision = 0.0
@@ -40,6 +43,7 @@ def main():
     negatives = []
     vocab = dict()
     q=10
+    Title_factor = 1.5
     a=5
     b=1
     #for word in preProcess(Query):
@@ -59,9 +63,19 @@ def main():
               vocab[word]=a
             elif word not in QueryTerms:
               vocab[word]+=a
+          for word in preProcess(result['Title']):
+            if word not in vocab.keys() and word not in QueryTerms:
+              vocab[word]=a*Title_factor
+            elif word not in QueryTerms:
+              vocab[word]+=a*Title_factor
           flag=0
         elif str(var)=='n':
           negatives.append(result['Description'])
+          for word in preProcess(result['Title']):
+            if word not in vocab.keys() and word not in QueryTerms:
+              vocab[word]=-b*Title_factor
+            elif word not in QueryTerms:
+              vocab[word]-=b*Title_factor
           for word in preProcess(result['Description']):
             if word not in vocab.keys() and word not in QueryTerms:
               vocab[word]=-b
@@ -75,25 +89,23 @@ def main():
     print 'precision = ', str(current_precision)
     #size_new = len(Query.split('%20'))+2
     # Pick just two new relevant terms
-    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user - sarah
     #TODO: use of authoritative sites
     #TODO: identify noisy words - dhaivat
     QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
     print 'New Query :\n', QueryTerms
     trial_num += 1
 
+  
 def preProcess(text):
   text=text.lower()
   stemmer=stem.PorterStemmer()
-  for w in string.punctuation:
+  #original punctuation set
+  #punc = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>',';','?','@','[',"\\",']','^','_','`','{','|','}','~']
+  punc = ['!','"','#','%',"'",'(',')','*',',','-','.','/',':',';','<','=','>',';','?','[',"\\",']','^','_','`','{','|','}','~']
+  for w in punc:
     text=text.replace(w,' ')
   words = text.split()
-  words = [w for w in words if not w in stopwords.words('english')]
-  #TODO : punctuation list not to remove & + - sarah
-  #removed stemming for now
-##stemmed =[]
-##for w in words:
-##  stemmed.append(stemmer.stem(w))  
+  words = [w for w in words if not w in stopwords.words('english')] 
   return words
     
 if __name__ == '__main__':
