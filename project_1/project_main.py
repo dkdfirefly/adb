@@ -76,6 +76,9 @@ def main():
     print 'precision = ', str(current_precision)
     #size_new = len(Query.split('%20'))+2
     # Pick just two new relevant terms
+    #TODO: 'did you mean' feature using wordnet when nothing is relevant to the user
+    #TODO: use of authoritative sites
+    #TODO: identify noisy words
     QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
     print 'New Query :\n', QueryTerms
     trial_num += 1
@@ -87,6 +90,7 @@ def preProcess(text):
     text=text.replace(w,' ')
   words = text.split()
   words = [w for w in words if not w in stopwords.words('english')]
+  #TODO : punctuation list not to remove & +
   #removed stemming for now
 ##stemmed =[]
 ##for w in words:
