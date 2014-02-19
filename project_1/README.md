@@ -5,9 +5,9 @@ Requery utilizes user relevance feedback to rephrase the initial query and there
 
 It is a joint project by
   - Sarah Panda - sp3206
-    - Dhaivat Shah - ds3267
+  - Dhaivat Shah - ds3267
 
-    for the [Advanced Database Systems] course
+    for the [Advanced Database Systems](http://www.cs.columbia.edu/~gravano/cs6111/) course
 
     Design Principle
     ----------------
@@ -38,7 +38,7 @@ It is a joint project by
     sudo pip install -U numpy
     sudo pip install -U pyyaml nltk
     ```
-    These are the general instructions. Detailed instructions present at [nltk website]
+    These are the general instructions. Detailed instructions present at [nltk website](http://www.nltk.org/install.html)
 
     Also, you need to download specific corpus using nltk for use in this project. From the python prompt
 
@@ -51,7 +51,7 @@ It is a joint project by
     >>> import nltk
     >>> nltk.download()
     ```
-    Further information available in [nltk documentation]
+    Further information available in [nltk documentation](http://www.nltk.org/data.html)
 
 
     Usage
@@ -63,7 +63,7 @@ It is a joint project by
 
     Implementation
     ---------------
-    At the core of the project is the [rocchio relevance feedback mechanism].
+    At the core of the project is the [rocchio relevance feedback mechanism](http://en.wikipedia.org/wiki/Rocchio_algorithm).
 
     However, the actual advantage comes from the tuning of the parameters. The default settings used are:
     - The tokens appearing in the documents marked relevant have been given five times the weightage as the diminishing factor aplied to tokens appearing in the irrelevant documents.
@@ -88,8 +88,3 @@ It is a joint project by
 
 
     **Free Software, Hell Yeah!**
-
-    [nltk website]:http://www.nltk.org/install.html
-    [Advanced Database Systems]:http://www.cs.columbia.edu/~gravano/cs6111/
-    [nltk documentation]:http://www.nltk.org/data.html
-    [rocchio relevance feedback mechanism]:http://en.wikipedia.org/wiki/Rocchio_algorithm
