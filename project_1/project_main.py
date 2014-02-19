@@ -9,6 +9,20 @@ from nltk import stem
 import sys
 
 # Add steps to include nltk on clic - dhaivat
+# TODO remove unused imports
+
+def getBingJSONResults(QueryTerms, headers):
+  """Query Bing search API
+
+  Space separates the query terms and queries the Bing search api to return data in JSON format
+  """
+  Query = '%20'.join(QueryTerms)
+  bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?$format=json&Query=%27' + Query + '%27&$top=10'
+  req = urllib2.Request(bingUrl, headers = headers)
+  response = urllib2.urlopen(req)
+  content = response.read()
+  data = json.loads(content)
+  return data
 
 def main():
   if (len(sys.argv) == 4):
@@ -17,6 +31,7 @@ def main():
     Query = str(sys.argv[3])
   else:
     print 'Usage: ./project_main.py <account-key> <precision> <query>'
+    sys.exit(2)
 
   precision = 0.8
   Query = 'Candy skull'
@@ -25,23 +40,20 @@ def main():
   current_precision = 0.0
   trial_num = 0
 
-  while (current_precision < precision and current_precision != 0) or trial_num == 0:
-    Query = '%20'.join(QueryTerms)
-    bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?$format=json&Query=%27' + Query + '%27&$top=10'
-    #Provide your account key here
-    # TODO - Remove hard coding
-    accountKey = 'aku05TIbEb+Glieu53ng1+Y7Y9kjjNjfNL3mUxJxQco'
+  #Provide your account key here
+  # TODO - Remove hard coding
+  accountKey = 'aku05TIbEb+Glieu53ng1+Y7Y9kjjNjfNL3mUxJxQco'
+  accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
+  headers = {'Authorization': 'Basic ' + accountKeyEnc}
 
-    accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
-    headers = {'Authorization': 'Basic ' + accountKeyEnc}
-    req = urllib2.Request(bingUrl, headers = headers)
-    response = urllib2.urlopen(req)
-    content = response.read()
-    data = json.loads(content)
+  while (current_precision < precision and current_precision != 0) or trial_num == 0:
+    # the format and number of top results to be returned should come from config file
+    data = getBingJSONResults(QueryTerms, headers)
     #content contains the xml/json response from Bing.
     positives = []
     negatives = []
     vocab = dict()
+    # Weights need to come from an external config file
     q=10
     Title_factor = 1.5
     a=5
@@ -97,6 +109,12 @@ def main():
 
   
 def preProcess(text):
+  """Preprocess the given text
+
+  All the text has been lower-cased.
+  The stemmer has not been used currently, so as to avoid unrelated words mapping to the same terms which may add to the noise.
+  A selective number of punctuations are removed to avoid removing punctuation that can be a part of the word.
+  """
   text=text.lower()
   stemmer=stem.PorterStemmer()
   #original punctuation set
@@ -106,6 +124,8 @@ def preProcess(text):
     text=text.replace(w,' ')
   words = text.split()
   words = [w for w in words if not w in stopwords.words('english')] 
+  #TODO : punctuation list not to remove & + - sarah
+  # TODO: remove unused code
   return words
     
 if __name__ == '__main__':
