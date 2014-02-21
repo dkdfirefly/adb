@@ -40,6 +40,14 @@ It is a joint project by
     ```
     These are the general instructions. Detailed instructions present at [nltk website](http://www.nltk.org/install.html)
 
+    The above works only if you have sudo permission on your box. In case you don't, this is what can help:
+    
+    ```sh
+    pip install --user numpy
+    pip install --user pyyaml
+    pip install --user nltk
+    ```
+    
     Also, you need to download specific corpus using nltk for use in this project. From the python prompt
 
     ```sh
@@ -52,7 +60,7 @@ It is a joint project by
     >>> nltk.download()
     ```
     Further information available in [nltk documentation](http://www.nltk.org/data.html)
-
+    
 
     Usage
     -----------
