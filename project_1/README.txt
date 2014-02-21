@@ -14,6 +14,12 @@ It is a joint project by
   - Dhaivat Shah - ds3267
 for the [Advanced Database Systems](http://www.cs.columbia.edu/~gravano/cs6111/) course
 
+Design Principle
+----------------
+
+While some complicated and to-say funky features could be implemented, the implementation has been kept 
+fairly general so as not to favor particular types of queries and generate noise for a whole lot other set.
+
 
 File List
 ---------
