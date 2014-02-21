@@ -18,9 +18,8 @@ Design Principle
 ----------------
 
 The overriding design goal for the project was to keep the code as readable and configurable as possible. 
-The idea is to provide all the modifiable parameters in a separate xml file and hence they can be used to suit one's needs. 
-While some complicated and to-say funky features could be implemented, the implementation has been kept fairly general
-so as not to favor particular types of queries and generate noise for a whole lot other set.
+While some complicated and to-say funky features could be implemented, the implementation has been kept 
+fairly general so as not to favor particular types of queries and generate noise for a whole lot other set.
 
 Essentials
 ---------
@@ -71,8 +70,15 @@ However, the actual advantage comes from the tuning of the parameters. The defau
 - The tokens which are already present in the query formed thus far are ignored for all practical purposes.
 - Tokenisation is done on space separation and few of the punctuations have been removed.
 - The tokens appearing in the title are given more priority than those appearing in the descriptioon, as that is what catches the eye of the user first.
-- The tokens present from responses which are from authoritative websites (list to follow) are given higher weightage. 
 - The tokens present in query are not preprocessed at any point so as to allow any possible terms that the user may want in the query.
+
+
+Features not provided for a purpose
+-------------------------
+- Considering the entire text from the url marked relevant: The user who marks the result relevant/irrelevant does not see the entire page, so if we factor the entire content, that does not make lot of sense.
+- Authoritative websites: This would require a bit of network analysis to be done beforehand, which was not allowed for this project; otherwise it would just be heuristics.
+- Stemming of words: As there are very few tokens that are considered at each iteration for query expansion, if different tokens map to the same stemmed word, then it could add to the noise.
+
 
 Function description
 ---------------------
