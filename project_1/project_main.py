@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 import urllib2
 import json
 import base64
 from nltk.corpus import stopwords
+from nltk import bigrams
 import string
 import sys
 
@@ -27,7 +29,7 @@ def main():
     print 'Usage: ./project_main.py <account-key> <precision> <query>'
     sys.exit(2)
 
-  QueryTerms = Query.split()
+  QueryTerms = Query.lower().split()
   current_precision = 0.0
   trial_num = 0
 
@@ -41,12 +43,13 @@ def main():
     positives = []
     negatives = []
     vocab = dict()
-
+    bigramdict = dict()
+    
     q=10
     Title_factor = 1.5
     a=5
     b=1
-          
+ 
     #Take input from user
     for result in data['d']['results']:
       print '\nTitle:\n' + result['Title']
@@ -56,44 +59,74 @@ def main():
         var = raw_input("Relevant or irrelevant(y/n)? :")
         if str(var)=='y':
           positives.append(result['Description'])
-          for word in preProcess(result['Description']):
-            if word not in vocab.keys() and word not in QueryTerms:
-              vocab[word]=a
-            elif word not in QueryTerms:
-              vocab[word]+=a
-          for word in preProcess(result['Title']):
-            if word not in vocab.keys() and word not in QueryTerms:
-              vocab[word]=a*Title_factor
-            elif word not in QueryTerms:
-              vocab[word]+=a*Title_factor
+          vocab = addToVocab(result['Description'], vocab, a,QueryTerms)
+          vocab = addToVocab(result['Title'], vocab, a*Title_factor,QueryTerms)
           flag=0
         elif str(var)=='n':
           negatives.append(result['Description'])
-          for word in preProcess(result['Title']):
-            if word not in vocab.keys() and word not in QueryTerms:
-              vocab[word]=-b*Title_factor
-            elif word not in QueryTerms:
-              vocab[word]-=b*Title_factor
-          for word in preProcess(result['Description']):
-            if word not in vocab.keys() and word not in QueryTerms:
-              vocab[word]=-b
-            elif word not in QueryTerms:
-              vocab[word]-=b
+          vocab = addToVocab(result['Description'], vocab, -b, QueryTerms)
+          vocab = addToVocab(result['Title'], vocab, -b*Title_factor, QueryTerms)
           flag=0
         else:
           print 'Wrong Input. Enter again:'
           flag = 1
     current_precision = len(positives)*1.0/10
     print 'precision = ', str(current_precision)
-    #size_new = len(Query.split('%20'))+2
-    # Pick just two new relevant terms
-    #TODO: use of authoritative sites
-    #TODO: identify noisy words - dhaivat
-    QueryTerms.extend(sorted(vocab.keys(), key=vocab.get)[-2:])
+    NewQuery=[]
+    added =0
+    for top in sorted(vocab.keys(), key=vocab.get)[-2:]:
+      terms = top.split()
+      if len(terms)==2 and terms[0] in QueryTerms and terms[1] in QueryTerms:
+        if vocab[top] < vocab[''.join(reversed(terms))]:
+          NewQuery.append(terms[1])
+          NewQuery.append(terms[0])
+        else:
+          NewQuery.append(terms[0])
+          NewQuery.append(terms[1])
+        QueryTerms.remove(terms[0])
+        QueryTerms.remove(terms[1])
+      elif len(terms) ==2 and terms[0] not in QueryTerms:
+        NewQuery.append(terms[0])
+        NewQuery.append(terms[1])
+        QueryTerms.remove(terms[1])
+        added+=1
+      elif len(terms) ==2 and terms[1] not in QueryTerms:
+        NewQuery.append(terms[0])
+        NewQuery.append(terms[1])
+        QueryTerms.remove(terms[0])
+        added+=1
+      elif len(terms) ==2 and added==0:
+        NewQuery.append(terms[0])
+        NewQuery.append(terms[1])
+        added += 2
+      elif added!=2:
+        NewQuery.append(top)
+        added+=1
+    print NewQuery   
+    for new in NewQuery:
+      QueryTerms.append(new.encode('ascii','ignore'))
+
     print 'New Query :\n', QueryTerms
     trial_num += 1
 
-  
+def addBigrams(text,factor,bigramdict):
+  for word in bigrams(text):
+            bi = ''.join(word)
+            if bi not in bigramdict.keys():
+              bigramdict[bi]=factor
+            else:
+              bigramdict[bi]+=factor
+  return bigramdict
+
+def addToVocab(text, Vocab, Rfactor, QueryTerms):
+      for word in preProcess(text):
+            if word not in Vocab.keys() and word not in QueryTerms:
+              Vocab[word]=Rfactor
+            elif word not in QueryTerms:
+              Vocab[word]+=Rfactor
+      Vocab = addBigrams(preProcess(text), Rfactor, Vocab)
+      return Vocab
+   
 def preProcess(text):
   """Preprocess the given text
 
@@ -102,7 +135,6 @@ def preProcess(text):
   A selective number of punctuations are removed to avoid removing punctuation that can be a part of the word.
   """
   text=text.lower()
-  #stemmer=stem.PorterStemmer()
   #original punctuation set
   #punc = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>',';','?','@','[',"\\",']','^','_','`','{','|','}','~']
   punc = ['!','"','#','%',"'",'(',')','*',',','-','.','/',':',';','<','=','>',';','?','[',"\\",']','^','_','`','{','|','}','~']
@@ -110,8 +142,6 @@ def preProcess(text):
     text=text.replace(w,' ')
   words = text.split()
   words = [w for w in words if not w in stopwords.words('english')] 
-  #TODO : punctuation list not to remove & + - sarah
-  # TODO: remove unused code
   return words
     
 if __name__ == '__main__':
