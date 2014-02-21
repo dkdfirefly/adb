@@ -45,10 +45,9 @@ def main():
     vocab = dict()
     bigramdict = dict()
     
-    q=10
-    Title_factor = 1.5
-    a=5
-    b=1
+    Title_factor = 1.5 # Additional priority give to title
+    a=5 # weight for terms in relevant documents
+    b=1 # weight for terms in irrelevant documents(negative)
  
     #Take input from user
     for result in data['d']['results']:
@@ -74,33 +73,50 @@ def main():
     print 'precision = ', str(current_precision)
     NewQuery=[]
     added =0
-    for top in sorted(vocab.keys(), key=vocab.get)[-2:]:
+
+    # Giving priority to bigram match
+    topList = sorted(vocab.keys(), key=vocab.get)[-2:]
+    if len(topList[1].split()) == 1:
+      tmp = topList[1]
+      topList[1] = topList[0]
+      topList[0] = tmp
+
+    # reordering query for optimisation
+    # logic: (considering bigram presence in the relevant documents)
+    #   possibilities
+    #   1. if bigrams check for ordering the initial query too
+    #   2. If just unigrams, add to the existing ones
+    for top in reversed(topList):
       terms = top.split()
+      # if both the bigram terms are already present in current query
       if len(terms)==2 and terms[0] in QueryTerms and terms[1] in QueryTerms:
-        if vocab[top] < vocab[''.join(reversed(terms))]:
-          NewQuery.append(terms[1])
-          NewQuery.append(terms[0])
+        if (' '.join(reversed(terms))) in vocab.keys() and vocab[top] < vocab[' '.join(reversed(terms))]:
+          NewQuery = appendC(NewQuery, terms[1])
+          NewQuery = appendC(NewQuery, terms[0])
         else:
-          NewQuery.append(terms[0])
-          NewQuery.append(terms[1])
+          NewQuery = appendC(NewQuery, terms[0])
+          NewQuery = appendC(NewQuery, terms[1])
         QueryTerms.remove(terms[0])
         QueryTerms.remove(terms[1])
-      elif len(terms) ==2 and terms[0] not in QueryTerms:
-        NewQuery.append(terms[0])
-        NewQuery.append(terms[1])
+      # if one of the bigram terms is present in the current query
+      elif len(terms) ==2 and terms[0] not in QueryTerms and terms[1] in QueryTerms:
+        NewQuery = appendC(NewQuery, terms[0])
+        NewQuery = appendC(NewQuery, terms[1])
         QueryTerms.remove(terms[1])
         added+=1
-      elif len(terms) ==2 and terms[1] not in QueryTerms:
-        NewQuery.append(terms[0])
-        NewQuery.append(terms[1])
+      elif len(terms) ==2 and terms[1] not in QueryTerms and terms[0] in QueryTerms:
+        NewQuery = appendC(NewQuery, terms[0])
+        NewQuery = appendC(NewQuery, terms[1])
         QueryTerms.remove(terms[0])
         added+=1
+      # if none of the bigram terms are present in the current query
       elif len(terms) ==2 and added==0:
-        NewQuery.append(terms[0])
-        NewQuery.append(terms[1])
+        NewQuery = appendC(NewQuery, terms[0])
+        NewQuery = appendC(NewQuery, terms[1])
         added += 2
+      # for unigrams
       elif added!=2:
-        NewQuery.append(top)
+        NewQuery = appendC(NewQuery, top)
         added+=1
     print NewQuery   
     for new in NewQuery:
@@ -109,23 +125,39 @@ def main():
     print 'New Query :\n', QueryTerms
     trial_num += 1
 
+def appendC(qList, term):
+  """
+  Append term only if not already present in qList
+  """
+  if qList == None:
+    qList = []
+  if len(qList) == 0 or term not in qList:
+    qList.append(term)
+  return qList    
+
+
 def addBigrams(text,factor,bigramdict):
+  """Add bigrams to the dictionary for terms in relevant documents
+  """
   for word in bigrams(text):
-            bi = ''.join(word)
-            if bi not in bigramdict.keys():
-              bigramdict[bi]=factor
-            else:
-              bigramdict[bi]+=factor
+    bi = ' '.join(word)
+    if bi not in bigramdict.keys():
+      bigramdict[bi]=factor
+    else:
+      bigramdict[bi]+=factor
   return bigramdict
 
 def addToVocab(text, Vocab, Rfactor, QueryTerms):
-      for word in preProcess(text):
-            if word not in Vocab.keys() and word not in QueryTerms:
-              Vocab[word]=Rfactor
-            elif word not in QueryTerms:
-              Vocab[word]+=Rfactor
-      Vocab = addBigrams(preProcess(text), Rfactor, Vocab)
-      return Vocab
+  """
+  Add terms to dictionary
+  """
+  for word in preProcess(text):
+    if word not in Vocab.keys() and word not in QueryTerms:
+      Vocab[word]=Rfactor
+    elif word not in QueryTerms:
+      Vocab[word]+=Rfactor
+  Vocab = addBigrams(preProcess(text), Rfactor, Vocab)
+  return Vocab
    
 def preProcess(text):
   """Preprocess the given text
