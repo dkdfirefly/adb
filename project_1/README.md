@@ -3,15 +3,22 @@ Requery
 
 Requery utilizes user relevance feedback to rephrase the initial query and thereby attempt to come up with better results.
 
-  It is a joint project by
+It is a joint project by
   - Sarah Panda - sp3206
   - Dhaivat Shah - ds3267
 
-  for the [Advanced Database Systems](http://www.cs.columbia.edu/~gravano/cs6111/) course
+    for the [Advanced Database Systems](http://www.cs.columbia.edu/~gravano/cs6111/) course
 
-    File List
-    ------
+    Design Principle
+    ----------------
+
+    > While some complicated and to-say funky features
+    > could be implemented, the implementation has been kept fairly general
+    > so as not to favor particular types of queries and generate noise for
+    > a whole lot other set.
     
+    File List
+    ----
     - project_main.py - main source code
     - README.md - markdown syntax file
     - README.txt - text version of README
