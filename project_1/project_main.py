@@ -1,15 +1,9 @@
 import urllib2
 import json
 import base64
-import nltk
 from nltk.corpus import stopwords
-from nltk.corpus import wordnet as wn
 import string
-from nltk import stem
 import sys
-
-# Add steps to include nltk on clic - dhaivat
-# TODO remove unused imports
 
 def getBingJSONResults(QueryTerms, headers):
   """Query Bing search API
@@ -33,33 +27,25 @@ def main():
     print 'Usage: ./project_main.py <account-key> <precision> <query>'
     sys.exit(2)
 
-  precision = 0.8
-  Query = 'Candy skull'
-
   QueryTerms = Query.split()
   current_precision = 0.0
   trial_num = 0
 
-  #Provide your account key here
-  # TODO - Remove hard coding
-  accountKey = 'aku05TIbEb+Glieu53ng1+Y7Y9kjjNjfNL3mUxJxQco'
   accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
   headers = {'Authorization': 'Basic ' + accountKeyEnc}
 
   while (current_precision < precision and current_precision != 0) or trial_num == 0:
-    # the format and number of top results to be returned should come from config file
-    data = getBingJSONResults(QueryTerms, headers)
+
     #content contains the xml/json response from Bing.
+    data = getBingJSONResults(QueryTerms, headers)
     positives = []
     negatives = []
     vocab = dict()
-    # Weights need to come from an external config file
+
     q=10
     Title_factor = 1.5
     a=5
     b=1
-    #for word in preProcess(Query):
-    #  vocab[word]=q
           
     #Take input from user
     for result in data['d']['results']:
@@ -116,7 +102,7 @@ def preProcess(text):
   A selective number of punctuations are removed to avoid removing punctuation that can be a part of the word.
   """
   text=text.lower()
-  stemmer=stem.PorterStemmer()
+  #stemmer=stem.PorterStemmer()
   #original punctuation set
   #punc = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>',';','?','@','[',"\\",']','^','_','`','{','|','}','~']
   punc = ['!','"','#','%',"'",'(',')','*',',','-','.','/',':',';','<','=','>',';','?','[',"\\",']','^','_','`','{','|','}','~']
