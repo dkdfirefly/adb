@@ -78,7 +78,8 @@ It is a joint project by
     - The tokens which are already present in the query formed thus far are ignored for all practical purposes.
     - Tokenisation is done on space separation and few of the punctuations have been removed.
     - The tokens appearing in the title are given more priority than those appearing in the descriptioon, as that is what catches the eye of the user first.
-    - The tokens present from responses which are from authoritative websites (list to follow) are given higher weightage.
+    - The tokens present from responses which are from authoritative websites (list to follow) are given higher weightage. 
+    - The tokens present in query are not preprocessed at any point so as to allow any possible terms that the user may want in the query.
 
 
     ### Function description
