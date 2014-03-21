@@ -388,6 +388,63 @@ Actor
 		    ], 
 		    "valuetype": "compound"
 		}, 
+		
+	tv actor
+		"/tv/tv_actor/starring_roles": {
+		            "valuetype": "compound", 
+		            "values": [
+		                {
+		                    "text": "2007-09-24 - The Big Bang Theory - Season 5 - Sheldon Cooper - alecf - TV Regular Performance - The Big Bang Theory", 
+		                    "lang": "en", 
+		                    "id": "/m/04lm4mb", 
+		                    "creator": "/user/alecf", 
+		                    "timestamp": "2008-10-05T03:28:16.001Z", 
+		                    "property": {
+		                        "/tv/regular_tv_appearance/from": {}, 
+		                        "/tv/regular_tv_appearance/seasons": {}, 
+		                        "/tv/regular_tv_appearance/character": {
+		                            "valuetype": "object", 
+		                            "values": [
+		                                {
+		                                    "text": "Sheldon Cooper", 
+		                                    "lang": "en", 
+		                                    "id": "/m/05p74fx", 
+		                                    "creator": "/user/merge_bot", 
+		                                    "timestamp": "2011-12-27T18:32:17Z"
+		                                }
+		                            ], 
+		                            "count": 1
+		                        }, 
+		                        "/type/object/attribution": {}, 
+		                        "/tv/regular_tv_appearance/to": {}, 
+		                        "/type/object/type": {}, 
+		                        "/tv/regular_tv_appearance/series": {
+		                            "valuetype": "object", 
+		                            "values": [
+		                                {
+		                                    "text": "The Big Bang Theory", 
+		                                    "lang": "en", 
+		                                    "id": "/m/02r5qtm", 
+		                                    "creator": "/user/alecf", 
+		                                    "timestamp": "2008-10-05T03:28:16.001Z"
+		                                }
+		                            ], 
+		                            "count": 1
+		                        }
+		                    }
+		                }, 
+		                {
+		                    "text": "2004 - Rob Holbrook - 2005 - starbuckz - TV Regular Performance", 
+		                    "lang": "en", 
+		                    "id": "/m/0gyd314", 
+		                    "creator": "/user/starbuckz", 
+		                    "timestamp": "2011-07-19T06:43:25.001Z", 
+		                    "property": {}
+		                }
+		            ], 
+		            "count": 2
+		        }, 
+	
 BusinessPerson 	
 	Leadership(From, To, Organization, Role, Title), 
 		"/business/board_member/leader_of": {
