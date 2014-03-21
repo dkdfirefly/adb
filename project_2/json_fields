@@ -42,6 +42,45 @@ Person
 		    "valuetype": "object"
 		}, 
 	Death(Place, Date, Cause), 
+		"/people/deceased_person/cause_of_death": {
+	            "valuetype": "object", 
+	            "values": [
+	                {
+	                    "text": "Assassination by firearm", 
+	                    "lang": "en", 
+	                    "id": "/m/02wtbxd", 
+	                    "creator": "/user/deleted_2011_06_06", 
+	                    "timestamp": "2010-07-07T05:12:34Z"
+	                }
+	            ], 
+	            "count": 1
+	        }, 
+	        "/people/deceased_person/date_of_death": {
+	            "valuetype": "datetime", 
+	            "values": [
+	                {
+	                    "text": "1948-01-30", 
+	                    "lang": "", 
+	                    "value": "1948-01-30", 
+	                    "creator": "/user/mwcl_infobox", 
+	                    "timestamp": "2007-08-09T00:33:10Z"
+	                }
+	            ], 
+	            "count": 1
+	        },
+	        "/people/deceased_person/place_of_death": {
+	            "valuetype": "object", 
+	            "values": [
+	                {
+	                    "text": "New Delhi", 
+	                    "lang": "en", 
+	                    "id": "/m/0dlv0", 
+	                    "creator": "/user/dilipb", 
+	                    "timestamp": "2013-11-29T05:59:02Z"
+	                }
+	            ], 
+	            "count": 1
+	        }, 
 	
 	Siblings, 
 		"/people/person/sibling_s": {
