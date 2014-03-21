@@ -566,14 +566,277 @@ League
 	OfficialWebsite, 
 	Description, 
 	Teams
-SportsTeam 	
-	Name, 
-	Description, 
-	Sport, 
-	Arena, 
-	Championships, 
-	Coaches(Name, Position, From, To), 
-	Founded, 
-	Leagues, 
-	Locations, 
-	PlayersRoster(Name, Position, Number, From, To)
+
+SportsTeam
+
+Name, 
+
+"/type/object/name": {
+            "count": 37, 
+            "values": [
+                {
+                    "creator": "/user/mwcl_wikipedia_en", 
+                    "lang": "en", 
+                    "text": "New York Knicks", 
+                    "timestamp": "2006-10-22T10:18:49.001Z", 
+                    "value": "New York Knicks"
+                }
+            ], 
+            "valuetype": "string"
+        }, 
+
+Description, 
+
+"/common/topic/description": {
+            "count": 37, 
+            "values": [
+                {
+                    "citation": {}, 
+                    "creator": "/user/wikirecon_bot", 
+                    "dataset": "/m/0kj4zz_", 
+                    "lang": "en", 
+                    "project": "wikirecon", 
+                    "text": "The New York Knickerbockers, commonly referred to as the Knicks, are a professional basketball...", 
+                    "value": "The New York Knickerbockers, commonly referred to as the Knicks, are a professional basketball team based in New York City, New York. The team, established by Ned Irish in 1946, was one of the founding members of the Basketball Association of America, which became the NBA after merging with rival National Basketball League in 1949. The team plays at Madison Square Garden in the borough of Manhattan and is one of only two teams of the original National Basketball Association still located in its original city.
+The Knicks were successful during their early years and were constant playoff contenders under the franchise's first head coach Joe Lapchick. Beginning in 1950, the Knicks made three consecutive appearances in the NBA Finals, all of which were losing efforts. Lapchick resigned in 1956 and the team subsequently began to falter. It was not until the late 1960s when Red Holzman became head coach did the Knicks begin to regain their former dominance. Holzman successfully guided the Knicks to two championship titles in 1970 and 1973. The Knicks of the 1980s had mixed success that included six playoff appearances however, they failed to participate in the NBA Finals."
+                }
+            ], 
+            "valuetype": "string"
+        }, 
+
+
+Sport, 
+
+"/sports/sports_team/sport": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/dm_wikipedia_loader", 
+                    "id": "/m/018w8", 
+                    "lang": "en", 
+                    "text": "Basketball", 
+                    "timestamp": "2007-04-03T22:17:02.002Z"
+                }
+            ], 
+            "valuetype": "object"
+        }, 
+Arena, 
+
+ "/sports/sports_team/arena_stadium": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/dm_wikipedia_loader", 
+                    "id": "/m/0j_66", 
+                    "lang": "en", 
+                    "text": "Madison Square Garden", 
+                    "timestamp": "2007-04-03T22:17:01.005Z"
+                }
+            ], 
+            "valuetype": "object"
+        }, 
+
+Championships, 
+
+"/sports/sports_team/championships": {
+            "count": 2, 
+            "values": [
+                {
+                    "creator": "/user/basketball_loader", 
+                    "id": "/m/0cs1x4", 
+                    "lang": "en", 
+                    "text": "1970 NBA Finals", 
+                    "timestamp": "2007-04-03T23:44:22.002Z"
+                }, 
+                {}
+            ], 
+            "valuetype": "object"
+        }, 
+
+
+Coaches(Name, Position, From, To), 
+
+"/sports/sports_team/coaches": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/nanette", 
+                    "id": "/m/0qt2p64", 
+                    "lang": "en", 
+                    "property": {
+                        "/sports/sports_team_coach_tenure/coach": {
+                            "count": 1, 
+                            "values": [
+                                {
+                                    "creator": "/user/nanette", 
+                                    "id": "/m/05jdq7", 
+                                    "lang": "en", 
+                                    "text": "Mike Woodson", 
+                                    "timestamp": "2013-02-14T09:06:01Z"
+                                }
+                            ], 
+                            "valuetype": "object"
+                        }, 
+                        "/sports/sports_team_coach_tenure/from": {
+                            "count": 1, 
+                            "values": [
+                                {
+                                    "creator": "/user/nanette", 
+                                    "lang": "", 
+                                    "text": "2011-08-29", 
+                                    "timestamp": "2013-02-14T09:06:01Z", 
+                                    "value": "2011-08-29"
+                                }
+                            ], 
+                            "valuetype": "datetime"
+                        }, 
+                        "/sports/sports_team_coach_tenure/position": {
+                            "count": 1, 
+                            "values": [
+                                {
+                                    "creator": "/user/nanette", 
+                                    "id": "/m/02md_2", 
+                                    "lang": "en", 
+                                    "text": "Head coach", 
+                                    "timestamp": "2013-02-14T09:06:01Z"
+                                }
+                            ], 
+                            "valuetype": "object"
+                        }, 
+                        "/type/object/attribution": {
+                            "count": 1, 
+                            "values": [
+                                {
+                                    "creator": "/user/nanette", 
+                                    "id": "/m/044fcvk", 
+                                    "lang": "en", 
+                                    "text": "nanette", 
+                                    "timestamp": "2013-02-14T09:06:01Z"
+                                }
+                            ], 
+                            "valuetype": "object"
+                        }, 
+                        "/type/object/type": {
+                            "count": 1, 
+                            "values": [
+                                {
+                                    "creator": "/user/nanette", 
+                                    "id": "/sports/sports_team_coach_tenure", 
+                                    "lang": "en", 
+                                    "text": "Sports team coach tenure", 
+                                    "timestamp": "2013-02-14T09:06:01Z"
+                                }
+                            ], 
+                            "valuetype": "object"
+                        }
+                    }, 
+                    "text": "Mike Woodson - 2011-08-29 - Head coach - nanette - Sports team coach tenure", 
+                    "timestamp": "2013-02-14T09:06:01Z"
+                }
+            ], 
+            "valuetype": "compound"
+        }, 
+
+Founded, 
+
+"/sports/sports_team/founded": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/dm_wikipedia_loader", 
+                    "lang": "", 
+                    "text": "1946", 
+                    "timestamp": "2007-04-03T22:16:52Z", 
+                    "value": "1946"
+                }
+            ], 
+            "valuetype": "datetime"
+        },
+
+Leagues, Locations,
+
+ "/sports/sports_team/league": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/mw_od_bot", 
+                    "id": "/m/0crt3qk", 
+                    "lang": "en", 
+                    "property": {}, 
+                    "text": "Freebase Data Team - National Basketball Association - Sports league participation", 
+                    "timestamp": "2010-08-30T23:33:32Z"
+                }
+            ], 
+            "valuetype": "compound"
+        }, 
+        "/sports/sports_team/location": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/dm_wikipedia_loader", 
+                    "id": "/m/02_286", 
+                    "lang": "en", 
+                    "text": "New York City", 
+                    "timestamp": "2007-04-03T22:17:01.003Z"
+                }
+            ], 
+            "valuetype": "object"
+        },
+
+ 
+PlayersRoster(Name, Position, Number, From, To),
+
+"/sports/sports_team/roster": {
+            "count": 91, 
+            "values": [
+                {
+                    "creator": "/user/nanette", 
+                    "id": "/m/0k0wjdv", 
+                    "lang": "en", 
+                    "property": {}, 
+                    "text": "2008 - Shooting guard - nanette - 2004 - 11 - Jamal Crawford - Sports team roster", 
+                    "timestamp": "2012-06-28T04:45:05.002Z"
+                }, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}
+            ], 
+            "valuetype": "compound"
+        }, 
+
+
+Influence:
+
+"/influence/influence_node/influenced_by": {
+            "valuetype": "object", 
+            "values": [
+                {
+                    "text": "Arthur Conan Doyle", 
+                    "lang": "en", 
+                    "id": "/m/0ky1", 
+                    "creator": "/user/mikelove", 
+                    "timestamp": "2008-01-04T17:08:57Z"
+                }, 
+                {
+                    "text": "Edgar Allan Poe", 
+                    "lang": "en", 
+                    "id": "/m/02lt8", 
+                    "creator": "/user/mikelove", 
+                    "timestamp": "2008-01-04T17:08:50Z"
+                }, 
+                {
+                    "text": "G. K. Chesterton", 
+                    "lang": "en", 
+                    "id": "/m/037jz", 
+                    "creator": "/user/mikelove", 
+                    "timestamp": "2008-01-04T16:48:12Z"
+                }
+            ], 
+            "count": 3
+        }, 
