@@ -879,3 +879,130 @@ Influence:
             ], 
             "count": 3
         }, 
+
+League
+
+Name, 
+
+"/type/object/name": {
+            "count": 44, 
+            "values": [
+                {
+                    "creator": "/user/mwcl_wikipedia_en", 
+                    "lang": "en", 
+                    "text": "National Basketball Association", 
+                    "timestamp": "2006-10-22T09:15:35.008Z", 
+                    "value": "National Basketball Association"
+                }
+            ], 
+            "valuetype": "string"
+        }, 
+
+Championship, 
+
+"/sports/sports_league/championship": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/danm", 
+                    "id": "/m/03m5x4", 
+                    "lang": "en", 
+                    "text": "NBA Finals", 
+                    "timestamp": "2008-06-18T21:37:59Z"
+                }
+            ], 
+            "valuetype": "object"
+        }, 
+       
+Sport, 
+
+"/sports/sports_league/sport": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/danm", 
+                    "id": "/m/018w8", 
+                    "lang": "en", 
+                    "text": "Basketball", 
+                    "timestamp": "2007-04-04T00:26:38Z"
+                }
+            ], 
+            "valuetype": "object"
+        }, 
+
+Slogan, 
+
+"/organization/organization/slogan": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/detroiter313", 
+                    "lang": "en", 
+                    "text": "Where Amazing Happens", 
+                    "timestamp": "2010-10-30T01:50:05Z", 
+                    "value": "Where Amazing Happens"
+                }
+            ], 
+            "valuetype": "string"
+        }, 
+
+OfficialWebsite, 
+
+"/common/topic/official_website": {
+            "count": 1, 
+            "values": [
+                {
+                    "creator": "/user/jon", 
+                    "lang": "", 
+                    "text": "http://www.nba.com/", 
+                    "timestamp": "2011-11-12T06:07:56Z", 
+                    "value": "http://www.nba.com/"
+                }
+            ], 
+            "valuetype": "uri"
+        }, 
+
+Description, 
+
+"/common/topic/description": {
+            "count": 40, 
+            "values": [
+                {
+                    "citation": {}, 
+                    "creator": "/user/wikirecon_bot", 
+                    "dataset": "/m/0kj4zz_", 
+                    "lang": "en", 
+                    "project": "wikirecon", 
+                    "text": "The National Basketball Association is the pre-eminent men's professional basketball league in...", 
+                    "value": "The National Basketball Association is the pre-eminent men's professional basketball league in North America, and is widely considered to be the premier men's professional basketball league in the world. It has thirty franchised member clubs, and is an active member of USA Basketball, which is recognized by FIBA as the national governing body for basketball in the United States. The NBA is one of the four major North American professional sports leagues. NBA players are the world's best paid sportsmen, by average annual salary per player.
+The league was founded in New York City on June 6, 1946, as the Basketball Association of America. The league adopted the name National Basketball Association on August 3, 1949, after absorbing the rival National Basketball League. The league's several international as well as individual team offices are directed out of its head offices located in the Olympic Tower at 645 Fifth Avenue in New York City. NBA Entertainment and NBA TV studios are directed out of offices located in Secaucus, New Jersey."
+                }
+            ], 
+            "valuetype": "string"
+        }, 
+
+Teams,
+
+ "/sports/sports_league/teams": {
+            "count": 30, 
+            "values": [
+                {
+                    "creator": "/user/detroiter313", 
+                    "id": "/m/0cm38nq", 
+                    "lang": "en", 
+                    "property": {}, 
+                    "text": "detroiter313 - Detroit Pistons - Sports league participation", 
+                    "timestamp": "2010-08-10T20:54:10Z"
+                }, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}, 
+                {}
+            ], 
+            "valuetype": "compound"
+        }, 
