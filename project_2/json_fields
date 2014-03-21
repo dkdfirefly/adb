@@ -1,0 +1,579 @@
+Person 	
+	Name, 
+		"/type/object/name": {
+		    "count": 39, 
+		    "values": [
+		        {
+		            "creator": "/user/synedra", 
+		            "lang": "en", 
+		            "text": "Robert Downey Jr.", 
+		            "timestamp": "2010-12-05T17:03:24Z", 
+		            "value": "Robert Downey Jr."
+		        }
+		    ], 
+		    "valuetype": "string"
+        	},
+	Birthday, 
+		"/people/person/date_of_birth": {
+		    "count": 1, 
+		    "values": [
+			{
+			    "creator": "/user/mwcl_infobox", 
+			    "lang": "", 
+			    "text": "1965-04-04", 
+			    "timestamp": "2007-08-09T00:25:01.004Z", 
+			    "value": "1965-04-04"
+			}
+		    ], 
+		    "valuetype": "datetime"
+		}, 
+	Place of Birth, 
+		"/people/person/place_of_birth": {
+		    "count": 1, 
+		    "values": [
+		        {
+		            "creator": "/user/andrewmanalansan", 
+		            "id": "/m/0cc56", 
+		            "lang": "en", 
+		            "text": "Manhattan", 
+		            "timestamp": "2012-12-15T14:45:35Z"
+		        }
+		    ], 
+		    "valuetype": "object"
+		}, 
+	Death(Place, Date, Cause), 
+	
+	Siblings, 
+		"/people/person/sibling_s": {
+		    "count": 1, 
+		    "values": [
+		        {
+		            "creator": "/user/starbuckz", 
+		            "id": "/m/0gxtv5m", 
+		            "lang": "en", 
+		            "property": {
+		                "/people/sibling_relationship/sibling": {
+		                    "count": 2, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/starbuckz", 
+		                            "id": "/m/0fpxp0h", 
+		                            "lang": "en", 
+		                            "text": "Allyson Downey", 
+		                            "timestamp": "2011-07-11T04:06:20Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/type/object/attribution": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/starbuckz", 
+		                            "id": "/m/0b43czn", 
+		                            "lang": "en", 
+		                            "text": "starbuckz", 
+		                            "timestamp": "2011-07-11T04:06:20Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/type/object/type": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/starbuckz", 
+		                            "id": "/people/sibling_relationship", 
+		                            "lang": "en", 
+		                            "text": "Sibling Relationship", 
+		                            "timestamp": "2011-07-11T04:06:20Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }
+		            }, 
+		            "text": "starbuckz - Allyson Downey - Sibling Relationship", 
+		            "timestamp": "2011-07-11T04:06:20Z"
+		        }
+		    ], 
+		    "valuetype": "compound"
+		}, 
+	Spouses, 
+		"/people/person/spouse_s": {
+			    "count": 3, 
+			    "values": [
+				{
+				    "creator": "/user/mwcl_infobox", 
+				    "id": "/m/02kkljv", 
+				    "lang": "en", 
+				    "property": {
+				        "/people/marriage/from": {}, 
+				        "/people/marriage/location_of_ceremony": {}, 
+				        "/people/marriage/spouse": {}, 
+				        "/people/marriage/to": {}, 
+				        "/people/marriage/type_of_union": {}, 
+				        "/type/object/attribution": {}, 
+				        "/type/object/type": {}
+				    }, 
+				    "text": "Deborah Falconer - 1992-05-29 - Marriage - Freebase Data Team - Marriage - 2004-04-26", 
+				    "timestamp": "2007-06-08T02:02:38Z"
+				}, 
+				{
+				    "creator": "/user/mwcl_infobox", 
+				    "id": "/m/02kkn16", 
+				    "lang": "en", 
+				    "property": {
+				        "/people/marriage/from": {}, 
+				        "/people/marriage/location_of_ceremony": {}, 
+				        "/people/marriage/spouse": {}, 
+				        "/people/marriage/to": {}, 
+				        "/people/marriage/type_of_union": {}, 
+				        "/type/object/attribution": {}, 
+				        "/type/object/type": {}
+				    }, 
+				    "text": "Amagansett - Susan Downey - 2005-08-27 - Marriage - Freebase Data Team - Marriage", 
+				    "timestamp": "2007-06-08T02:02:38Z"
+				}, 
+				{
+				    "creator": "/user/rcuan", 
+				    "id": "/m/0vtfr93", 
+				    "lang": "en", 
+				    "property": {
+				        "/people/marriage/from": {}, 
+				        "/people/marriage/location_of_ceremony": {}, 
+				        "/people/marriage/spouse": {}, 
+				        "/people/marriage/to": {}, 
+				        "/people/marriage/type_of_union": {}, 
+				        "/type/object/attribution": {}, 
+				        "/type/object/type": {}
+				    }, 
+				    "text": "Sarah Jessica Parker - 1984 - Domestic partnership - rcuan - Marriage - 1991", 
+				    "timestamp": "2013-06-05T17:51:28.001Z"
+				}
+			    ], 
+			    "valuetype": "compound"
+			}, 
+	Description
+		"/common/topic/description": {
+			    "count": 39, 
+			    "values": [
+				{
+				    "citation": {
+				        "provider": "Wikipedia", 
+				        "statement": "Description licensed under the Creative Commons Attribution-ShareAlike License (http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License).", 
+				        "uri": "http://en.wikipedia.org/wiki/Robert_Downey,_Jr."
+				    }, 
+				    "creator": "/user/wikirecon_bot", 
+				    "dataset": "/m/0kj4zz_", 
+				    "lang": "en", 
+				    "project": "wikirecon", 
+				    "text": "Robert John Downey, Jr. is an American actor who made his screen debut at the age of five,...", 
+				    "value": "Robert John Downey, Jr. is an American actor who made his screen debut at the age of five, appearing in his father Robert Downey, Sr.'s film Pound. He has appeared in roles associated with the Brat Pack, such as Less Than Zero and Weird Science. Other films he has starred in include Air America, Soapdish, and Natural Born Killers. He starred as Charlie Chaplin, the title character in the 1992 film Chaplin, earning him a nomination for the Academy Award for Best Actor.
+		After being released from the California Substance Abuse Treatment Facility and State Prison in 2000 for drug charges, Downey joined the cast of the TV series Ally McBeal playing Calista Flockhart's love interest. His performance was praised and he received a Golden Globe Award for Best Performance by an Actor in a Supporting Role in a Series, Miniseries, or Television Film. His character was written out when Downey was fired after two drug arrests in late 2000 and early 2001. After one last stay in a court-ordered drug treatment program, Downey finally achieved sobriety.
+		His more recent films include The Singing Detective, Kiss Kiss Bang Bang, A Scanner Darkly, Gothika, Zodiac and Tropic Thunder. In 2008, Downey played the role of Marvel superhero Tony Stark / Iron Man in the live action film Iron Man, a role he reprised in Iron Man 2, Marvel's The Avengers, and Iron Man 3. He reprised his role in a cameo appearance in The Incredible Hulk. He will again reprise his role in the upcoming films, Avengers: Age of Ultron and another Avengers sequel. In 2009, he played the title character in Guy Ritchie's Sherlock Holmes and again in 2011's Sherlock Holmes: A Game of Shadows."
+				}
+			    ], 
+			    "valuetype": "string"
+			}, 
+Author 	
+	Books(Title), 
+		"/book/author/works_written": {
+		    "count": 3, 
+		    "values": [
+		        {
+		            "creator": "/user/earlye", 
+		            "id": "/m/01xfkm", 
+		            "lang": "en", 
+		            "text": "Business @ the Speed of Thought: Using a Digital Nervous Systemjjsjsjsffffffd", 
+		            "timestamp": "2008-07-13T18:56:21.000Z"
+		        }, 
+		        {
+		            "creator": "/user/ts_bot", 
+		            "id": "/m/01sqgw", 
+		            "lang": "en", 
+		            "text": "The Road Ahead", 
+		            "timestamp": "2008-11-03T17:25:53.001Z"
+		        }, 
+		        {
+		            "creator": "/user/fact_farm", 
+		            "id": "/m/01lt72", 
+		            "lang": "en", 
+		            "text": "Open Letter to Hobbyists", 
+		            "timestamp": "2013-12-12T18:13:07.000Z"
+		        }
+		    ], 
+		    "valuetype": "object"
+		}, 
+	Book About the Author(Title), 
+		"/book/book_subject/works": {
+		    "count": 3, 
+		    "values": [
+		        {
+		            "creator": "/user/mbaker", 
+		            "id": "/m/05yrdr2", 
+		            "lang": "en", 
+		            "text": "Creative Capitalism: A Conversation with Bill Gates, Warren Buffett, and Other Economic Leaders", 
+		            "timestamp": "2009-10-20T02:49:36.000Z"
+		        }, 
+		        {
+		            "creator": "/user/mbaker", 
+		            "id": "/m/067hnpb", 
+		            "lang": "en", 
+		            "text": "The Microsoft File: The Secret Case against Bill Gates", 
+		            "timestamp": "2010-01-20T19:04:18.000Z"
+		        }, 
+		        {
+		            "creator": "/user/tfmorris", 
+		            "id": "/m/0c59bz4", 
+		            "lang": "en", 
+		            "text": "Programmers at work", 
+		            "timestamp": "2012-11-07T19:16:37.000Z"
+		        }
+		    ], 
+		    "valuetype": "object"
+		}, 
+	Influenced, 
+		"/influence/influence_node/influenced": {
+			    "count": 6, 
+			    "values": [
+				{
+				    "creator": "/user/mrohde", 
+				    "id": "/m/02wt6g4", 
+				    "lang": "en", 
+				    "text": "Marc Nicholas Rohde", 
+				    "timestamp": "2008-03-09T06:30:10.000Z"
+				}, 
+				{
+				    "creator": "/user/expert2010", 
+				    "id": "/m/03clvwm", 
+				    "lang": "en", 
+				    "text": "Naveen Jain", 
+				    "timestamp": "2010-02-18T22:02:22.000Z"
+				}, 
+				{
+				    "creator": "/user/kemaleer", 
+				    "id": "/m/0zrq_9j", 
+				    "lang": "en", 
+				    "text": "Cenk Aydin", 
+				    "timestamp": "2013-12-26T23:25:09.000Z"
+				}, 
+				{
+				    "creator": "/user/daniel_podgaichenko", 
+				    "id": "/m/0_h8_0l", 
+				    "lang": "en", 
+				    "text": "Daniel Podgaichenko", 
+				    "timestamp": "2014-02-06T05:10:32.000Z"
+				}, 
+				{
+				    "creator": "/user/yogendrachavda", 
+				    "id": "/m/0_h979x", 
+				    "lang": "en", 
+				    "text": "yogendrachavda", 
+				    "timestamp": "2014-02-06T06:59:05.000Z"
+				}, 
+				{
+				    "creator": "/user/eplet", 
+				    "id": "/m/0_kvlrg", 
+				    "lang": "en", 
+				    "text": "Yogendra Chavda", 
+				    "timestamp": "2014-02-10T22:53:40.001Z"
+				}
+			    ], 
+			    "valuetype": "object"
+			}, 
+	Influenced by
+
+Actor 	
+	FilmsParticipated(Film Name, Character)
+		 "/film/actor/film": {
+		    "count": 72, 
+		    "values": [
+		        {
+		            "creator": "/user/mwcl_infobox", 
+		            "id": "/m/0jsh5q", 
+		            "lang": "en", 
+		            "property": {
+		                "/film/performance/character": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/starbuckz", 
+		                            "id": "/m/0gxttdp", 
+		                            "lang": "en", 
+		                            "text": "Ralph Carr", 
+		                            "timestamp": "2011-07-11T03:00:12.008Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/film/performance/film": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/mwcl_infobox", 
+		                            "id": "/m/0372h4", 
+		                            "lang": "en", 
+		                            "text": "1969", 
+		                            "timestamp": "2006-11-30T18:39:50.003Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/type/object/attribution": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/mwcl_infobox", 
+		                            "id": "/m/0jsg18", 
+		                            "lang": "en", 
+		                            "text": "Freebase Data Team", 
+		                            "timestamp": "2006-11-30T18:39:50.003Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/type/object/type": {}
+		            }, 
+		            "text": "Ralph Carr - 1969 - Freebase Data Team - Film performance", 
+		            "timestamp": "2006-11-30T18:39:50.003Z"
+		        }, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}, 
+		        {}
+		    ], 
+		    "valuetype": "compound"
+		}, 
+BusinessPerson 	
+	Leadership(From, To, Organization, Role, Title), 
+		"/business/board_member/leader_of": {
+			    "count": 1, 
+			    "values": [
+				{
+				    "creator": "/user/btdtrang", 
+				    "id": "/m/0w8ry91", 
+				    "lang": "en", 
+				    "property": {
+					"/organization/leadership/from": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/sjcho", 
+					            "lang": "", 
+					            "text": "1975-04-04", 
+					            "timestamp": "2013-09-30T15:43:26.000Z", 
+					            "value": "1975-04-04"
+					        }
+					    ], 
+					    "valuetype": "datetime"
+					}, 
+					"/organization/leadership/organization": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/btdtrang", 
+					            "id": "/m/04sv4", 
+					            "lang": "en", 
+					            "text": "Microsoft Corporation", 
+					            "timestamp": "2013-07-19T10:48:01.000Z"
+					        }
+					    ], 
+					    "valuetype": "object"
+					}, 
+					"/organization/leadership/role": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/sjcho", 
+					            "id": "/m/0dq_5", 
+					            "lang": "en", 
+					            "text": "Chief Executive Officer", 
+					            "timestamp": "2013-09-30T15:44:07.000Z"
+					        }
+					    ], 
+					    "valuetype": "object"
+					}, 
+					"/organization/leadership/title": {
+					    "count": 1, 
+					    "values": [], 
+					    "valuetype": "string"
+					}, 
+					"/organization/leadership/to": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/sjcho", 
+					            "lang": "", 
+					            "text": "2000-01-12", 
+					            "timestamp": "2013-09-30T15:43:44.000Z", 
+					            "value": "2000-01-12"
+					        }
+					    ], 
+					    "valuetype": "datetime"
+					}, 
+					"/type/object/attribution": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/btdtrang", 
+					            "id": "/m/0vbjxvw", 
+					            "lang": "en", 
+					            "text": "btdtrang", 
+					            "timestamp": "2013-07-19T10:48:01.000Z"
+					        }
+					    ], 
+					    "valuetype": "object"
+					}, 
+					"/type/object/type": {
+					    "count": 1, 
+					    "values": [
+					        {
+					            "creator": "/user/btdtrang", 
+					            "id": "/organization/leadership", 
+					            "lang": "en", 
+					            "text": "Organization leadership", 
+					            "timestamp": "2013-07-19T10:48:01.000Z"
+					        }
+					    ], 
+					    "valuetype": "object"
+					}
+				    }, 
+				    "text": "1975-04-04 - Microsoft Corporation - Chief Executive Officer - Chief Executive Officer - 2000-01-12 - btdtrang - Organization leadership", 
+				    "timestamp": "2013-07-19T10:48:01.000Z"
+				}
+			    ], 
+			    "valuetype": "compound"
+			}, 
+	BoardMember(From, To, Organization, Role, Title), 
+		"/business/board_member/organization_board_memberships": {
+		    "count": 4, 
+		    "values": [
+		        {
+		            "creator": "/user/earlye", 
+		            "id": "/m/04j6nww", 
+		            "lang": "en", 
+		            "property": {
+		                "/organization/organization_board_membership/organization": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/earlye", 
+		                            "id": "/m/012mjr", 
+		                            "lang": "en", 
+		                            "text": "Bill & Melinda Gates Foundation", 
+		                            "timestamp": "2008-08-31T02:35:57.000Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/organization/organization_board_membership/title": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/gardening_bot", 
+		                            "lang": "en", 
+		                            "text": "Co-Chairman", 
+		                            "timestamp": "2010-07-30T00:38:02.001Z", 
+		                            "value": "Co-Chairman"
+		                        }
+		                    ], 
+		                    "valuetype": "string"
+		                }, 
+		                "/type/object/attribution": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/earlye", 
+		                            "id": "/m/02_5dlr", 
+		                            "lang": "en", 
+		                            "text": "earlye", 
+		                            "timestamp": "2008-08-31T02:35:57.000Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }, 
+		                "/type/object/type": {
+		                    "count": 1, 
+		                    "values": [
+		                        {
+		                            "creator": "/user/earlye", 
+		                            "id": "/organization/organization_board_membership", 
+		                            "lang": "en", 
+		                            "text": "Organization governorship", 
+		                            "timestamp": "2008-08-31T02:35:57.000Z"
+		                        }
+		                    ], 
+		                    "valuetype": "object"
+		                }
+		            }, 
+		            "text": "Bill & Melinda Gates Foundation - Co-Chairman - earlye - Organization governorship", 
+		            "timestamp": "2008-08-31T02:35:57.000Z"
+		        }, 
+		        {}, 
+		        {}, 
+		        {}
+		    ], 
+		    "valuetype": "compound"
+		}, 
+	Founded(OrganizationName)
+		"/organization/organization_founder/organizations_founded": {
+			    "count": 7, 
+			    "values": [
+				{
+				    "creator": "/user/earlye", 
+				    "id": "/m/012mjr", 
+				    "lang": "en", 
+				    "text": "Bill & Melinda Gates Foundation", 
+				    "timestamp": "2008-07-13T18:46:07.000Z"
+				}, 
+				{
+				    "creator": "/user/gardening_bot", 
+				    "id": "/m/04sv4", 
+				    "lang": "en", 
+				    "text": "Microsoft Corporation", 
+				    "timestamp": "2010-07-25T05:09:59.000Z"
+				}, 
+				{
+				    "creator": "/user/gardening_bot", 
+				    "id": "/m/02fzrq", 
+				    "lang": "en", 
+				    "text": "Corbis", 
+				    "timestamp": "2010-07-25T05:21:02.000Z"
+				}, 
+				{
+				    "creator": "/user/gardening_bot", 
+				    "id": "/m/04q34w5", 
+				    "lang": "en", 
+				    "text": "bgC3", 
+				    "timestamp": "2010-07-25T05:23:29.000Z"
+				}, 
+				{}, 
+				{}, 
+				{}
+			    ], 
+			    "valuetype": "object"
+			}, 
+League 	
+	Name, 
+	Championship, 
+	Sport, 
+	Slogan, 
+	OfficialWebsite, 
+	Description, 
+	Teams
+SportsTeam 	
+	Name, 
+	Description, 
+	Sport, 
+	Arena, 
+	Championships, 
+	Coaches(Name, Position, From, To), 
+	Founded, 
+	Leagues, 
+	Locations, 
+	PlayersRoster(Name, Position, Number, From, To)
