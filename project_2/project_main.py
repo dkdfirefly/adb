@@ -3,6 +3,7 @@ import base64
 import getopt
 import json
 import re
+import signal
 import string
 import sys
 import urllib2
@@ -18,11 +19,17 @@ def getBingJSONResults(QueryTerms):
   data = json.loads(content)
   return data
 
-def createInfoBox():
+def createInfoBox(query, apiKey):
   return 1
 
-def ansQuestion():
+def ansQuestion(query, apiKey):
   return 1
+
+def sigintHandler(signum, frame):
+  """Handler function to safely exit on user pressing Ctrl+C
+     Only for the case when using interactively.
+  """
+  sys.exit()
 
 def printHelp():
   """Print the available Usage details
@@ -127,30 +134,33 @@ def main(argv):
   if(target == 1):
     # query specified
     if(task == "infobox"):
-      createInfoBox()
+      createInfoBox(query, apiKey)
     elif(task == "question"):
-      ansQuestion()
+      ansQuestion(query, apiKey)
   elif(target == 2):
     # queryFile specified
     f = open(queryFile, 'r')
     if(task == "infobox"):
       for line in f:
-        createInfoBox()
+        createInfoBox(line.strip('\n'), apiKey)
     elif(task == "question"):
       for line in f:
-        ansQuestion()
+        ansQuestion(line.strip('\n'), apiKey)
   elif(target == 3):
     # only key specified
-    inputQuery =  raw_input(">>> ")
-    pat = 'Who created ([\w\s.-]+)\?*'
-    match = re.search(pat, inputQuery, re.IGNORECASE)
-    if match:
-      query = match.group(1)
-      print query
-      ansQuestion()
-    else:
-      query = inputQuery
-      createInfoBox()
+    signal.signal(signal.SIGINT, sigintHandler)
+    while(True):
+      inputQuery =  raw_input(">>> ")
+      if(inputQuery == ''):
+        continue
+      pat = 'Who created ([\w\s.-]+)\?*'
+      match = re.search(pat, inputQuery, re.IGNORECASE)
+      if match:
+        query = match.group(1)
+        ansQuestion(query, apiKey)
+      else:
+        query = inputQuery
+        createInfoBox(query, apiKey)
   
   QueryTerms = ['Bill','Gates']
   data =  getBingJSONResults(QueryTerms)
