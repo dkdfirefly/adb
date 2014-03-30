@@ -70,13 +70,31 @@ professionalSportsTeam = {
 
 ################ COMPOUND PROPERTIES ###################
 
-Sibling = {"/people/person/sibling_s":{"Sibling" : "/people/sibling_relationship/sibling"}
+compound = {"/people/person/sibling_s":{"Sibling" : "/people/sibling_relationship/sibling"}
           ,"/business/board_member/organization_board_memberships" : {"From" : "/organization/organization_board_membership/from"
                ,"To" : "/organization/organization_board_membership/to"
                ,"Organization" : "/organization/organization_board_membership/organization"
                ,"Role" : "/organization/organization_board_membership/role"
                ,"Title" : "/organization/organization_board_membership/title"
-              }
+              },
+           "/film/actor/film": {"FilmName": "/film/performance/film",
+		"Character": "/film/performance/character",},
+	   "/sports/sports_league/teams": {"": "",
+		},
+	   "/sports/sports_team/coaches": {"Name": "/sports/sports_team_coach_tenure/coach",
+		"Position": "/sports/sports_team_coach_tenure/position",
+		"From": "/sports/sports_team_coach_tenure/from",
+		"To": "/sports/sports_team_coach_tenure/to",
+		},
+	   "/sports/sports_team/league": {"": "",
+		},
+	   "/sports/sports_team/roster": {"Name": "/sports/sports_team_roster/player",
+		"Position": "/sports/sports_team_roster/position",
+		"Number": "/sports/sports_team_roster/number",
+		"From": "/sports/sports_team_roster/from",
+		"To": "/sports/sports_team_roster/to",
+		},
+
            }
 
 ###################################
