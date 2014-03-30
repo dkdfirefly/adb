@@ -32,10 +32,36 @@ peopleProp = {'Name':'/type/object/name'
               ,'Siblings':"/people/person/sibling_s"
               }
 
-authorProp ={}
+authorProp = { "Books": "/book/author/works_written",
+	"BooksAboutTheAuthor": "/book/book_subject/works",
+	"Influenced": "/influence/influence_node/influenced",
+	"Influenced by": "/influence/influence_node/",
+	}
 
-actorProp = {}
+actorProp = { "FilmsParticipated": "/film/actor/film", #compound
+	}
 
+
+leagueProp = {"Name": "/type/object/name",
+	"Championship": "/sports/sports_league/championship",
+	"Sport": "/sports/sports_league/sport",
+	"Slogan": "/organization/organization/slogan"",
+	"OfficialWebsite": "/common/topic/official_website",
+	"Description": "/common/topic/description", #value
+	"Teams": "/sports/sports_league/teams", #compound
+	}
+
+sportTeamProp = {"Name": "/type/object/name",
+                "Description": "/common/topic/description", #value
+	   "Sport": "/sports/sports_team/sport",
+	   "Arena": "/sports/sports_team/arena_stadium",
+	   "Championships": "/sports/sports_team/championships",
+	   "Coaches": "/sports/sports_team/coaches", #compound
+	   "Founded": "/sports/sports_team/founded",
+	   "Leagues": "/sports/sports_team/league", #compound
+	   "Locations": "/sports/sports_team/location",
+	   "PlayersRoster": "/sports/sports_team/roster", #compound
+	}
 tvactorProp = {}
 
 ################ COMPOUND PROPERTIES ###################
