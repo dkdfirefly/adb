@@ -62,11 +62,6 @@ sportTeamProp = {"Name": "/type/object/name",
 	   "Locations": "/sports/sports_team/location",
 	   "PlayersRoster": "/sports/sports_team/roster", #compound
 	}
-tvactorProp = {
-	}
-	
-professionalSportsTeam = {
-	}
 
 ################ COMPOUND PROPERTIES ###################
 
