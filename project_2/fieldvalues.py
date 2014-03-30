@@ -62,6 +62,14 @@ sportTeamProp = {"Name": "/type/object/name",
 	   "Locations": "/sports/sports_team/location",
 	   "PlayersRoster": "/sports/sports_team/roster", #compound
 	}
+	
+boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
+		"BoardMember": "/business/board_member/organization_board_memberships", #compound
+		"Founded": "/organization/organization_founder/organizations_founded",
+	},
+foundedProp = {
+	}
+
 
 ################ COMPOUND PROPERTIES ###################
 
@@ -89,7 +97,14 @@ compound = {"/people/person/sibling_s":{"Sibling" : "/people/sibling_relationshi
 		"From": "/sports/sports_team_roster/from",
 		"To": "/sports/sports_team_roster/to",
 		},
-
+	   "/business/board_member/organization_board_memberships": {"From": "/organization/organization_board_membership/from",
+		"To": "/organization/organization_board_membership/to",
+		"Organization": "/organization/organization_board_membership/organization",
+		"Role": "/organization/organization_board_membership/role",
+		"Title": "/organization/organization_board_membership/title",
+		},
+	   "/business/board_member/leader_of": {
+		},
            }
 
 ###################################
