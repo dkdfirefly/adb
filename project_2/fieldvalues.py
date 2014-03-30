@@ -7,6 +7,9 @@ from nltk import bigrams
 import string
 import sys
 import collections
+from collections import OrderedDict
+import copy
+
 global allcategories
 global peopleProp
 global detail
@@ -72,45 +75,43 @@ boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
 
 ################ COMPOUND PROPERTIES ###################
 
-compound = collections.OrderedDict()
-
-compound = {"/people/person/sibling_s":{"Sibling" : "/people/sibling_relationship/sibling"}
-          ,"/business/board_member/organization_board_memberships" : {"From" : "/organization/organization_board_membership/from"
+staticcompound = {"/people/person/sibling_s":OrderedDict({"Sibling" : "/people/sibling_relationship/sibling"})
+          ,"/business/board_member/organization_board_memberships" : OrderedDict({"From" : "/organization/organization_board_membership/from"
                ,"To" : "/organization/organization_board_membership/to"
                ,"Organization" : "/organization/organization_board_membership/organization"
                ,"Role" : "/organization/organization_board_membership/role"
                ,"Title" : "/organization/organization_board_membership/title"
-              },
-           "/film/actor/film": {"FilmName": "/film/performance/film",
-		"Character": "/film/performance/character",},
-	   "/sports/sports_league/teams": {"": "",
-		},
-	   "/sports/sports_team/coaches": {"Name": "/sports/sports_team_coach_tenure/coach",
+              }),
+           "/film/actor/film": OrderedDict({"FilmName": "/film/performance/film",
+		"Character": "/film/performance/character",}),
+	   "/sports/sports_league/teams": OrderedDict({"": "",
+		}),
+	   "/sports/sports_team/coaches": OrderedDict({"Name": "/sports/sports_team_coach_tenure/coach",
 		"Position": "/sports/sports_team_coach_tenure/position",
 		"From": "/sports/sports_team_coach_tenure/from",
 		"To": "/sports/sports_team_coach_tenure/to",
-		},
-	   "/sports/sports_team/league": {"": "",
-		},
-	   "/sports/sports_team/roster": {"Name": "/sports/sports_team_roster/player",
+		}),
+	   "/sports/sports_team/league": OrderedDict({"": "",
+		}),
+	   "/sports/sports_team/roster": OrderedDict({"Name": "/sports/sports_team_roster/player",
 		"Position": "/sports/sports_team_roster/position",
 		"Number": "/sports/sports_team_roster/number",
 		"From": "/sports/sports_team_roster/from",
 		"To": "/sports/sports_team_roster/to",
-		},
-            "/business/board_member/organization_board_memberships": {"From": "/organization/organization_board_membership/from",
+		}),
+            "/business/board_member/organization_board_memberships": OrderedDict({"From": "/organization/organization_board_membership/from",
 		"To": "/organization/organization_board_membership/to",
 		"Organization": "/organization/organization_board_membership/organization",
 		"Role": "/organization/organization_board_membership/role",
 		"Title": "/organization/organization_board_membership/title",
-		},
-	   "/business/board_member/leader_of": {"From": "/organization/leadership/from",
+		}),
+	   "/business/board_member/leader_of": OrderedDict({"From": "/organization/leadership/from",
 		"To": "/organization/leadership/to",
 		"Organization": "/organization/leadership/organization",
 		"Role": "/organization/leadership/role",
 		"Title": "/organization/leadership/title",
-		},
-           "/people/person/spouse_s":{"Spouse":"/people/marriage/spouse"},
+		}),
+           "/people/person/spouse_s":OrderedDict({"Spouse":"/people/marriage/spouse"}),
            }
 
 ###################################
@@ -157,6 +158,7 @@ def getSubPropValues(dictionary):
   for k in dictionary.keys():
       print '\n@@@ ' + k
       param = dictionary[k]
+      compound = copy.deepcopy(staticcompound)
       try:
         if detail["property"][param]["valuetype"] != 'compound':
           try:
@@ -169,13 +171,20 @@ def getSubPropValues(dictionary):
             pass
         else:
             try:
+              
               for allrecords in detail["property"][param]["values"]:
                  try:
-                    for subprop in compound[param].keys():
-                     sub = compound[param][subprop]
+                     compound = copy.deepcopy(staticcompound)
+                     subprop = compound[param].popitem(last=True)
+                    #for subprop in compound[param].keys():
                      try:
-                       for records in allrecords["property"][sub]["values"]:
-                         sys.stdout.write(subprop + '@'+ str(records["text"])+ ' ')
+                      while subprop:
+                       try:
+                         for records in allrecords["property"][subprop[1]]["values"]:
+                           sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
+                       except KeyError:
+                         pass
+                       subprop = compound[param].popitem(last=True)
                      except KeyError:
                        pass
                  except KeyError:
