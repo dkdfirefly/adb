@@ -103,7 +103,11 @@ compound = {"/people/person/sibling_s":{"Sibling" : "/people/sibling_relationshi
 		"Role": "/organization/organization_board_membership/role",
 		"Title": "/organization/organization_board_membership/title",
 		},
-	   "/business/board_member/leader_of": {
+	   "/business/board_member/leader_of": {"From": "/organization/leadership/from",
+		"To": "/organization/leadership/to",
+		"Organization": "/organization/leadership/organization",
+		"Role": "/organization/leadership/role",
+		"Title": "/organization/leadership/title",
 		},
            }
 
