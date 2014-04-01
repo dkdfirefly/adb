@@ -9,6 +9,7 @@ import re
 import signal
 import string
 import sys
+import urllib
 import urllib2
 
 allcategories={'/people/person',
@@ -21,7 +22,10 @@ allcategories={'/people/person',
              '/sports/sports_team',
              '/sports/professional_sports_team'}
 
-#/people/person
+############################################
+
+############## Category Prop ################
+
 peopleProp = {'Name':'/type/object/name'
               ,'Birthday':"/people/person/date_of_birth"
               ,'PlaceofBirth':"/people/person/place_of_birth"
@@ -67,7 +71,6 @@ boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
 		"BoardMember": "/business/board_member/organization_board_memberships", #compound
 		"Founded": "/organization/organization_founder/organizations_founded",
 	}
-
 
 ################ COMPOUND PROPERTIES ###################
 
@@ -216,7 +219,56 @@ def createInfoBox(query, apiKey):
     getSubProp(types,detail)
 
 def ansQuestion(query, apiKey):
-  return 1
+  QueryTerms = query.split(' ')
+  data =  getBingJSONResults(QueryTerms, apiKey)
+  ############## Query Types ###############
+  queryOrg = [{
+	"/organization/organization_founder/organizations_founded": [{
+		"a:name": None,
+		"name~=": query
+	}],
+	"id": None,
+	"name": None,
+	"type": "/people/person"
+        }]
+
+  queryBook = [{"/book/author/works_written": [{
+		"a:name": None,
+		"name~=": query
+	}],
+	"id": None,
+	"name": None,
+	"type": "/people/person"
+        }]
+  ######## Book or Organization? ###########
+  dt = data['result'][0]['mid']
+  topicurl = 'https://www.googleapis.com/freebase/v1/topic'+str(dt)+'?key=' + apiKey
+  req = urllib2.Request(topicurl)
+  response = urllib2.urlopen(req)
+  content = response.read()
+  detail = json.loads(content)
+  categories = []
+  for cg in detail['property']['/type/object/type']['values']:
+    categories.append(cg['id'])
+  print categories
+
+  if '/organization/organization' in categories:
+    queryNew = queryOrg
+  elif '/book/book' in categories:
+    queryNew = queryBook
+
+############################################
+
+  params = {
+        'query': json.dumps(queryNew),
+        'key': apiKey
+  }
+  service_url = 'https://www.googleapis.com/freebase/v1/mqlread'
+  url = service_url + '?' + urllib.urlencode(params)
+  response = json.loads(urllib.urlopen(url).read())
+
+  for result in response['result']:
+    print result['name']
 
 def sigintHandler(signum, frame):
   """Handler function to safely exit on user pressing Ctrl+C
@@ -329,7 +381,11 @@ def main(argv):
     if(task == "infobox"):
       createInfoBox(query, apiKey)
     elif(task == "question"):
-      ansQuestion(query, apiKey)
+      pat = 'Who created ([\w\s.-]+)\?*'
+      match = re.search(pat, query, re.IGNORECASE)
+      if match:
+        query = match.group(1)
+        ansQuestion(query, apiKey)
   elif(target == 2):
     # queryFile specified
     f = open(queryFile, 'r')
