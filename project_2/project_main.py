@@ -9,6 +9,7 @@ import re
 import signal
 import string
 import sys
+import textwrap
 import urllib
 import urllib2
 
@@ -114,7 +115,21 @@ staticcompound = {"/people/person/sibling_s":OrderedDict({"Sibling" : "/people/s
            }
 
 ###################################
+maxlen = 100
+lindent = 20
 
+
+def reindent(s, numSpaces):
+  s = string.split(s, '\n')
+  s = [(numSpaces * ' ') + string.lstrip(line) for line in s]
+  s = string.join(s, '\n')
+  return s
+
+def chunks(l, n):
+  """ Yield successive n-sized chunks from l.
+  """
+  for i in xrange(0, len(l), n):
+    yield l[i:i+n]
 
 def getSubProp(prop,detail):
   if prop=='/people/person' :
@@ -140,22 +155,38 @@ def getSubPropValues(dictionary,detail):
   #print dictionary
   val = dict();
   for k in dictionary.keys():
-    print '\n@@@ ' + k
+    round = 0
     param = dictionary[k]
     compound = copy.deepcopy(staticcompound)
     try:
       if detail["property"][param]["valuetype"] != 'compound':
         try:
           for records in detail["property"][param]["values"]:
+            if round == 0:
+              print '| ' + k + ':',
+              endPos = maxlen + lindent - 3 - len(k)
+              print reindent('|',endPos)
+              round = 1
             if param == "/common/topic/description":
-              print records["value"]
+              val = records["value"].replace('\n','')
+              descValue = list(chunks(val,maxlen))
+              for l in descValue:
+                print '|' + reindent(l, lindent),
+                endPos = maxlen - 1 - len(l)
+                print reindent('|',endPos)
             else:
-              print records["text"]
+              textValue = list(chunks(records["text"],maxlen))
+              for l in textValue:
+                print '|' + reindent(l, lindent),
+                endPos = maxlen - 1 - len(l)
+                print reindent('|',endPos)
         except KeyError:
           pass
       else:
         try:
           for allrecords in detail["property"][param]["values"]:
+            if round == 0:
+              printCount = len(detail["property"][param]["values"])
             try:
               compound = copy.deepcopy(staticcompound)
               subprop = compound[param].popitem(last=True)
@@ -164,8 +195,17 @@ def getSubPropValues(dictionary,detail):
                 while subprop:
                   try:
                     for records in allrecords["property"][subprop[1]]["values"]:
-                      sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
+                      if round == 0:
+                        print '| ' + k + ':'
+                        round = 1
+                        print '|' + reindent('',lindent) + '|',
+#                      sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
+                      if len(str(records["text"])) > 18:
+                        print (str(records["text"])[0:15] + '...' + '|').ljust(19),
+                      else:
+                        print (str(records["text"])).ljust(18) + '|',
                   except KeyError:
+                    print ('').ljust(18) + '|',
                     pass
                   subprop = compound[param].popitem(last=True)
               except KeyError:
@@ -173,6 +213,9 @@ def getSubPropValues(dictionary,detail):
             except KeyError:
               pass
             print
+            if printCount > 1:
+              print '|' + reindent('',lindent) + '|',
+              printCount = printCount - 1
         except KeyError:
           pass
    
@@ -181,14 +224,16 @@ def getSubPropValues(dictionary,detail):
 ##    if k in detail["property"]:
 ##     val[k] = detail["property"][k]["values"][0]["text"]
 ##     print val[k]
+    else:
+      print '-------------------------------------------------------------------------------------------------------------------------'
   return val
 
 
 def getBingJSONResults(QueryTerms,apiKey):
   Query = '%20'.join(QueryTerms)
-  print Query
+#  print Query
   Url = 'https://www.googleapis.com/freebase/v1/search?query=%27' + Query + '%27&key=' + apiKey
-  print Url
+#  print Url
   req = urllib2.Request(Url)
   response = urllib2.urlopen(req)
   content = response.read()
@@ -215,7 +260,7 @@ def createInfoBox(query, apiKey):
       break
 
   for types in  commonCategories:
-    print '######## ' + str(types) + ' ########'
+#    print '######## ' + str(types) + ' ########'
     getSubProp(types,detail)
 
 def ansQuestion(query, apiKey):
