@@ -15,6 +15,48 @@ global peopleProp
 global detail
 global compound
 
+#######################################################
+
+def printvalue(orient, value, header):
+    line = ' --------------------------------------------------------------------------------------------------'
+    #print line
+    if orient=='CENTER':
+        white = (len(line)-len(value))/2
+        print '|'+' '*white + value + ' '*white + '|'
+    elif orient=='DESC':
+        white  = 15 - len(header)
+        beg = 1
+        textlen = len(value)
+        allowedlen=len(line)-15
+        while(textlen > allowedlen):
+           if beg == 1:
+            
+            print '|' + header + ':' + ' '*(white-1) + value[:allowedlen] + ' '*(len(line) - len(value)-len(header)-white - 2) + '|'
+            beg = 0
+            value = value[allowedlen:]
+           else:
+             print '|' + ' '*15 + value[:allowedlen]+'|'
+             value = value[allowedlen:]
+           textlen = textlen-allowedlen
+        if beg==1:
+            print '|' + header + ':' + ' '*(white-1) + value + ' '*(len(line) - len(value)-len(header)-white-1) + '|'
+        else:
+            print '|' + ' '*15 + value + ' '*(len(line) - len(value)-16) + '|'
+        #print '|' + ' '*white + value + ' '*(len(line) - len(value)-len(header)-white - 2) + '|'
+    elif orient == 'LIST':
+        beg = 1
+        white  = 15 - len(header)
+        for val in value:
+            if beg==1:
+             print '|' + header + ':' + ' '*(white-1) + val + ' '*(len(line) - len(val)-len(header)-white - 1) + '|'
+             beg=0
+            else:
+             print '|' + ' '*15 + val + ' '*(len(line) - len(val)-15-1) + '|'
+                
+    print line
+
+#######################################################
+
 allcategories={'/people/person',
              '/book/author',
              '/film/actor',
@@ -156,17 +198,21 @@ def getSubPropValues(dictionary):
   #print dictionary
   val = dict();
   for k in dictionary.keys():
-      print '\n@@@ ' + k
+      #print '\n@@@ ' + k
       param = dictionary[k]
       compound = copy.deepcopy(staticcompound)
       try:
         if detail["property"][param]["valuetype"] != 'compound':
           try:
+            values = []
             for records in detail["property"][param]["values"]:
               if param == "/common/topic/description":
-                print records["value"]
+                printvalue('DESC', records["value"], k)
+                #return records["value"]
               else:
-                print records["text"]
+                values.append(records["text"])
+            printvalue('LIST', values, k)   
+                #return records["text"]
           except KeyError:
             pass
         else:
@@ -179,17 +225,22 @@ def getSubPropValues(dictionary):
                     #for subprop in compound[param].keys():
                      try:
                       while subprop:
+                       subpropval = []
                        try:
                          for records in allrecords["property"][subprop[1]]["values"]:
-                           sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
+                           #sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
+                           subpropval.append(records["text"])
+                         #print subpropval
+                         printvalue('LIST', subpropval, subprop[0])
                        except KeyError:
                          pass
+                        
                        subprop = compound[param].popitem(last=True)
                      except KeyError:
                        pass
                  except KeyError:
                    pass
-                 print
+                 #print
             except KeyError:
               pass
    
@@ -215,11 +266,12 @@ for topics in data['result']:
   categories = []
   for cg in detail['property']['/type/object/type']['values']:
     categories.append(cg['id'])
+  #print categories
   commonCategories = set(categories).intersection(set(allcategories))
   if len(commonCategories)>0:
-    print commonCategories
+    #print commonCategories
     break
-
+line = ' --------------------------------------------------------------------------------------------------'
 for types in  commonCategories:
-  print '######## ' + str(types) + ' ########'
+  #print '######## ' + str(types) + ' ########'
   getSubProp(types)
