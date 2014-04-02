@@ -117,7 +117,7 @@ staticcompound = {"/people/person/sibling_s":OrderedDict({"Sibling" : "/people/s
 ###################################
 maxlen = 100
 lindent = 20
-
+subPropChecked = [0,0,0,0,0,0]
 
 def reindent(s, numSpaces):
   s = string.split(s, '\n')
@@ -133,23 +133,41 @@ def chunks(l, n):
 
 def getSubProp(prop,detail):
   if prop=='/people/person' :
-    getSubPropValues(peopleProp,detail)
+    if subPropChecked[0] == 0:
+      getSubPropValues(peopleProp,detail)
+    subPropChecked[0] = 1
   elif prop =='/book/author' :
-    getSubPropValues(authorProp,detail)
+    if subPropChecked[1] == 0:
+      getSubPropValues(authorProp,detail)
+    subPropChecked[1] = 1
   elif prop =='/film/actor' :
-    getSubPropValues(actorProp,detail)
+    if subPropChecked[2] == 0:
+      getSubPropValues(actorProp,detail)
+    subPropChecked[2] = 1
   elif prop =='/tv/tv_actor':
-    getSubPropValues(actorProp,detail)
+    if subPropChecked[2] == 0:
+      getSubPropValues(actorProp,detail)
+    subPropChecked[2] = 1
   elif prop =='/organization/organization_founder':
-    getSubPropValues(boardMemberProp,detail)
+    if subPropChecked[3] == 0:
+      getSubPropValues(boardMemberProp,detail)
+    subPropChecked[3] = 1
   elif prop =='/business/board_member':
-    getSubPropValues(boardMemberProp,detail)
+    if subPropChecked[3] == 0:
+      getSubPropValues(boardMemberProp,detail)
+    subPropChecked[3] = 1
   elif prop == '/sports/sports_league':
-    getSubPropValues(leagueProp,detail)
+    if subPropChecked[4] == 0:
+      getSubPropValues(leagueProp,detail)
+    subPropChecked[4] = 1
   elif prop == '/sports/sports_team':
-    getSubPropValues(sportsTeamProp,detail)
+    if subPropChecked[5] == 0:
+      getSubPropValues(sportsTeamProp,detail)
+    subPropChecked[5] = 1
   elif prop =='/sports/professional_sports_team':
-    getSubPropValues(sportsTeamProp,detail)
+    if subPropChecked[5] == 0:
+      getSubPropValues(sportsTeamProp,detail)
+    subPropChecked[5] = 1
   
 def getSubPropValues(dictionary,detail):
   #print dictionary
@@ -258,7 +276,8 @@ def createInfoBox(query, apiKey):
     if len(commonCategories)>0:
       print commonCategories
       break
-
+  for i in range(0,5):
+    subPropChecked[i] = 0
   for types in  commonCategories:
 #    print '######## ' + str(types) + ' ########'
     getSubProp(types,detail)
