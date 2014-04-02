@@ -84,14 +84,14 @@ staticcompound = {"/people/person/sibling_s":OrderedDict({"Sibling" : "/people/s
               }),
            "/film/actor/film": OrderedDict({"FilmName": "/film/performance/film",
 		"Character": "/film/performance/character",}),
-	   "/sports/sports_league/teams": OrderedDict({"": "",
+	   "/sports/sports_league/teams": OrderedDict({"TeamName": "/sports/sports_league_participation/team",
 		}),
 	   "/sports/sports_team/coaches": OrderedDict({"Name": "/sports/sports_team_coach_tenure/coach",
 		"Position": "/sports/sports_team_coach_tenure/position",
 		"From": "/sports/sports_team_coach_tenure/from",
 		"To": "/sports/sports_team_coach_tenure/to",
 		}),
-	   "/sports/sports_team/league": OrderedDict({"": "",
+	   "/sports/sports_team/league": OrderedDict({"LeagueName": "/sports/sports_league_participation/league",
 		}),
 	   "/sports/sports_team/roster": OrderedDict({"Name": "/sports/sports_team_roster/player",
 		"Position": "/sports/sports_team_roster/position",
@@ -218,10 +218,10 @@ def getSubPropValues(dictionary,detail):
                         round = 1
                         print '|' + reindent('',lindent) + '|',
 #                      sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
-                      if len(str(records["text"])) > 18:
-                        print (str(records["text"])[0:15] + '...' + '|').ljust(19),
+                      if len(records["text"]) > 18:
+                        print (records["text"][0:15] + '...' + '|').ljust(19),
                       else:
-                        print (str(records["text"])).ljust(18) + '|',
+                        print (records["text"]).ljust(18) + '|',
                   except KeyError:
                     print ('').ljust(18) + '|',
                     pass
@@ -262,6 +262,7 @@ def createInfoBox(query, apiKey):
   data =  getBingJSONResults(query.split(' '),apiKey)
   for topics in data['result']:
     dt = topics['mid']
+    print dt
     #print '--------------------'
     topicurl = 'https://www.googleapis.com/freebase/v1/topic'+str(dt)+'?key=' + apiKey
     #print topicurl
@@ -276,7 +277,7 @@ def createInfoBox(query, apiKey):
     if len(commonCategories)>0:
       print commonCategories
       break
-  for i in range(0,5):
+  for i in range(0,6):
     subPropChecked[i] = 0
   for types in  commonCategories:
 #    print '######## ' + str(types) + ' ########'
