@@ -13,15 +13,15 @@ import textwrap
 import urllib
 import urllib2
 
-allcategories={'/people/person',
-             '/book/author',
-             '/film/actor',
-             '/tv/tv_actor',
-             '/organization/organization_founder',
-             '/business/board_member',
-             '/sports/sports_league',
-             '/sports/sports_team',
-             '/sports/professional_sports_team'}
+allcategories={'/people/person':'',
+             '/book/author':'AUTHOR',
+             '/film/actor':'ACTOR',
+             '/tv/tv_actor':'ACTOR',
+             '/organization/organization_founder':'BUSINESS PERSON',
+             '/business/board_member':'BUSINESS PERSON',
+             '/sports/sports_league':'LEAGUE',
+             '/sports/sports_team':'SPORTS TEAM',
+             '/sports/professional_sports_team':'SPORTS TEAM'}
 
 ############################################
 
@@ -296,12 +296,27 @@ def createInfoBox(query, apiKey):
     categories = []
     for cg in detail['property']['/type/object/type']['values']:
       categories.append(cg['id'])
-    commonCategories = set(categories).intersection(set(allcategories))
+    commonCategories = set(categories).intersection(set(allcategories.keys()))
     if len(commonCategories)>0:
       print commonCategories
       break
   for i in range(0,6):
     subPropChecked[i] = 0
+  categorynames = []
+  for cat in commonCategories:
+      categorynames.append(allcategories[cat])
+  
+  try:
+     header = detail["property"]['/type/object/name']["values"][0]['text']+'('
+  except KeyError:
+      header = '('
+  for cat in set(categorynames):
+      if cat!='':
+        header += cat+', '
+  header = header[:-2]+')'
+  print '-'*121
+  print '|' + ' '*(119 - len(header)/2) + header + ' '*(119 - len(header)/2) + '|'
+  print '-'*121
   for types in  commonCategories:
 #    print '######## ' + str(types) + ' ########'
     getSubProp(types,detail)
@@ -525,3 +540,4 @@ def main(argv):
 # Boilerplate for calling main function
 if __name__ == '__main__':
   main(sys.argv[1:])
+
