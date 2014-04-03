@@ -207,23 +207,46 @@ def getSubPropValues(dictionary,detail):
               printCount = len(detail["property"][param]["values"])
             try:
               compound = copy.deepcopy(staticcompound)
+              totalArg = len(compound[param])
+              divLen = maxlen/totalArg
               subprop = compound[param].popitem(last=True)
               #for subprop in compound[param].keys():
               try:
                 while subprop:
                   try:
+                    rec = ''
                     for records in allrecords["property"][subprop[1]]["values"]:
                       if round == 0:
                         print '| ' + k + ':'
                         round = 1
                         print '|' + reindent('',lindent) + '|',
+                        print subprop[0].ljust(divLen - 2) + '|',
+                        for sub in compound[param]:
+                          print sub.ljust(divLen - 2) + '|',
+                        print
+                        print '|' + reindent('',lindent),
+                        print '-'* maxlen
+                        print '|' + reindent('',lindent) + '|',
 #                      sys.stdout.write(subprop[0] + '@'+ str(records["text"])+ ' ')
-                      if len(records["text"]) > 18:
-                        print (records["text"][0:15] + '...' + '|').ljust(19),
-                      else:
-                        print (records["text"]).ljust(18) + '|',
+                      rec = rec +  records["text"] + ','
+                    rec = rec[:-1]
+                    if len(rec) > (divLen - 2):
+                      print (rec[0:(divLen - 5)] + '...' + '|').ljust(divLen - 1),
+                    else:
+                      print (rec).ljust(divLen - 2) + '|',                    
                   except KeyError:
-                    print ('').ljust(18) + '|',
+                    if round == 0:
+                      print '| ' + k + ':'
+                      round = 1
+                      print '|' + reindent('',lindent) + '|',
+                      print subprop[0].ljust(divLen - 2) + '|',
+                      for sub in compound[param]:
+                        print sub.ljust(divLen - 2) + '|',
+                      print
+                      print '|' + reindent('',lindent),
+                      print '-'* maxlen
+                      print '|' + reindent('',lindent) + '|',
+                    print ('').ljust(divLen - 2) + '|',
                     pass
                   subprop = compound[param].popitem(last=True)
               except KeyError:
@@ -305,6 +328,7 @@ def ansQuestion(query, apiKey):
 	"name": None,
 	"type": "/people/person"
         }]
+  resultDict = {}
   ######## Book or Organization? ###########
   dt = data['result'][0]['mid']
   topicurl = 'https://www.googleapis.com/freebase/v1/topic'+str(dt)+'?key=' + apiKey
@@ -315,15 +339,25 @@ def ansQuestion(query, apiKey):
   categories = []
   for cg in detail['property']['/type/object/type']['values']:
     categories.append(cg['id'])
-  print categories
+#  print categories
 
   if '/organization/organization' in categories:
     queryNew = queryOrg
-  elif '/book/book' in categories:
-    queryNew = queryBook
+    params = {
+          'query': json.dumps(queryNew),
+          'key': apiKey
+    }
+    service_url = 'https://www.googleapis.com/freebase/v1/mqlread'
+    url = service_url + '?' + urllib.urlencode(params)
+    response = json.loads(urllib.urlopen(url).read())
 
-############################################
+    for result in response['result']:
+      resultDict[result["name"]] = "(as BusinessPerson) created "
+      for org in result['/organization/organization_founder/organizations_founded']:
+        resultDict[result["name"]] += '<' + org['a:name'] + '>' + ', '
+#      print result['name']
 
+  queryNew = queryBook
   params = {
         'query': json.dumps(queryNew),
         'key': apiKey
@@ -333,7 +367,18 @@ def ansQuestion(query, apiKey):
   response = json.loads(urllib.urlopen(url).read())
 
   for result in response['result']:
-    print result['name']
+    if result["name"] in resultDict.keys():
+      resultDict[result["name"]] = "and (as Author) created "
+    else:
+      resultDict[result["name"]] = "(as Author) created "
+    for book in result['/book/author/works_written']:
+      resultDict[result["name"]] += '<' + book['a:name'] + '>' + ', '
+#    print result['name']
+
+  count = 1
+  for key in sorted(resultDict.keys()):
+    print str(count) + '. ' + key + ' ' + resultDict[key][:-2]
+    count += 1
 
 def sigintHandler(signum, frame):
   """Handler function to safely exit on user pressing Ctrl+C
@@ -352,7 +397,7 @@ def main(argv):
   """Check the input arguments and call appropriate functions
   """
   try:
-    opts, args = getopt.getopt(argv,"f:hq:t:k:",["key="])
+    opts, args = getopt.getopt(argv,"f:hq:t:",["key="])
   except getopt.GetoptError:
     printHelp()
     sys.exit(2)
@@ -366,7 +411,7 @@ def main(argv):
       query = arg
     elif opt == '-t':
       task = arg
-    elif opt in ("-k", "--key"):
+    elif opt == "--key":
       apiKey = arg
 
   notSpecified = [] # to contain the arguments which are not specified
