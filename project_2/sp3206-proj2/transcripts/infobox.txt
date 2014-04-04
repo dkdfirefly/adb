@@ -1,0 +1,497 @@
+dhaivatdshah@dhaivatdshah-Inspiron-7520:~/Documents/github/dkdfirefly/adb/project_2$ python project_main.py --key AIzaSyAa5--dD-33luOjnk6son8JqqkuHEQwKaQ -f queryFile -t infobox
+Query: Bill Gates
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                          Bill Gates(BUSINESS PERSON, AUTHOR)                                           |
+-------------------------------------------------------------------------------------------------------------------------
+| Founded:                                                                                                               |
+|                    Bill & Melinda Gates Foundation                                                                     |
+|                    Microsoft Corporation                                                                               |
+|                    Corbis                                                                                              |
+|                    bgC3                                                                                                |
+|                    Cascade Investment                                                                                  |
+|                    Microsoft Research                                                                                  |
+|                    The Global Fund to Fight AIDS, Tuberculosis & Malaria                                               |
+-------------------------------------------------------------------------------------------------------------------------
+| Leadership:
+|                    | Organization      | Role              | Title             | From              | To                |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Microsoft Corpo...| Chief Executive...| Chief Executive...| 1975-04-04        | 2000-01-12        |
+-------------------------------------------------------------------------------------------------------------------------
+| BoardMember:
+|                    | Organization      | Role              | Title             | From              | To                |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Bill & Melinda ...|                   | Co-Chairman       |                   |                   |
+|                    | Microsoft Corpo...| Chairman          | Chairman          | 1981              | 2014-02-04        |
+|                    | Berkshire Hathaway|                   |                   | 2004              |                   |
+|                    | Corbis            |                   | Chair             | 1989              |                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Place of Birth:                                                                                                        |
+|                    Seattle                                                                                             |
+-------------------------------------------------------------------------------------------------------------------------
+| Birthday:                                                                                                              |
+|                    1955-10-28                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    Bill Gates                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Siblings:
+|                    | Sibling                                                                                           |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Libby Gates                                                                                       |
+|                    | Kristi Gates                                                                                      |
+-------------------------------------------------------------------------------------------------------------------------
+| Spouses:
+|                    | Name                   | From                   | To                     | Location               |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Melinda Gates          | 1994-01-01             |                        | Lanai                  |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    William Henry "Bill" Gates III is an American business magnate, philanthropist, investor, computer p |
+|                    rogrammer, and inventor. Gates is the former chief executive and chairman of Microsoft, the world’s  |
+|                    largest personal-computer software company, which he co-founded with Paul Allen.He is consistently r |
+|                    anked in the Forbes list of the world's wealthiest people and was the wealthiest overall from 1995 t |
+|                    o 2009—excluding 2008, when he was ranked third; in 2011 he was the wealthiest American and the worl |
+|                    d's second wealthiest person. According to the Bloomberg Billionaires List, Gates became the the wor |
+|                    ld's richest person again in 2013, a position that he last held on the list in 2007. As of March 201 |
+|                    4, he is the richest.During his career at Microsoft, Gates held the positions of CEO and chief softw |
+|                    are architect, and remains the largest individual shareholder, with 6.4 percent of the common stock. |
+|                    He has also authored and co-authored several books.Gates is one of the best-known entrepreneurs of  |
+|                    the personal computer revolution. Gates has been criticized for his business tactics, which have bee |
+|                    n considered anti-competitive, an opinion which has in some cases been upheld by judicial courts. In |
+|                    the later stages of his career, Gates has pursued a number of philanthropic endeavors, donating lar |
+|                    ge amounts of money to various charitable organizations and scientific research programs through the |
+|                    Bill & Melinda Gates Foundation, established in 2000.                                              |
+-------------------------------------------------------------------------------------------------------------------------
+| Influenced:                                                                                                            |
+|                    Marc Nicholas Rohde                                                                                 |
+|                    Naveen Jain                                                                                         |
+|                    Cenk Aydin                                                                                          |
+|                    Daniel Podgaichenko                                                                                 |
+|                    yogendrachavda                                                                                      |
+|                    Yogendra Chavda                                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Books:                                                                                                                 |
+|                    Business @ the Speed of Thought: Using a Digital Nervous System                                     |
+|                    The Road Ahead                                                                                      |
+|                    Open Letter to Hobbyists                                                                            |
+-------------------------------------------------------------------------------------------------------------------------
+| Books About:                                                                                                           |
+|                    Creative Capitalism: A Conversation with Bill Gates, Warren Buffett, and Other Economic Leaders     |
+|                    The Microsoft File: The Secret Case against Bill Gates                                              |
+|                    Programmers at work                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: Robert Downey Jr.
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                               Robert Downey Jr.(ACTOR)                                                |
+-------------------------------------------------------------------------------------------------------------------------
+| Films Participated:
+|                    | Character                                       | FilmName                                        |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Ralph Carr                                      | 1969                                            |
+|                    | James Barris                                    | A Scanner Darkly                                |
+|                    | Billy Covington                                 | Air America                                     |
+|                    | Derek Lutz                                      | Back to School                                  |
+|                    | Charlie Chaplin                                 | Chaplin                                         |
+|                    | Nick Penrose                                    | Eros                                            |
+|                    | Lee                                             | Firstborn                                       |
+|                    | Steven Schwimmer                                | Game 6                                          |
+|                    | Joe Wershba                                     | Good Night, and Good Luck                       |
+|                    | Thomas Reilly                                   | Heart and Souls                                 |
+-------------------------------------------------------------------------------------------------------------------------
+| Place of Birth:                                                                                                        |
+|                    Manhattan                                                                                           |
+-------------------------------------------------------------------------------------------------------------------------
+| Birthday:                                                                                                              |
+|                    1965-04-04                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    Robert Downey Jr.                                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Siblings:
+|                    | Sibling                                                                                           |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Allyson Downey                                                                                    |
+-------------------------------------------------------------------------------------------------------------------------
+| Spouses:
+|                    | Name                   | From                   | To                     | Location               |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Deborah Falconer       | 1992-05-29             | 2004-04-26             |                        |
+|                    | Susan Downey           | 2005-08-27             |                        | Amagansett             |
+|                    | Sarah Jessica Parker   | 1984                   | 1991                   |                        |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    Robert John Downey, Jr. is an American actor who made his screen debut at the age of five, appearing |
+|                    in his father Robert Downey, Sr.'s film Pound. He has appeared in roles associated with the Brat Pa |
+|                    ck, such as Less Than Zero and Weird Science. Other films he has starred in include Air America, Soa |
+|                    pdish, and Natural Born Killers. He starred as Charlie Chaplin, the title character in the 1992 film |
+|                    Chaplin, earning him a nomination for the Academy Award for Best Actor.After being released from th |
+|                    e California Substance Abuse Treatment Facility and State Prison in 2000 for drug charges, Downey jo |
+|                    ined the cast of the TV series Ally McBeal playing Calista Flockhart's love interest. His performanc |
+|                    e was praised and he received a Golden Globe Award for Best Performance by an Actor in a Supporting  |
+|                    Role in a Series, Miniseries, or Television Film. His character was written out when Downey was fire |
+|                    d after two drug arrests in late 2000 and early 2001. After one last stay in a court-ordered drug tr |
+|                    eatment program, Downey finally achieved sobriety.His more recent films include The Singing Detectiv |
+|                    e, Kiss Kiss Bang Bang, A Scanner Darkly, Gothika, Zodiac and Tropic Thunder, for which he was nomin |
+|                    ated an Academy Award for Best Supporting Actor. In 2008, Downey played the role of Marvel superhero |
+|                    Tony Stark / Iron Man in the live action film Iron Man, a role he reprised in Iron Man 2, Marvel's  |
+|                    The Avengers, and Iron Man 3. He reprised his role in a cameo appearance in The Incredible Hulk. He  |
+|                    will again reprise his role in the upcoming films, Avengers: Age of Ultron and another Avengers sequ |
+|                    el. In 2009, he played the title character in Guy Ritchie's Sherlock Holmes and again in 2011's Sher |
+|                    lock Holmes: A Game of Shadows.                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: Jackson
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                    Michael Jackson(BUSINESS PERSON, ACTOR, AUTHOR)                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Films Participated:
+|                    | Character                                       | FilmName                                        |
+|                     ----------------------------------------------------------------------------------------------------
+|                    |                                                 | Moonwalker                                      |
+|                    | Scarecrow                                       | The Wiz                                         |
+|                    | Agent M.J.                                      | Miss Cast Away                                  |
+|                    | Agent M                                         | Men in Black II                                 |
+|                    | Captain EO                                      | Captain EO                                      |
+|                    | Maestro                                         | Michael Jackson's Ghosts                        |
+|                    | Captain EO                                      | Captain EO Promo & Pre-show                     |
+|                    | Scarecrow                                       | Wiz on Down the Road                            |
+|                    | Mayor                                           | Michael Jackson's Ghosts                        |
+|                    | Mayor Ghoul                                     | Michael Jackson's Ghosts                        |
+-------------------------------------------------------------------------------------------------------------------------
+| Death(Cause):                                                                                                          |
+|                    Cardiac arrest                                                                                      |
+|                    Homicide                                                                                            |
+-------------------------------------------------------------------------------------------------------------------------
+| Place of Birth:                                                                                                        |
+|                    Gary                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------
+| Birthday:                                                                                                              |
+|                    1958-08-29                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Death(Place):                                                                                                          |
+|                    Holmby Hills                                                                                        |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    Michael Jackson                                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Death(Date):                                                                                                           |
+|                    2009-06-25                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Siblings:
+|                    | Sibling                                                                                           |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Janet Jackson                                                                                     |
+|                    | Jermaine Jackson                                                                                  |
+|                    | La Toya Jackson                                                                                   |
+|                    | Marlon Jackson                                                                                    |
+|                    | Randy Jackson                                                                                     |
+|                    | Jackie Jackson                                                                                    |
+|                    | Tito Jackson                                                                                      |
+|                    | Rebbie Jackson                                                                                    |
+|                    | Brandon Jackson                                                                                   |
+|                    | Joh'Vonnie Jackson                                                                                |
+-------------------------------------------------------------------------------------------------------------------------
+| Spouses:
+|                    | Name                   | From                   | To                     | Location               |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Lisa Marie Presley     | 1994-05-26             | 1996-08-20             | Dominican Republic     |
+|                    | Debbie Rowe            | 1996-11-14             | 1999-10-08             | Sydney                 |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    Michael Joseph Jackson (August 29, 1958 – June 25, 2009) was an American recording artist, dancer, s |
+|                    inger-songwriter, musician, and philanthropist. Referred to as the King of Pop, Jackson is recognize |
+|                    d as the most successful entertainer of all time by Guinness World Records. His contribution to musi |
+|                    c, dance, and fashion, along with a much-publicized personal life, made him a global figure in popul |
+|                    ar culture for over four decades. The seventh child of the Jackson family, he debuted on the profess |
+|                    ional music scene along with his brothers as a member of The Jackson 5, then the Jacksons in 1964, a |
+|                    nd began his solo career in 1971. In the early 1980s, Jackson became a dominant figure in popular mu |
+|                    sic. The music videos for his songs, including those of "Beat It", "Billie Jean", and "Thriller", we |
+|                    re credited with transforming the medium into an art form and a promotional tool, and the popularity |
+|                    of these videos helped to bring the relatively new television channel MTV to fame And Cordell Franc |
+|                    is Admire Michael Jackson As His Best. Videos such as ...                                           |
+|                    Michael Joseph Jackson was an American recording artist, actor, producer, dancer, businessman, and p |
+|                    hilanthropist. Often referred to by the honorific nickname "The King of Pop", his contributions to m |
+|                    usic, dance, and fashion, along with his publicized personal life, made him a global figure in popul |
+|                    ar culture for over four decades.The eighth child of the Jackson family, he debuted on the professio |
+|                    nal music scene along with his brothers as a member of The Jackson 5 in 1968, and began his solo car |
+|                    eer in 1971. In the early 1980s, Jackson became a dominant figure in popular music. The music videos |
+|                    for his songs, including those of "Beat It", "Billie Jean", and "Thriller", were credited with brea |
+|                    king down racial barriers and with transforming the medium into an art form and promotional tool. Th |
+|                    e popularity of these videos helped to bring the then-relatively-new television channel MTV to fame. |
+|                    With videos such as "Black or White" and "Scream", he continued to innovate the medium throughout t |
+|                    he 1990s, as well as forging a reputation as a touring solo artist. Through stage and video performa |
+|                    nces, Jackson popularized a number of complicated dance techniques, such as the robot and the moonwa |
+|                    lk, to which he gave the name. His distinctive sound and style has influenced numerous hip hop, post |
+|                    -disco, contemporary R&B, pop, and rock artists.                                                    |
+-------------------------------------------------------------------------------------------------------------------------
+| Founded:                                                                                                               |
+|                    Sony/ATV Music Publishing                                                                           |
+|                    Heal the World Foundation                                                                           |
+|                    MJJ Music                                                                                           |
+-------------------------------------------------------------------------------------------------------------------------
+| Influenced:                                                                                                            |
+|                    Usher                                                                                               |
+|                    Justin Timberlake                                                                                   |
+|                    Lady Gaga                                                                                           |
+|                    Britney Spears                                                                                      |
+|                    Nicole Scherzinger                                                                                  |
+|                    Leigh Francis                                                                                       |
+-------------------------------------------------------------------------------------------------------------------------
+| Books:                                                                                                                 |
+|                    Moonwalk                                                                                            |
+|                    Dancing the Dream                                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Books About:                                                                                                           |
+|                    On Michael Jackson                                                                                  |
+|                    The River of Winged Dreams                                                                          |
+|                    The Passion-Driven Writer and the Digital-Age Literary Marketplace                                  |
+|                    To Walk a Lifetime in Michael Jackson's Moccasins                                                   |
+|                    Michael Jackson and Summertime from This Point On                                                   |
+|                    Looking at the World through Michael Jackson's Left Eye (Part 1)                                    |
+|                    Looking at the World through Michael Jackson's Left Eye (Part 2)                                    |
+|                    Looking at the World through Michael Jackson's Left Eye (Part 3 of 4)                               |
+|                    Looking at the World through Michael Jackson's Left Eye (Part 4 of 4)                               |
+|                    Evidence of Angels                                                                                  |
+-------------------------------------------------------------------------------------------------------------------------
+| Influenced by:                                                                                                         |
+|                    Charlie Chaplin                                                                                     |
+|                    James Brown                                                                                         |
+|                    Walt Disney                                                                                         |
+|                    Redd Foxx                                                                                           |
+|                    Nipsey Russell                                                                                      |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: NFL
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                           National Football League(LEAGUE)                                            |
+-------------------------------------------------------------------------------------------------------------------------
+| Championship:                                                                                                          |
+|                    Super Bowl                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    National Football League                                                                            |
+-------------------------------------------------------------------------------------------------------------------------
+| Official Website:                                                                                                      |
+|                    http://www.nfl.com/                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------
+| Teams:
+|                    | TeamName                                                                                          |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Detroit Lions                                                                                     |
+|                    | Carolina Panthers                                                                                 |
+|                    | Arizona Cardinals                                                                                 |
+|                    | Baltimore Ravens                                                                                  |
+|                    | Jacksonville Jaguars                                                                              |
+|                    | Kansas City Chiefs                                                                                |
+|                    | Denver Broncos                                                                                    |
+|                    | New York Jets                                                                                     |
+|                    | New York Giants                                                                                   |
+|                    | Oakland Raiders                                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Sport:                                                                                                                 |
+|                    American football                                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    The National Football League is a professional American football league that constitutes one of the  |
+|                    four major professional sports leagues in North America. It is composed of 32 teams divided equally  |
+|                    between the National Football Conference and the American Football Conference. The highest professio |
+|                    nal level of the sport in the world, the NFL runs a 17-week regular season from the week after Labor |
+|                    Day to the week after Christmas, with each team playing sixteen games and having one bye week each  |
+|                    season. Out of the league's 32 teams, six from each conference compete in the NFL playoffs, a single |
+|                    -elimination tournament culminating in the Super Bowl, played between the champions of the NFC and A |
+|                    FC. The champions of the Super Bowl are awarded the Vince Lombardi Trophy. Various other awards exis |
+|                    t to recognize individual players and coaches. Most games are played on Sunday afternoons; some game |
+|                    s are also played on Mondays and Thursdays during the regular season. There are games on Saturdays d |
+|                    uring the first two playoff weekends. Sometimes, there are also Saturday games during the last few w |
+|                    eeks of the regular season.The NFL was formed on August 20, 1920, as the American Professional Footb |
+|                    all Conference; the league changed its name to the American Professional Football Association on Sep |
+|                    tember 17, 1920, and changed its name to the National Football League on June 24, 1922, after spendi |
+|                    ng the 1920 and 1921 seasons as the APFA. In 1966, the NFL agreed to merge with the rival American F |
+|                    ootball League, effective 1970; the first Super Bowl was held at the end of that same season in Janu |
+|                    ary 1967. Today, the NFL has the highest average attendance of any professional sports league in the |
+|                    world and is the most popular sports league in the United States. The Super Bowl is among the bigge |
+|                    st club sporting events in the world and individual Super Bowl games account for many of the most-wa |
+|                    tched television programs in American history. At the corporate level, the NFL is a nonprofit 501 as |
+|                    sociation. The NFL's executive officer is the commissioner, who has broad authority in governing the |
+|                    league.                                                                                            |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: NBA
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                        National Basketball Association(LEAGUE)                                         |
+-------------------------------------------------------------------------------------------------------------------------
+| Championship:                                                                                                          |
+|                    NBA Finals                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Slogan:                                                                                                                |
+|                    Where Amazing Happens                                                                               |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    National Basketball Association                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Official Website:                                                                                                      |
+|                    http://www.nba.com/                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------
+| Teams:
+|                    | TeamName                                                                                          |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Detroit Pistons                                                                                   |
+|                    | Golden State Warriors                                                                             |
+|                    | Los Angeles Lakers                                                                                |
+|                    | Cleveland Cavaliers                                                                               |
+|                    | Indiana Pacers                                                                                    |
+|                    | Utah Jazz                                                                                         |
+|                    | Orlando Magic                                                                                     |
+|                    | Phoenix Suns                                                                                      |
+|                    | Charlotte Bobcats                                                                                 |
+|                    | Houston Rockets                                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Sport:                                                                                                                 |
+|                    Basketball                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    The National Basketball Association is the pre-eminent men's professional basketball league in North |
+|                    America, and is widely considered to be the premier men's professional basketball league in the wor |
+|                    ld. It has thirty franchised member clubs, and is an active member of USA Basketball, which is recog |
+|                    nized by FIBA as the national governing body for basketball in the United States. The NBA is one of  |
+|                    the four major North American professional sports leagues. NBA players are the world's best paid spo |
+|                    rtsmen, by average annual salary per player.The league was founded in New York City on June 6, 1946, |
+|                    as the Basketball Association of America. The league adopted the name National Basketball Associati |
+|                    on on August 3, 1949, after absorbing the rival National Basketball League. The league's several int |
+|                    ernational as well as individual team offices are directed out of its head offices located in the Ol |
+|                    ympic Tower at 645 Fifth Avenue in New York City. NBA Entertainment and NBA TV studios are directed  |
+|                    out of offices located in Secaucus, New Jersey.                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: NY Knicks
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                             New York Knicks(SPORTS TEAM)                                              |
+-------------------------------------------------------------------------------------------------------------------------
+| Arena:                                                                                                                 |
+|                    Madison Square Garden                                                                               |
+-------------------------------------------------------------------------------------------------------------------------
+| Coaches:
+|                    | Name                   | Position               | From                   | To                     |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Mike Woodson           | Head coach             | 2011-08-29             |                        |
+-------------------------------------------------------------------------------------------------------------------------
+| Championships:                                                                                                         |
+|                    1970 NBA Finals                                                                                     |
+|                    1973 NBA Finals                                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    New York Knicks                                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Leagues:
+|                    | League Name                                                                                       |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | National Basketball Association                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Locations:                                                                                                             |
+|                    New York City                                                                                       |
+-------------------------------------------------------------------------------------------------------------------------
+| Sport:                                                                                                                 |
+|                    Basketball                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Founded:                                                                                                               |
+|                    1946                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------
+| Players Roster:
+|                    | Name              | Position          | Number            | From              | To                |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Jamal Crawford    | Shooting guard,...| 11                | 2004              | 2008              |
+|                    | Bill Bradley      |                   |                   | 1967              | 1977              |
+|                    | Patrick Ewing     | Power forward,C...| 33                | 1985              | 2000              |
+|                    | Marcus Camby      | Power forward,C...| 23                | 1998              | 2002              |
+|                    | Stephon Marbury   |                   |                   | 2003              | 2008              |
+|                    | Eddy Curry        |                   |                   | 2005              | 2011              |
+|                    | Chris Duhon       |                   |                   | 2008              | 2010              |
+|                    | Quentin Richardson|                   |                   | 2005              | 2009              |
+|                    | Roger Mason, Jr.  |                   |                   | 2010              | 2011              |
+|                    | Ronny Turiaf      |                   |                   | 2010              | 2011              |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    The New York Knickerbockers, commonly referred to as the Knicks, are a professional basketball team  |
+|                    based in New York City, New York. The team, established by Ned Irish in 1946, was one of the foundin |
+|                    g members of the Basketball Association of America, which became the NBA after merging with rival Na |
+|                    tional Basketball League in 1949. The team plays at Madison Square Garden in the borough of Manhatta |
+|                    n and is one of only two teams of the original National Basketball Association still located in its  |
+|                    original city.The Knicks were successful during their early years and were constant playoff contende |
+|                    rs under the franchise's first head coach Joe Lapchick. Beginning in 1950, the Knicks made three con |
+|                    secutive appearances in the NBA Finals, all of which were losing efforts. Lapchick resigned in 1956  |
+|                    and the team subsequently began to falter. It was not until the late 1960s when Red Holzman became h |
+|                    ead coach did the Knicks begin to regain their former dominance. Holzman successfully guided the Kni |
+|                    cks to two championship titles in 1970 and 1973. The Knicks of the 1980s had mixed success that incl |
+|                    uded six playoff appearances however, they failed to participate in the NBA Finals.                 |
+-------------------------------------------------------------------------------------------------------------------------
+
+Query: Miami Heat
+
+-------------------------------------------------------------------------------------------------------------------------
+|                                                Miami Heat(SPORTS TEAM)                                                 |
+-------------------------------------------------------------------------------------------------------------------------
+| Arena:                                                                                                                 |
+|                    American Airlines Arena                                                                             |
+-------------------------------------------------------------------------------------------------------------------------
+| Coaches:
+|                    | Name                   | Position               | From                   | To                     |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Erik Spoelstra         | Coach                  | 2008-04                |                        |
+-------------------------------------------------------------------------------------------------------------------------
+| Championships:                                                                                                         |
+|                    2006 NBA Finals                                                                                     |
+|                    2012 NBA Finals                                                                                     |
+|                    2013 NBA Finals                                                                                     |
+-------------------------------------------------------------------------------------------------------------------------
+| Name:                                                                                                                  |
+|                    Miami Heat                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Leagues:
+|                    | League Name                                                                                       |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | National Basketball Association                                                                   |
+-------------------------------------------------------------------------------------------------------------------------
+| Locations:                                                                                                             |
+|                    Miami                                                                                               |
+-------------------------------------------------------------------------------------------------------------------------
+| Sport:                                                                                                                 |
+|                    Basketball                                                                                          |
+-------------------------------------------------------------------------------------------------------------------------
+| Founded:                                                                                                               |
+|                    1988                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------
+| Players Roster:
+|                    | Name              | Position          | Number            | From              | To                |
+|                     ----------------------------------------------------------------------------------------------------
+|                    | Shaquille O'Neal  | Center            | 32                | 2004-07-14        | 2008-02           |
+|                    | Earl Barron       |                   |                   | 2005              | 2008              |
+|                    | Michael Beasley   | Power forward,S...| 30                | 2008-06-26        | 2010-07-12        |
+|                    | Dorell Wright     |                   |                   | 2004              | 2010-07-13        |
+|                    | Jamaal Magloire   |                   |                   | 2008-08-30        | 2011-12-09        |
+|                    | Carlos Arroyo     |                   |                   | 2009-10-11        | 2011-03-01        |
+|                    | Quentin Richardson|                   |                   | 2009              | 2010-07-13        |
+|                    | Shavlik Randolph  | Power forward     | 42                | 2009              | 2010              |
+|                    | Yakhouba Diawara  |                   |                   | 2008-08-07        | 2010-07           |
+|                    | Ronny Turiaf      |                   |                   | 2012-03-21        | 2012-07-27        |
+-------------------------------------------------------------------------------------------------------------------------
+| Description:                                                                                                           |
+|                    The Miami Heat are a professional basketball team based in Miami, Florida, United States. The team i |
+|                    s a member of the Southeast Division in the Eastern Conference of the National Basketball Associatio |
+|                    n. They play their home games at the American Airlines Arena in Downtown Miami. The team owner is Mi |
+|                    cky Arison, who also owns cruise-ship giant Carnival Corporation. The team president and de facto ge |
+|                    neral manager is Pat Riley, and the head coach is Erik Spoelstra. The mascot of the team is Burnie,  |
+|                    an anthropomorphic fireball.Formed in 1988 as one of the NBA's four expansion franchises, the Heat h |
+|                    ave won three league championships, five conference titles and 11 division titles. From February 3 t |
+|                    o March 27, 2013, the Heat won 27 games in a row, the second-longest streak in NBA history. In 2013, |
+|                    Forbes valued the Heat at $625 million, sixth-most-valuable among NBA franchises.The Heat are not r |
+|                    elated to the Miami Floridians, an ABA team in the early 1970s, although the Heat have occasionally  |
+|                    paid tribute to the older franchise by wearing a replica version of the Floridians' uniforms for the |
+|                    NBA's "Hardwood Classics Nights" during the 2005–06 and 2011–12 seasons.                           |
+-------------------------------------------------------------------------------------------------------------------------
