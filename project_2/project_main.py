@@ -75,43 +75,48 @@ boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
 
 ################ COMPOUND PROPERTIES ###################
 
-staticcompound = {"/people/person/sibling_s":OrderedDict({"Sibling" : "/people/sibling_relationship/sibling"})
-          ,"/business/board_member/organization_board_memberships" : OrderedDict({"From" : "/organization/organization_board_membership/from"
-               ,"To" : "/organization/organization_board_membership/to"
-               ,"Organization" : "/organization/organization_board_membership/organization"
-               ,"Role" : "/organization/organization_board_membership/role"
-               ,"Title" : "/organization/organization_board_membership/title"
-              }),
-           "/film/actor/film": OrderedDict({"FilmName": "/film/performance/film",
-		"Character": "/film/performance/character",}),
-	   "/sports/sports_league/teams": OrderedDict({"TeamName": "/sports/sports_league_participation/team",
-		}),
-	   "/sports/sports_team/coaches": OrderedDict({"Name": "/sports/sports_team_coach_tenure/coach",
-		"Position": "/sports/sports_team_coach_tenure/position",
-		"From": "/sports/sports_team_coach_tenure/from",
-		"To": "/sports/sports_team_coach_tenure/to",
-		}),
-	   "/sports/sports_team/league": OrderedDict({"LeagueName": "/sports/sports_league_participation/league",
-		}),
-	   "/sports/sports_team/roster": OrderedDict({"Name": "/sports/sports_team_roster/player",
-		"Position": "/sports/sports_team_roster/position",
-		"Number": "/sports/sports_team_roster/number",
-		"From": "/sports/sports_team_roster/from",
-		"To": "/sports/sports_team_roster/to",
-		}),
-            "/business/board_member/organization_board_memberships": OrderedDict({"From": "/organization/organization_board_membership/from",
-		"To": "/organization/organization_board_membership/to",
-		"Organization": "/organization/organization_board_membership/organization",
-		"Role": "/organization/organization_board_membership/role",
-		"Title": "/organization/organization_board_membership/title",
-		}),
-	   "/business/board_member/leader_of": OrderedDict({"From": "/organization/leadership/from",
-		"To": "/organization/leadership/to",
-		"Organization": "/organization/leadership/organization",
-		"Role": "/organization/leadership/role",
-		"Title": "/organization/leadership/title",
-		}),
-           "/people/person/spouse_s":OrderedDict({"Spouse":"/people/marriage/spouse"}),
+staticcompound = {"/people/person/sibling_s":OrderedDict([("Sibling" , "/people/sibling_relationship/sibling")])
+          ,"/business/board_member/organization_board_memberships" : OrderedDict([
+               ("Organization", "/organization/organization_board_membership/organization")
+               ,("Role" , "/organization/organization_board_membership/role")
+               ,("Title" , "/organization/organization_board_membership/title")
+               ,("From" , "/organization/organization_board_membership/from")
+               ,("To" , "/organization/organization_board_membership/to")
+              ]),
+           "/film/actor/film": OrderedDict([
+		("Character", "/film/performance/character"),
+                ("FilmName", "/film/performance/film"),
+                ]),
+	   "/sports/sports_league/teams": OrderedDict([("TeamName", "/sports/sports_league_participation/team"),
+		]),
+	   "/sports/sports_team/coaches": OrderedDict([("Name", "/sports/sports_team_coach_tenure/coach"),
+		("Position", "/sports/sports_team_coach_tenure/position"),
+		("From", "/sports/sports_team_coach_tenure/from"),
+		("To", "/sports/sports_team_coach_tenure/to"),
+		]),
+	   "/sports/sports_team/league": OrderedDict([("LeagueName", "/sports/sports_league_participation/league"),
+		]),
+	   "/sports/sports_team/roster": OrderedDict([("Name", "/sports/sports_team_roster/player"),
+		("Position", "/sports/sports_team_roster/position"),
+		("Number", "/sports/sports_team_roster/number"),
+		("From", "/sports/sports_team_roster/from"),
+		("To", "/sports/sports_team_roster/to"),
+		]),
+            "/business/board_member/organization_board_memberships": OrderedDict([
+		("Organization", "/organization/organization_board_membership/organization"),
+		("Role", "/organization/organization_board_membership/role"),
+		("Title", "/organization/organization_board_membership/title"),
+                ("From", "/organization/organization_board_membership/from"),
+		("To", "/organization/organization_board_membership/to"),
+		]),
+	   "/business/board_member/leader_of": OrderedDict([
+		("Organization", "/organization/leadership/organization"),
+		("Role", "/organization/leadership/role"),
+		("Title", "/organization/leadership/title"),
+                ("From", "/organization/leadership/from"),
+		("To", "/organization/leadership/to"),
+		]),
+           "/people/person/spouse_s":OrderedDict([("Spouse","/people/marriage/spouse")]),
            }
 
 ###################################
@@ -209,7 +214,7 @@ def getSubPropValues(dictionary,detail):
               compound = copy.deepcopy(staticcompound)
               totalArg = len(compound[param])
               divLen = maxlen/totalArg
-              subprop = compound[param].popitem(last=True)
+              subprop = compound[param].popitem(last=False)
               #for subprop in compound[param].keys():
               try:
                 while subprop:
@@ -248,7 +253,7 @@ def getSubPropValues(dictionary,detail):
                       print '|' + reindent('',lindent) + '|',
                     print ('').ljust(divLen - 2) + '|',
                     pass
-                  subprop = compound[param].popitem(last=True)
+                  subprop = compound[param].popitem(last=False)
               except KeyError:
                 pass
             except KeyError:
@@ -519,7 +524,11 @@ def main(argv):
         createInfoBox(line.strip('\n'), apiKey)
     elif(task == "question"):
       for line in f:
-        ansQuestion(line.strip('\n'), apiKey)
+        pat = 'Who created ([\w\s.-]+)\?*'
+        match = re.search(pat, line.strip('\n'), re.IGNORECASE)
+        if match:
+          query = match.group(1)
+          ansQuestion(query, apiKey)
   elif(target == 3):
     # only key specified
     signal.signal(signal.SIGINT, sigintHandler)
