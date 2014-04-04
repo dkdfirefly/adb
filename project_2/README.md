@@ -86,13 +86,15 @@ It is a joint project by
     ---------------------
     Though more detailed description is available in the code documentation, this is the brief idea.
     
-    - **main** -
-    - **getSubProp** - 
-    - **getSubPropValues** - 
-    - **getBingJSONResults** - This function handles forming the query URL and hits the Freebase search API to retrieve top JSON
+    - **main** - check the input arguments and calls the appropriate functions
+    - **getSubProp** - Fetches the subproperty values from the top level categories
+    - **getSubPropValues** - Gets the specified value fields for both regular and compound properties, and handles their printing as well.
+    - **getJSONResults** - This function handles forming the query URL and hits the Freebase search API to retrieve top JSON
     results.
-    - **createInfoBox** -  
-    - **ansQues** -  
+    - **createInfoBox** -  handles infobox type of queries; after fetching the JSON results, gets the appropriate subproperty values.
+    - **ansQues** -  handles the question answering part; queries the appropriate mql read api after getting the JSON results.
+    - There are a few other helper function, but they are mainly for formatting issues and signal handling kind of stuff.
+    
 
     License
     ----
