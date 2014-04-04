@@ -30,7 +30,8 @@ allcategories={'/people/person':'',
 peopleProp = {'Name':'/type/object/name'
               ,'Birthday':"/people/person/date_of_birth"
               ,'PlaceofBirth':"/people/person/place_of_birth"
-              ,'DeathPlace':"/people/deceased_person/cause_of_death"
+              ,'DeathCause':"/people/deceased_person/cause_of_death"
+              ,'DeathPlace':"/people/deceased_person/place_of_death"
               ,'DeathDate':"/people/deceased_person/date_of_death"
               ,'Siblings':"/people/person/sibling_s"
               ,'Description' : "/common/topic/description"
