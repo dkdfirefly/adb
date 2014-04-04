@@ -130,6 +130,8 @@ lindent = 20
 subPropChecked = [0,0,0,0,0,0]
 
 def reindent(s, numSpaces):
+  """Indent the string s by numSpaces from the start
+  """
   s = string.split(s, '\n')
   s = [(numSpaces * ' ') + string.lstrip(line) for line in s]
   s = string.join(s, '\n')
@@ -142,6 +144,9 @@ def chunks(l, n):
     yield l[i:i+n]
 
 def getSubProp(prop,detail):
+  """
+  Based on the top level categories found, fetches their corresponding subpropvalues
+  """
   if prop=='/people/person' :
     if subPropChecked[0] == 0:
       getSubPropValues(peopleProp,detail)
@@ -180,6 +185,10 @@ def getSubProp(prop,detail):
     subPropChecked[5] = 1
   
 def getSubPropValues(dictionary,detail):
+  """
+  Gets the specified value fields for both the resgular and the compound properties.
+  Handles printing each of them appropriately.
+  """
   #print dictionary
   val = dict();
   for k in dictionary.keys():
@@ -281,6 +290,8 @@ def getSubPropValues(dictionary,detail):
 
 
 def getBingJSONResults(QueryTerms,apiKey):
+  """Handles forming the query URL and hits the Freebase search API to retrieve the top JSON results
+  """
   Query = '%20'.join(QueryTerms)
 #  print Query
   Url = 'https://www.googleapis.com/freebase/v1/search?query=%27' + Query + '%27&key=' + apiKey
@@ -292,6 +303,10 @@ def getBingJSONResults(QueryTerms,apiKey):
   return data
 
 def createInfoBox(query, apiKey):
+  """
+  Handles the infobox types of queries
+  Gets BING results, and calls getSubProp to get individual values
+  """
   data =  getBingJSONResults(query.split(' '),apiKey)
   for topics in data['result']:
     dt = topics['mid']
@@ -350,6 +365,10 @@ def createInfoBox(query, apiKey):
     sys.exit()
 
 def ansQuestion(query, apiKey):
+  """
+  Handles the question answering part of the query
+  Gets the BING results, and creates the MQL query fetching appropriate results
+  """
   QueryTerms = query.split(' ')
   data =  getBingJSONResults(QueryTerms, apiKey)
   ############## Query Types ###############
