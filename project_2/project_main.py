@@ -29,22 +29,22 @@ allcategories={'/people/person':'',
 
 peopleProp = {'Name':'/type/object/name'
               ,'Birthday':"/people/person/date_of_birth"
-              ,'PlaceofBirth':"/people/person/place_of_birth"
-              ,'DeathCause':"/people/deceased_person/cause_of_death"
-              ,'DeathPlace':"/people/deceased_person/place_of_death"
-              ,'DeathDate':"/people/deceased_person/date_of_death"
+              ,'Place of Birth':"/people/person/place_of_birth"
+              ,'Death(Cause)':"/people/deceased_person/cause_of_death"
+              ,'Death(Place)':"/people/deceased_person/place_of_death"
+              ,'Death(Date)':"/people/deceased_person/date_of_death"
               ,'Siblings':"/people/person/sibling_s"
               ,'Description' : "/common/topic/description"
               ,'Spouses' : "/people/person/spouse_s"
               }
 
 authorProp = { "Books": "/book/author/works_written",
-	"BooksAboutTheAuthor": "/book/book_subject/works",
+	"Books About": "/book/book_subject/works",
 	"Influenced": "/influence/influence_node/influenced",
 	"Influenced by": "/influence/influence_node/influenced_by",
 	}
 
-actorProp = { "FilmsParticipated": "/film/actor/film", #compound
+actorProp = { "Films Participated": "/film/actor/film", #compound
 	}
 
 
@@ -52,7 +52,7 @@ leagueProp = {"Name": "/type/object/name",
 	"Championship": "/sports/sports_league/championship",
 	"Sport": "/sports/sports_league/sport",
 	"Slogan": "/organization/organization/slogan",
-	"OfficialWebsite": "/common/topic/official_website",
+	"Official Website": "/common/topic/official_website",
 	"Description": "/common/topic/description", #value
 	"Teams": "/sports/sports_league/teams", #compound
 	}
@@ -66,7 +66,7 @@ sportsTeamProp = {"Name": "/type/object/name",
 	   "Founded": "/sports/sports_team/founded",
 	   "Leagues": "/sports/sports_team/league", #compound
 	   "Locations": "/sports/sports_team/location",
-	   "PlayersRoster": "/sports/sports_team/roster", #compound
+	   "Players Roster": "/sports/sports_team/roster", #compound
 	}
 
 boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
@@ -95,7 +95,7 @@ staticcompound = {"/people/person/sibling_s":OrderedDict([("Sibling" , "/people/
 		("From", "/sports/sports_team_coach_tenure/from"),
 		("To", "/sports/sports_team_coach_tenure/to"),
 		]),
-	   "/sports/sports_team/league": OrderedDict([("LeagueName", "/sports/sports_league_participation/league"),
+	   "/sports/sports_team/league": OrderedDict([("League Name", "/sports/sports_league_participation/league"),
 		]),
 	   "/sports/sports_team/roster": OrderedDict([("Name", "/sports/sports_team_roster/player"),
 		("Position", "/sports/sports_team_roster/position"),
@@ -388,7 +388,7 @@ def ansQuestion(query, apiKey):
     categories.append(cg['id'])
 #  print categories
 
-  if '/organization/organization' in categories:
+  if '/organization/organization' or '/organization/organization_founder' in categories:
     queryNew = queryOrg
     params = {
           'query': json.dumps(queryNew),
@@ -416,7 +416,7 @@ def ansQuestion(query, apiKey):
 
     for result in response['result']:
       if result["name"] in resultDict.keys():
-        resultDict[result["name"]] = "and (as Author) created "
+        resultDict[result["name"]] += "and (as Author) created "
       else:
         resultDict[result["name"]] = "(as Author) created "
       for book in result['/book/author/works_written']:
