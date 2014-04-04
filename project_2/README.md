@@ -97,6 +97,11 @@ It is a joint project by
     - **ansQues** -  handles the question answering part; queries the appropriate mql read api after getting the JSON results.
     - There are a few other helper function, but they are mainly for formatting issues and signal handling kind of stuff.
     
+    
+    Error Handling
+    ------------------
+    We do not claim to have handled all the edge cases, but most of the common ones like argument errors, no matches found have been handled gracefully. As long as the queries are well formed and there are related results, there should not be an issue.
+    
 
     License
     ----
