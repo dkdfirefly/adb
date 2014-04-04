@@ -19,6 +19,7 @@ It is a joint project by
     File List
     ----
     - project_main.py - main source code
+    - mappings.txt - contains the fields taken into consideration for querying in case of infobox
     - README.md - markdown syntax file
     - README.txt - text version of README
     - transcripts/infobox.txt - includes infobox for all queries given in the project description
@@ -49,7 +50,7 @@ It is a joint project by
     Part 1:
     -------
     
-    The first section of the code specifies the fieldnames for different types of properties we wish to retrieve for a given query, with reference to the corresponding fields in the JSON results. This specification has 3 sections. 
+    The first section of the code, as well as the mappings.txt file specifies the fieldnames for different types of properties we wish to retrieve for a given query, with reference to the corresponding fields in the JSON results. This specification has 3 sections. 
     > First, we specify what categories we are going to look for (i.e. allowed results from within /type/object/type property). 
     > Second, we specify for each of the above mentioned categories, what are the properties we want to show.
     > Third defines an ordered dictionary of subproperties of the properties defined in the previous step, which are compound in nature.
@@ -57,6 +58,10 @@ It is a joint project by
     When a user query is specified, first the query is passed to the Freebase search API. The results are sequentially traversed until at least one category of the topic in the result(also found using Freebase Search API) matches with our predefined set of allowed categories. 
     
     For each of the category the result belongs to, the corresponding property values are extracted from the JSON output and printed in the infobox format.
+
+    **Note:**
+
+    - We have grouped the properties by type, that is League-Team, League-Person and Person-Team properties are not mixed. However, all the person properties are grouped under a single header. The preference order is League followed by sports team and person at last
     
     Part 2:
     -------

@@ -1,0 +1,114 @@
+############### Top Level #######################
+
+allcategories={'/people/person':'',
+             '/book/author':'AUTHOR',
+             '/film/actor':'ACTOR',
+             '/tv/tv_actor':'ACTOR',
+             '/organization/organization_founder':'BUSINESS PERSON',
+             '/business/board_member':'BUSINESS PERSON',
+             '/sports/sports_league':'LEAGUE',
+             '/sports/sports_team':'SPORTS TEAM',
+             '/sports/professional_sports_team':'SPORTS TEAM'}
+
+############################################
+
+############## Category Prop ################
+
+peopleProp = {'Name':'/type/object/name'
+              ,'Birthday':"/people/person/date_of_birth"
+              ,'Place of Birth':"/people/person/place_of_birth"
+              ,'Death(Cause)':"/people/deceased_person/cause_of_death"
+              ,'Death(Place)':"/people/deceased_person/place_of_death"
+              ,'Death(Date)':"/people/deceased_person/date_of_death"
+              ,'Siblings':"/people/person/sibling_s"
+              ,'Description' : "/common/topic/description"
+              ,'Spouses' : "/people/person/spouse_s"
+              }
+
+authorProp = { "Books": "/book/author/works_written",
+	"Books About": "/book/book_subject/works",
+	"Influenced": "/influence/influence_node/influenced",
+	"Influenced by": "/influence/influence_node/influenced_by",
+	}
+
+actorProp = { "Films Participated": "/film/actor/film", #compound
+	}
+
+
+leagueProp = {"Name": "/type/object/name",
+	"Championship": "/sports/sports_league/championship",
+	"Sport": "/sports/sports_league/sport",
+	"Slogan": "/organization/organization/slogan",
+	"Official Website": "/common/topic/official_website",
+	"Description": "/common/topic/description", #value
+	"Teams": "/sports/sports_league/teams", #compound
+	}
+
+sportsTeamProp = {"Name": "/type/object/name",
+                "Description": "/common/topic/description", #value
+	   "Sport": "/sports/sports_team/sport",
+	   "Arena": "/sports/sports_team/arena_stadium",
+	   "Championships": "/sports/sports_team/championships",
+	   "Coaches": "/sports/sports_team/coaches", #compound
+	   "Founded": "/sports/sports_team/founded",
+	   "Leagues": "/sports/sports_team/league", #compound
+	   "Locations": "/sports/sports_team/location",
+	   "Players Roster": "/sports/sports_team/roster", #compound
+	}
+
+boardMemberProp = {"Leadership": "/business/board_member/leader_of", #compound
+		"BoardMember": "/business/board_member/organization_board_memberships", #compound
+		"Founded": "/organization/organization_founder/organizations_founded",
+	}
+
+################ COMPOUND PROPERTIES ###################
+
+staticcompound = {"/people/person/sibling_s":OrderedDict([("Sibling" , "/people/sibling_relationship/sibling")])
+          ,"/business/board_member/organization_board_memberships" : OrderedDict([
+               ("Organization", "/organization/organization_board_membership/organization")
+               ,("Role" , "/organization/organization_board_membership/role")
+               ,("Title" , "/organization/organization_board_membership/title")
+               ,("From" , "/organization/organization_board_membership/from")
+               ,("To" , "/organization/organization_board_membership/to")
+              ]),
+           "/film/actor/film": OrderedDict([
+		("Character", "/film/performance/character"),
+                ("FilmName", "/film/performance/film"),
+                ]),
+	   "/sports/sports_league/teams": OrderedDict([("TeamName", "/sports/sports_league_participation/team"),
+		]),
+	   "/sports/sports_team/coaches": OrderedDict([("Name", "/sports/sports_team_coach_tenure/coach"),
+		("Position", "/sports/sports_team_coach_tenure/position"),
+		("From", "/sports/sports_team_coach_tenure/from"),
+		("To", "/sports/sports_team_coach_tenure/to"),
+		]),
+	   "/sports/sports_team/league": OrderedDict([("League Name", "/sports/sports_league_participation/league"),
+		]),
+	   "/sports/sports_team/roster": OrderedDict([("Name", "/sports/sports_team_roster/player"),
+		("Position", "/sports/sports_team_roster/position"),
+		("Number", "/sports/sports_team_roster/number"),
+		("From", "/sports/sports_team_roster/from"),
+		("To", "/sports/sports_team_roster/to"),
+		]),
+            "/business/board_member/organization_board_memberships": OrderedDict([
+		("Organization", "/organization/organization_board_membership/organization"),
+		("Role", "/organization/organization_board_membership/role"),
+		("Title", "/organization/organization_board_membership/title"),
+                ("From", "/organization/organization_board_membership/from"),
+		("To", "/organization/organization_board_membership/to"),
+		]),
+	   "/business/board_member/leader_of": OrderedDict([
+		("Organization", "/organization/leadership/organization"),
+		("Role", "/organization/leadership/role"),
+		("Title", "/organization/leadership/title"),
+                ("From", "/organization/leadership/from"),
+		("To", "/organization/leadership/to"),
+		]),
+           "/people/person/spouse_s":OrderedDict([("Name","/people/marriage/spouse"),
+             ("From","/people/marriage/from"),
+             ("To","/people/marriage/to"),
+             ("Location","/people/marriage/location_of_ceremony"),
+             ]),
+           }
+
+###################################
