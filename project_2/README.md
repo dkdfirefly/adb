@@ -36,6 +36,8 @@ It is a joint project by
     Usage
     -----------
     
+    No special package installations are required. The code has been tested on a local Linux machine as well as on the clic machine.
+    
     Any of the following formats would work:
     
     ```sh
