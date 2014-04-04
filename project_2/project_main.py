@@ -117,7 +117,11 @@ staticcompound = {"/people/person/sibling_s":OrderedDict([("Sibling" , "/people/
                 ("From", "/organization/leadership/from"),
 		("To", "/organization/leadership/to"),
 		]),
-           "/people/person/spouse_s":OrderedDict([("Spouse","/people/marriage/spouse")]),
+           "/people/person/spouse_s":OrderedDict([("Name","/people/marriage/spouse"),
+             ("From","/people/marriage/from"),
+             ("To","/people/marriage/to"),
+             ("Location","/people/marriage/location_of_ceremony"),
+             ]),
            }
 
 ###################################
