@@ -404,22 +404,23 @@ def ansQuestion(query, apiKey):
         resultDict[result["name"]] += '<' + org['a:name'] + '>' + ', '
 #      print result['name']
 
-  queryNew = queryBook
-  params = {
-        'query': json.dumps(queryNew),
-        'key': apiKey
-  }
-  service_url = 'https://www.googleapis.com/freebase/v1/mqlread'
-  url = service_url + '?' + urllib.urlencode(params)
-  response = json.loads(urllib.urlopen(url).read())
+  if '/book/author' or '/book/book' in categories:
+    queryNew = queryBook
+    params = {
+          'query': json.dumps(queryNew),
+          'key': apiKey
+    }
+    service_url = 'https://www.googleapis.com/freebase/v1/mqlread'
+    url = service_url + '?' + urllib.urlencode(params)
+    response = json.loads(urllib.urlopen(url).read())
 
-  for result in response['result']:
-    if result["name"] in resultDict.keys():
-      resultDict[result["name"]] = "and (as Author) created "
-    else:
-      resultDict[result["name"]] = "(as Author) created "
-    for book in result['/book/author/works_written']:
-      resultDict[result["name"]] += '<' + book['a:name'] + '>' + ', '
+    for result in response['result']:
+      if result["name"] in resultDict.keys():
+        resultDict[result["name"]] = "and (as Author) created "
+      else:
+        resultDict[result["name"]] = "(as Author) created "
+      for book in result['/book/author/works_written']:
+        resultDict[result["name"]] += '<' + book['a:name'] + '>' + ', '
 #    print result['name']
 
   count = 1
