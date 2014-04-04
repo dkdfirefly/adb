@@ -315,7 +315,7 @@ def createInfoBox(query, apiKey):
         header += cat+', '
   header = header[:-2]+')'
   print '-'*121
-  print '|' + ' '*(119 - len(header)/2) + header + ' '*(119 - len(header)/2) + '|'
+  print '|' + ' '*((119 - len(header))/2) + header + ' '*((119 - len(header))/2) + ' |'
   print '-'*121
   for types in  commonCategories:
 #    print '######## ' + str(types) + ' ########'
