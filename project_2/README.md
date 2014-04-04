@@ -62,6 +62,9 @@ It is a joint project by
     **Note:**
 
     - We have grouped the properties by type, that is League-Team, League-Person and Person-Team properties are not mixed. However, all the person properties are grouped under a single header. The preference order is League followed by sports team and person at last
+    - The data validity for each of the queried terms is done using try-catch statements checking for KeyError on return values.
+    - A general framework is used for handling the printing for compound value types, based on compound values specified. This is a bit different from the reference implementation, but it made sense to have a general method, than to specify separately for all of them.
+    - The ordering is maintained only at the level of the compound values and not for the property level.
     
     Part 2:
     -------
