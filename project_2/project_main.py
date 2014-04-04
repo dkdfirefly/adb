@@ -289,7 +289,7 @@ def getSubPropValues(dictionary,detail):
   return val
 
 
-def getBingJSONResults(QueryTerms,apiKey):
+def getJSONResults(QueryTerms,apiKey):
   """Handles forming the query URL and hits the Freebase search API to retrieve the top JSON results
   """
   Query = '%20'.join(QueryTerms)
@@ -307,7 +307,7 @@ def createInfoBox(query, apiKey):
   Handles the infobox types of queries
   Gets BING results, and calls getSubProp to get individual values
   """
-  data =  getBingJSONResults(query.split(' '),apiKey)
+  data =  getJSONResults(query.split(' '),apiKey)
   for topics in data['result']:
     dt = topics['mid']
     #print dt
@@ -370,7 +370,7 @@ def ansQuestion(query, apiKey):
   Gets the BING results, and creates the MQL query fetching appropriate results
   """
   QueryTerms = query.split(' ')
-  data =  getBingJSONResults(QueryTerms, apiKey)
+  data =  getJSONResults(QueryTerms, apiKey)
   ############## Query Types ###############
   queryOrg = [{
 	"/organization/organization_founder/organizations_founded": [{
