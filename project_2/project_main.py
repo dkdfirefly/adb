@@ -40,7 +40,7 @@ peopleProp = {'Name':'/type/object/name'
 authorProp = { "Books": "/book/author/works_written",
 	"BooksAboutTheAuthor": "/book/book_subject/works",
 	"Influenced": "/influence/influence_node/influenced",
-	"Influenced by": "/influence/influence_node/",
+	"Influenced by": "/influence/influence_node/influenced_by",
 	}
 
 actorProp = { "FilmsParticipated": "/film/actor/film", #compound
