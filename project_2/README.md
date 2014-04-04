@@ -71,6 +71,16 @@ It is a joint project by
     
     Questions in the form of 'Who created X?' are supported by this section. X could be either the name of a book or an organization, as only these two types are supported currently. The Freebase MQL read API is used to find the author/founder of the subject in the question. 
     
+    The specific fields used are:
+    
+    - /organization/organization_founder/organization_founded for BusinessPerson type of questions
+    - /book/author/works_written for Author type of questions
+    
+    **Note**
+    
+    - We have grouped author and business person type of results in case both of them are present for a particular person, unlike the reference implementation.
+    - Sorting is by the name of the person in the alphabetical order.
+    
     
     Function description
     ---------------------
