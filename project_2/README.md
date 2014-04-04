@@ -1,7 +1,7 @@
-Requery
+Knowledge Base
 =========
 
-Requery utilizes user relevance feedback to rephrase the initial query and thereby attempt to come up with better results.
+Knowledge Base is a tool that queries Freebase database to give results in the form of structured information for user speified queries and answer simple questions, similar to how search engines these days work.
 
 It is a joint project by
   - Sarah Panda - sp3206
@@ -12,66 +12,36 @@ It is a joint project by
     Design Principle
     ----------------
 
-    > While some complicated and to-say funky features
-    > could be implemented, the implementation has been kept fairly general
-    > so as not to favor particular types of queries and generate noise for
-    > a whole lot other set.
+    > Freebase is a pool of structured information about various topics. 
+    > Our project uses Freebase API to get desired results in JSON format. Only a subset of all information
+    > is shown in the infobox, which is in accordance with the fields mentioned in the project description.
     
     File List
     ----
     - project_main.py - main source code
     - README.md - markdown syntax file
     - README.txt - text version of README
-    - transcripts/gates.txt - iterations for 'gates'
-    - transcripts/columbia.txt - iteration for 'columbia'
-    - transcripts/snow_leopard.txt - iterations for 'snow leopard'
+    - transcripts/infobox.txt - includes infobox for all queries given in the project description
+    - transcripts/question.txt - includes answers for all questions mentioned in the project description
 
 
     Essentials
     ----
 
-    Bing account search key - **aku05TIbEb+Glieu53ng1+Y7Y9kjjNjfNL3mUxJxQco**
+    Freebase API key - **AIzaSyAa5--dD-33luOjnk6son8JqqkuHEQwKaQ**
 
     The key is personal, and should not be used without contacting the author of this article.
 
-    Installation
-    --------------
-
-    You need to install nltk in order to run the code.
-
-    ```sh
-    sudo pip install -U numpy
-    sudo pip install -U pyyaml nltk
-    ```
-    These are the general instructions. Detailed instructions present at [nltk website](http://www.nltk.org/install.html)
-
-    The above works only if you have sudo permission on your box. In case you don't, this is what can help:
-    
-    ```sh
-    pip install --user numpy
-    pip install --user pyyaml
-    pip install --user nltk
-    ```
-    
-    Also, you need to download specific corpus using nltk for use in this project. From the python prompt
-
-    ```sh
-    >>> import nltk
-    >>> nltk.download("stopwords")
-    ```
-    You could alternatively use the windowed environment using just, if your system so provides
-    ```sh
-    >>> import nltk
-    >>> nltk.download()
-    ```
-    Further information available in [nltk documentation](http://www.nltk.org/data.html)
-    
-
     Usage
     -----------
-
+    
+    Any of the following formats would work:
+    
     ```sh
-    python project_main.py <account-key> <precision> <query>
+    python project_main.py --key <Freebase API key> -q <query> -t <infobox|question>
+    python project_main.py --key <Freebase API key> -f <file of queries> -t <infobox|question>
+    python project_main.py --key <Freebase API key>
+    
     ```
 
     Implementation
