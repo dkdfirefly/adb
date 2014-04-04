@@ -437,9 +437,12 @@ def sigintHandler(signum, frame):
 def printHelp():
   """Print the available Usage details
   """
-  print 'project_main.py -key <Freebase API key> -q <query> -t <infobox|question>'
-  print 'project_main.py -key <Freebase API key> -f <file of queries> -t <infobox|question>'
-  print 'project_main.py -key <Freebase API key>'
+  print 'project_main.py --key <Freebase API key> -q <query> -t <infobox|question>'
+  print 'project_main.py --key <Freebase API key> -f <file of queries> -t <infobox|question>'
+  print 'project_main.py --key <Freebase API key>'
+  print '***************************************************************************'
+  print "Please Note: There are two hyphen for key argument (See above for usage)"
+  print '***************************************************************************'
 
 def main(argv):
   """Check the input arguments and call appropriate functions
@@ -465,9 +468,9 @@ def main(argv):
   notSpecified = [] # to contain the arguments which are not specified
 
   """
-  'project_main.py -key <Freebase API key> -q <query> -t <infobox|question>' => target 1
-  'project_main.py -key <Freebase API key> -f <file of queries> -t <infobox|question>' => target 2
-  'project_main.py -key <Freebase API key>' => target 3
+  'project_main.py --key <Freebase API key> -q <query> -t <infobox|question>' => target 1
+  'project_main.py --key <Freebase API key> -f <file of queries> -t <infobox|question>' => target 2
+  'project_main.py --key <Freebase API key>' => target 3
   """
   # Check if all the appropriate arguments have been specified
   try:
