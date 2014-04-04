@@ -1,7 +1,7 @@
 Knowledge Base
 =========
 
-Knowledge Base is a tool that queries Freebase database to give results in the form of structured information for user speified queries and answer simple questions, similar to how search engines these days work.
+Knowledge Base is a tool that queries Freebase database to give results in a structured format for user speified queries and answer simple questions, similar to how search engines these days work.
 
 It is a joint project by
   - Sarah Panda - sp3206
@@ -59,15 +59,6 @@ It is a joint project by
     in the query.
     - Reordering after query expansion is done based on high weights on bigrams collected from the relevant documents. Higher
     priority is given to bigrams than unigrams while deciding the order of terms in the new query sequence.
-
-    Features not provided for a purpose
-    -------------------------
-    - Considering the entire text from the url marked relevant: The user who marks the result relevant/irrelevant does not 
-    see the entire page, so if we factor the entire content, that does not make lot of sense.
-    - Authoritative websites: This would require a bit of network analysis to be done beforehand, which was not allowed for 
-    this project; otherwise it would just be heuristics.
-    - Stemming of words: As there are very few tokens that are considered at each iteration for query expansion, if different 
-    tokens map to the same stemmed word, then it could add to the noise.
     
     
     Function description
