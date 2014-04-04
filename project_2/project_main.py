@@ -290,7 +290,7 @@ def createInfoBox(query, apiKey):
   data =  getBingJSONResults(query.split(' '),apiKey)
   for topics in data['result']:
     dt = topics['mid']
-    print dt
+    #print dt
     #print '--------------------'
     topicurl = 'https://www.googleapis.com/freebase/v1/topic'+str(dt)+'?key=' + apiKey
     #print topicurl
@@ -303,7 +303,7 @@ def createInfoBox(query, apiKey):
       categories.append(cg['id'])
     commonCategories = set(categories).intersection(set(allcategories.keys()))
     if len(commonCategories)>0:
-      print commonCategories
+      #print commonCategories
       break
   for i in range(0,6):
     subPropChecked[i] = 0
@@ -521,14 +521,18 @@ def main(argv):
     f = open(queryFile, 'r')
     if(task == "infobox"):
       for line in f:
+        print 'Query: ' + line
         createInfoBox(line.strip('\n'), apiKey)
+        print
     elif(task == "question"):
       for line in f:
+        print 'Question: ' + line
         pat = 'Who created ([\w\s.-]+)\?*'
         match = re.search(pat, line.strip('\n'), re.IGNORECASE)
         if match:
           query = match.group(1)
           ansQuestion(query, apiKey)
+        print
   elif(target == 3):
     # only key specified
     signal.signal(signal.SIGINT, sigintHandler)
