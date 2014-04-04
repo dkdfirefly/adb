@@ -46,6 +46,8 @@ It is a joint project by
 
     Implementation
     ---------------
+    Part 1:
+    -------
     
     The first section of the code specifies the fieldnames for different types of properties we wish to retrieve for a given query, with reference to the corresponding fields in the JSON results. This specification has 3 sections. 
     > First, we specify what categories we are going to look for (i.e. allowed results from within /type/object/type property). 
@@ -56,23 +58,23 @@ It is a joint project by
     
     For each of the category the result belongs to, the corresponding property values are extracted from the JSON output and printed in the infobox format.
     
+    Part 2:
+    -------
+    
+    Questions in the form of 'Who created X?' are supported by this section. X could be either the name of a book or an organization, as only these two types are supported currently. The Freebase MQL read API is used to find the author/founder of the subject in the question. 
+    
+    
     Function description
     ---------------------
     Though more detailed description is available in the code documentation, this is the brief idea.
     
-    - **main** - This function takes in arguments from command line and runs in loop until a specified precision level is achieved.
-    The loop handles adding terms to the vocabulary, to keep count of frequency for both unigrams and bigrams. It performs 
-    the query expansion wherein ordering is decided on the relative positioning of bigrams, if present, in relevant documents
-    - **getSubProp** - preProcess on any text, converts it into lowercase and removes punctuations(selected, ignoring a few like +, $)
-    and stopwords.
-    - **getSubPropValues** - preProcess on any text, converts it into lowercase and removes punctuations(selected, ignoring a few like +, $)
-    and stopwords.
-    - **getBingJSONResults** - This function handles forming the query URL and hits the Bing Web search API to retrieve top 10 JSON
+    - **main** -
+    - **getSubProp** - 
+    - **getSubPropValues** - 
+    - **getBingJSONResults** - This function handles forming the query URL and hits the Freebase search API to retrieve top JSON
     results.
-    - **createInfoBox** - Given a text and a weight factor, this function adds the terms of the text and their respective weights to
-    an existing vocabulary. 
-    - **ansQues** - Given a text and a weight factor, this function adds the terms of the text and their respective weights to
-    an existing vocabulary. 
+    - **createInfoBox** -  
+    - **ansQues** -  
 
     License
     ----
