@@ -319,26 +319,31 @@ def createInfoBox(query, apiKey):
     if len(commonCategories)>0:
       #print commonCategories
       break
+
   for i in range(0,6):
     subPropChecked[i] = 0
   categorynames = []
-  for cat in commonCategories:
-      categorynames.append(allcategories[cat])
-  
   try:
-     header = detail["property"]['/type/object/name']["values"][0]['text']+'('
-  except KeyError:
-      header = '('
-  for cat in set(categorynames):
-      if cat!='':
-        header += cat+', '
-  header = header[:-2]+')'
-  print '-'*121
-  print '|' + ' '*((119 - len(header))/2) + header + ' '*((119 - len(header))/2) + ' |'
-  print '-'*121
-  for types in  commonCategories:
-#    print '######## ' + str(types) + ' ########'
-    getSubProp(types,detail)
+    for cat in commonCategories:
+        categorynames.append(allcategories[cat])
+    
+    try:
+       header = detail["property"]['/type/object/name']["values"][0]['text']+'('
+    except KeyError:
+        header = '('
+    for cat in set(categorynames):
+        if cat!='':
+          header += cat+', '
+    header = header[:-2]+')'
+    print '-'*121
+    print '|' + ' '*((119 - len(header))/2) + header + ' '*((119 - len(header))/2) + ' |'
+    print '-'*121
+    for types in  commonCategories:
+  #    print '######## ' + str(types) + ' ########'
+      getSubProp(types,detail)
+  except:
+    print 'No matches found....Exiting'
+    sys.exit()
 
 def ansQuestion(query, apiKey):
   QueryTerms = query.split(' ')
@@ -364,7 +369,11 @@ def ansQuestion(query, apiKey):
         }]
   resultDict = {}
   ######## Book or Organization? ###########
-  dt = data['result'][0]['mid']
+  try:
+   dt = data['result'][0]['mid']
+  except:
+    print 'No matches found.....Exiting'
+    sys.exit()
   topicurl = 'https://www.googleapis.com/freebase/v1/topic'+str(dt)+'?key=' + apiKey
   req = urllib2.Request(topicurl)
   response = urllib2.urlopen(req)
