@@ -303,6 +303,19 @@ def createInfoBox(query, apiKey):
     for cg in detail['property']['/type/object/type']['values']:
       categories.append(cg['id'])
     commonCategories = set(categories).intersection(set(allcategories.keys()))
+
+    # Group by properties
+
+    # Only league
+    if "/sports/sports_league" in commonCategories:
+      commonCategories = set(["/sports/sports_league"])
+    # Only sports team
+    elif "/sports/sports_team" in commonCategories:
+      commonCategoies = set(["/sports/sports_team"])
+    # Only professional sports team
+    elif "/sports/professional_sports_team" in commonCategories:
+      commonCategories = set(["/sports/professional_sports_team"])
+
     if len(commonCategories)>0:
       #print commonCategories
       break
