@@ -332,7 +332,7 @@ def ansQuestion(query, apiKey):
 	}],
 	"id": None,
 	"name": None,
-	"type": "/people/person"
+	"type": "/organization/organization_founder"
         }]
 
   queryBook = [{"/book/author/works_written": [{
@@ -341,7 +341,7 @@ def ansQuestion(query, apiKey):
 	}],
 	"id": None,
 	"name": None,
-	"type": "/people/person"
+	"type": "/book/author"
         }]
   resultDict = {}
   ######## Book or Organization? ###########
