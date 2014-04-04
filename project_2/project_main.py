@@ -536,8 +536,12 @@ def main(argv):
   if(target == 1):
     # query specified
     if(task == "infobox"):
+      print 'Query: ' + query
+      print
       createInfoBox(query, apiKey)
     elif(task == "question"):
+      print 'Question: ' + query
+      print
       pat = 'Who created ([\w\s.-]+)\?*'
       match = re.search(pat, query, re.IGNORECASE)
       if match:
@@ -571,9 +575,13 @@ def main(argv):
       match = re.search(pat, inputQuery, re.IGNORECASE)
       if match:
         query = match.group(1)
+        print 'Question: ' + inputQuery
+        print
         ansQuestion(query, apiKey)
       else:
         query = inputQuery
+        print 'Query: ' + inputQuery
+        print
         createInfoBox(query, apiKey)
 
 
