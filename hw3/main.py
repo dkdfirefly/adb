@@ -16,34 +16,23 @@ min_conf = 0.8
 k=0
 candGroup = []
 candK = []
-
 support = dict();
-l0=[]
+
+lineNum = 0
 for rows in sample:
+    lineNum += 1
     for item in rows:
         itemTuple = (item,)
-        try:
-            support[itemTuple]+=1
-        except KeyError:
-            support[itemTuple]=1
+        if itemTuple in support.keys():
+            support[itemTuple].append(lineNum)
+        else:
+            support[itemTuple] = [lineNum]
 print support
-candK = [list(i) for i in support.keys() if (support[i]*1.0)/len(support.keys()) >= min_support];
+candK = [list(i) for i in support.keys() if (len(support[i])*1.0)/len(support.keys()) >= min_support];
 candGroup.append(candK)
 print 'group'
 print candGroup
 k+=1
-
-##### Candidate set #####
-##l1=[]
-##for i in range(len(L[k-1])):
-##    for j in range(i+1,len(L[k-1])):
-##        if L[k-1][i][:-1]==L[k-1][j][:-1]:
-##           temp = []
-##           temp.append(L[k-1][i])
-##           temp[0].append(L[k-1][j][-1])
-##           l1.append(temp)
-##L.append(l1)
-##print L
 
 candK = []
 
