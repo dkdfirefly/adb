@@ -1,3 +1,4 @@
+import copy
 import itertools
 
 # Hardcoded samples
@@ -17,6 +18,7 @@ k=0
 candGroup = []
 candK = []
 support = dict();
+conf = dict();
 
 lineNum = 0
 for rows in sample:
@@ -52,12 +54,8 @@ print 'group'
 print candGroup
 
 #prune
-candK = candGroup[-1]
+candK = copy.deepcopy(candGroup[-1])
 candK_1 = candGroup[-2]
-print 'candK'
-print candK
-print 'candK_1'
-print candK_1
 for cand in candK:
      # get all the permutations of cand
      for comb in list(itertools.combinations(cand,k)):
@@ -66,12 +64,30 @@ for cand in candK:
          # check if each permutation is present in the (k-1)
          if list(comb) not in candK_1:
              print 'in'
-             if cand in candK:
-                 candK.remove(cand)
+             if cand in candGroup[-1]:
+                 candGroup[-1].remove(cand)
                  print 'in2'
-
-candGroup.pop()
-candGroup.append(candK)
 
 print 'group'
 print candGroup
+
+#support
+candK = copy.deepcopy(candGroup[-1])
+for cand in candK:
+  print cand
+  set1 = set(support[tuple(cand[:-1])])
+  set2 = set(support[tuple([cand[-1]])])
+  setInt = set.intersection(set1, set2)
+  print setInt
+  if len(list(setInt))*1.0/lineNum < min_support:
+    candGroup[-1].remove(cand)
+  else:
+    support[tuple(cand)] = list(setInt)
+
+print support
+
+#confidence
+candK = copy.deepcopy(candGroup[-1])
+for cand in candK:
+  print cand
+
