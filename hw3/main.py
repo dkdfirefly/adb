@@ -30,6 +30,9 @@ for rows in sample:
         else:
             support[itemTuple] = [lineNum]
 print support
+
+# TODO:
+#   Remove from support those keys which are not >= support
 candK = [list(i) for i in support.keys() if (len(support[i])*1.0)/len(support.keys()) >= min_support];
 candGroup.append(candK)
 print 'group'
@@ -90,4 +93,11 @@ print support
 candK = copy.deepcopy(candGroup[-1])
 for cand in candK:
   print cand
+  for perm in list(itertools.permutations(cand,len(cand))):
+    for i in range(len(perm)-1):
+      left = list(perm)[:(i+1)]
+      right = list(perm)[(i+1):]
+      if len(support[tuple(cand)])*1.0/len(support[tuple(left)]) >= min_conf:
+        conf[tuple(left)] = tuple(right)
 
+print conf
