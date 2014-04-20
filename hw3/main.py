@@ -128,6 +128,8 @@ print '==Frequent itemsets (min_sup=' + str(min_support*100.0) + '%)'
 for cand in sorted(support, key = lambda x: len(support[x]), reverse = True):
   print str(list(cand)) + ', ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%'
 
+# TODO
+#   print them in decreasing order of confidence
 print
 print '==High-confidence association rules (min_conf=' + str(min_conf*100.0) + '%)'
 for left, right in conf.items():
