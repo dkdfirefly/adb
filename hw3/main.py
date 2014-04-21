@@ -4,6 +4,7 @@ import operator
 
 # Hardcoded samples
 #sample = [['pen', 'ink', 'diary', 'soap'], ['pen','ink', 'diary'],['pen','diary'], ['pen','ink','soap']]
+
 sample = [['pen', 'ink', 'diary', 'soap','book'], ['pen','diary','ink','book'],['pen','ink','book'], ['pen','ink'], ['ink','soap','book'],['pen','ink','soap','book']]
 
 # Input params
@@ -89,15 +90,17 @@ while k < keyLength and loop == 1:
   loop = 0
   candK = copy.deepcopy(candGroup[-1])
   for cand in candK:
+    print '------------- support ---------------'
     print cand
-    set1 = set(support[tuple(cand[:-1])])
-    set2 = set(support[tuple([cand[-1]])])
+    set1 = set(support[tuple(sorted(cand[:-1]))])
+    set2 = set(support[tuple(sorted([cand[-1]]))])
     setInt = set.intersection(set1, set2)
+    print '------------- setint ----------------'
     print setInt
     if len(list(setInt))*1.0/lineNum < min_support:
       candGroup[-1].remove(cand)
     else:
-      support[tuple(cand)] = list(setInt)
+      support[tuple(sorted(cand))] = list(setInt)
       loop = 1
 
   print support
@@ -111,13 +114,10 @@ while k < keyLength and loop == 1:
       for i in range(len(perm)-1):
         left = list(perm)[:(i+1)]
         right = list(perm)[(i+1):]
-        try:
-          if len(support[tuple(cand)])*1.0/len(support[tuple(left)]) >= min_conf:
-            conf[tuple(left)] = tuple(right)
-            loop = 1
-        except KeyError:
-          continue
-
+        if len(support[tuple(sorted(cand))])*1.0/len(support[tuple(sorted(left))]) >= min_conf:
+          conf[tuple(sorted(left))] = tuple(sorted(right))
+          loop = 1
+  print 'Problem solved'
   print conf
 
   k+= 1
@@ -130,17 +130,16 @@ while k < keyLength and loop == 1:
 print
 print '==Frequent itemsets (min_sup=' + str(min_support*100.0) + '%)'
 for cand in sorted(support, key = lambda x: len(support[x]), reverse = True):
-  print str(list(cand)) + ', ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%'
+  print str(list(cand)) + ', ' + str(len(support[tuple(sorted(cand))])*100.0/lineNum) + '%'
 
 # TODO
 #   print them in decreasing order of confidence
 print
 print '==High-confidence association rules (min_conf=' + str(min_conf*100.0) + '%)'
 for left, right in conf.items():
-  print left, right
-  if tuple(left).__add__(tuple(right)) in support.keys():
-    print str(list(left)) + ' => ' + str(list(right)) + ' (Conf:' + str(len(support[tuple(left).__add__(tuple(right))])*100.0/len(support[tuple(left)])) + '%, Supp: ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%)'
+  if tuple(sorted(tuple(left).__add__(tuple(right)))) in support.keys():
+    print str(list(left)) + ' => ' + str(list(right)) + ' (Conf:' + str(len(support[tuple(sorted(tuple(left).__add__(tuple(right))))])*100.0/len(support[tuple(left)])) + '%, Supp: ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%)'
   else:
-    print str(list(left)) + ' => ' + str(list(right)) + ' (Conf:' + str(len(support[tuple(right).__add__(tuple(left))])*100.0/len(support[tuple(left)])) + '%, Supp: ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%)'
+    print str(list(left)) + ' => ' + str(list(right)) + ' (Conf:' + str(len(support[tuple(sorted(tuple(right).__add__(tuple(left))))])*100.0/len(support[tuple(left)])) + '%, Supp: ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%)'
 
 
