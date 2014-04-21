@@ -3,11 +3,12 @@ import itertools
 import operator
 
 # Hardcoded samples
-sample = [['pen', 'ink', 'diary', 'soap'], ['pen','ink', 'diary'],['pen','diary'], ['pen','ink','soap']]
+#sample = [['pen', 'ink', 'diary', 'soap'], ['pen','ink', 'diary'],['pen','diary'], ['pen','ink','soap']]
+sample = [['pen', 'ink', 'diary', 'soap','book'], ['pen','diary','ink','book'],['pen','ink','book'], ['pen','ink'], ['ink','soap','book'],['pen','ink','soap','book']]
 
 # Input params
-min_support = 0.7
-min_conf = 0.8
+min_support = 0.5
+min_conf = 0.6
 
 # Terminologies
 #   candGroup : list of list(candK) of list(cand) => The entire candidate structure
@@ -110,9 +111,12 @@ while k < keyLength and loop == 1:
       for i in range(len(perm)-1):
         left = list(perm)[:(i+1)]
         right = list(perm)[(i+1):]
-        if len(support[tuple(cand)])*1.0/len(support[tuple(left)]) >= min_conf:
-          conf[tuple(left)] = tuple(right)
-          loop = 1
+        try:
+          if len(support[tuple(cand)])*1.0/len(support[tuple(left)]) >= min_conf:
+            conf[tuple(left)] = tuple(right)
+            loop = 1
+        except KeyError:
+          continue
 
   print conf
 
@@ -133,6 +137,7 @@ for cand in sorted(support, key = lambda x: len(support[x]), reverse = True):
 print
 print '==High-confidence association rules (min_conf=' + str(min_conf*100.0) + '%)'
 for left, right in conf.items():
+  print left, right
   if tuple(left).__add__(tuple(right)) in support.keys():
     print str(list(left)) + ' => ' + str(list(right)) + ' (Conf:' + str(len(support[tuple(left).__add__(tuple(right))])*100.0/len(support[tuple(left)])) + '%, Supp: ' + str(len(support[tuple(cand)])*100.0/lineNum) + '%)'
   else:
