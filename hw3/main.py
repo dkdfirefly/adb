@@ -1007,6 +1007,21 @@ sample = [['LBE','Brooklyn','11204'],
 ['MBE','ASIAN','Wood Ridge','7075'],
 ['MBE','ASIAN','Brooklyn','11238'],
 ['MBE','BLACK','Bronx','10454']]
+
+
+file = open("NYC_Open_Data_Plan.csv")
+sample = []
+i=0
+for line in file:
+    i+=1
+    temp = line.split(',')[:-3]
+    temp = filter(lambda a: a != '', temp)
+    temp = filter(lambda a: a != '\n', temp)
+    temp = filter(lambda a: a != 'N/A', temp)
+    sample.append(temp)
+    if i>=4000:
+      break
+  
 # Input params
 min_support = 0.1
 min_conf = 0.2
