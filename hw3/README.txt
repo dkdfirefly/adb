@@ -26,3 +26,7 @@ filtered only year - 09-10, 11-12
 total_enrollment - value mod 500, append "-t"
 all other races - value mod 10, append "-a"(asian), "-b"(black), "-h"(hispanic), "-wh"(white), "-male", "-f"(female)
 
+Progress Report
+================
+taking only years: 2010-11, 2008-09
+broken down to 2 records - corresponding to each year.
