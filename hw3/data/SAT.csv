@@ -4,7 +4,7 @@ M450,East Side Community High School ,8-r,8-m,8-w
 M458,SATELLITE ACADEMY FORSYTH ST ,7-r,7-m,7-w
 M509,CMSP HIGH SCHOOL ,0-r,0-m,0-w
 M515,Lower East Side Preparatory High School ,6-r,10-m,6-w
-M539,"New Explorations into Sci, Tech and Math HS ",11-r,11-m,11-w
+M539,New Explorations into Sci Tech and Math HS ,11-r,11-m,11-w
 M650,CASCADES HIGH SCHOOL ,8-r,8-m,8-w
 M696,BARD HIGH SCHOOL EARLY COLLEGE ,12-r,12-m,12-w
 M047,AMERICAN SIGN LANG ENG DUAL ,8-r,8-m,7-w
@@ -69,7 +69,7 @@ M630,HIGH SCHOOL OF ART AND DESIGN ,8-r,8-m,8-w
 M655,LIFE SCIENCES SECONDARY SCHOOL ,7-r,7-m,7-w
 M690,SCHOOL FOR THE PHYSICAL CITY ,7-r,8-m,7-w
 M283,MANHATTAN THEATRE LAB HIGH SCHOOL ,8-r,7-m,7-w
-M299,"High School For Arts, Imagination And Inquiry ",7-r,7-m,7-w
+M299,High School For Arts Imagination And Inquiry ,7-r,7-m,7-w
 M307,Urban Assembly School For Media Studies ,7-r,7-m,7-w
 M404,INNOVATION DIPLOMA PLUS HIGH SCHOOL ,0-r,0-m,0-w
 M415,WADLEIGH SECONDARY SCHOOL ,7-r,7-m,7-w
@@ -166,7 +166,7 @@ X543,HIGH SCHOOL VIOLIN AND DANCE ,6-r,7-m,6-w
 X141,RIVERDALE KINGSBRIDGE ACADEMY ,9-r,9-m,9-w
 X213,BRONX ENGINEERING & TECH ACADEMY ,7-r,8-m,7-w
 X225,Theatre Arts Production Company School ,7-r,7-m,7-w
-X237,"Marie Curie HS for Nur, Med and Allied Health Prof ",7-r,7-m,7-w
+X237,Marie Curie HS for Nur Med and Allied Health Prof ,7-r,7-m,7-w
 X243,WEST BRONX ACADEMY FOR FUTURE ,7-r,7-m,7-w
 X268,Kingsbridge International High School ,6-r,6-m,5-w
 X284,BRONX SCHOOL OF LAW & FINANCE ,8-r,7-m,7-w
@@ -250,7 +250,7 @@ K449,BROOKLYN LATIN SCHOOL ,10-r,10-m,10-w
 K454,GREEN SCHOOL: AN ACADEMY FOR ENVIRONMEN ,7-r,7-m,7-w
 K474,Progress High School For Professional Careers ,7-r,7-m,7-w
 K477,School for Legal Studies ,7-r,7-m,7-w
-K478,"Enterprise, Business and Technology High School ",7-r,7-m,7-w
+K478,Enterprise Business and Technology High School ,7-r,7-m,7-w
 K488,BROOKLYN PREP HIGH SCHOOL ,7-r,7-m,7-w
 K558,Williamsburg High School for Architecture & Design ,7-r,7-m,7-w
 K561,WILLIAMSBURG PREP ,7-r,7-m,7-w
@@ -262,7 +262,7 @@ K685,El Puente Academy for Peace and Justice ,7-r,7-m,7-w
 K923,YABC at Automative High School ,0-r,0-m,0-w
 K429,BROOKLYN SCHOOL GLOBAL STUDIES ,7-r,7-m,7-w
 K448,Brooklyn Secondary Sch for Collaborative Studies ,7-r,7-m,7-w
-K462,"Secondary School for Law, Journalism and Research ",8-r,8-m,7-w
+K462,Secondary School for Law Journalism and Research ,8-r,8-m,7-w
 K463,SECONDARY SCHOOL JOURNALISM ,7-r,7-m,7-w
 K464,SECONDARY SCHOOL FOR RESEARCH ,7-r,7-m,7-w
 K497,SCHOOL INTERNATIONAL STUDIES ,8-r,8-m,7-w
@@ -317,7 +317,7 @@ K642,Urban Action Academy ,0-r,0-m,0-w
 K673,East Brooklyn Community High School ,0-r,0-m,0-w
 K409,EAST NEW YORK FAMILY ACADEMY ,8-r,8-m,8-w
 K420,FRANKLIN K LANE HIGH SCHOOL ,7-r,7-m,6-w
-K431,"YOUNG ADULT BOROUGH CTR, THOMAS JEFFERS ",0-r,0-m,0-w
+K431,YOUNG ADULT BOROUGH CTR THOMAS JEFFERS ,0-r,0-m,0-w
 K435,THOMAS JEFFERSON HIGH SCHOOL ,0-r,0-m,0-w
 K502,FDNY HIGH SCH DOR FIRE & LIFE ,7-r,7-m,7-w
 K504,HIGH SCHOOL FOR CIVIL RIGHTS ,7-r,7-m,7-w
@@ -392,7 +392,7 @@ Q495,BAYSIDE HIGH SCHOOL ,9-r,10-m,9-w
 Q566,Queens High School-Teaching Liberal Arts Sciences ,8-r,9-m,8-w
 Q260,FREDERICK DOUGLASS ACADEMY VI ,7-r,7-m,7-w
 Q262,CHANNEL VIEW SCHOOL FOR RESEARCH ,9-r,8-m,8-w
-Q302,"Queens High School for Information, Research, and Te ",0-r,0-m,0-w
+Q302,Queens High School for Information Research, and Te ,0-r,0-m,0-w
 Q308,Robert H. Goddard High School for Communication Art ,0-r,0-m,0-w
 Q309,ACADEMY OF MEDICAL TECHNOLOGY ,0-r,0-m,0-w
 Q323,Region Five Scholars' Academy ,0-r,0-m,0-w
@@ -402,7 +402,7 @@ Q465,FAR ROCKAWAY HIGH SCHOOL ,7-r,7-m,7-w
 Q475,RICHMOND HILL HIGH SCHOOL ,7-r,8-m,7-w
 Q480,JOHN ADAMS HIGH SCHOOL ,7-r,8-m,8-w
 Q487/27Q481,YABC AT JOHN ADAMS HIGH SCHOOL ,0-r,0-m,0-w
-Q650,"HS for Construction Trades, Engineering and Arch ",8-r,9-m,8-w
+Q650,HS for Construction Trades Engineering and Arch ,8-r,9-m,8-w
 Q310,Queens Collegiate: A College Board School ,0-r,0-m,0-w
 Q338,SATELLITE ACADEMY ,6-r,7-m,6-w
 Q440,FOREST HILLS HIGH SCHOOL ,9-r,9-m,9-w
