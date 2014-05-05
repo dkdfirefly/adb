@@ -114,6 +114,30 @@ It is a joint project by
     - *Neglected Fields* - Blank Fields, those with only a space, a newline, fields with 'N/A' and those with field length lesser than threshold have been neglected for all purposes of this algorithm.
     
     
+    Sample Run:
+    ------------
+
+    This particular configuartion gives interesting results for this dataset.
+    
+    ```sh
+    python run.py INTEGRATED-DATASET.csv 0.1 0.6
+    ```
+
+    We get association rules like:
+    - ['7-r', 'B'] => ['7-w'] with (Conf: 92.6315789474%, Supp: 10.268378063%)
+    - ['3-b', '7-r'] => ['7-w'] with (Conf: 91.6666666667%, Supp: 12.8354725788%)
+    
+    which has interpretations as :
+    - schools with SAT reading scores from 350-400(7x50), and having grade 'B' tend to also have SAT writing scores from 350-400(7x50).
+    - schools with 30-40%(3x10) black demographic and having reding scores from 350-400(7x50) also tend to have SAT writing scores from 350-400(7x50)
+    - and so on.
+    
+    Thus we do get the relations we had set out to extract. There is a bit of bias for scores in the range 350-400 but that is because most of the results lie in that category.
+    
+    However, we do obtain associations mapping grades and demographic to results and the interdependence of SAT scores, which confirms our initial theory. As to why this particular combination, I would say because it gives about the right number of frequent itemsets and high conf association rules which can be comprehended and made sense of; as also explains the underlying truth for the dataset.
+    
+
+    
     Function description
     ---------------------
     Though more detailed description is available in the code documentation, this is the brief idea.
