@@ -41,7 +41,7 @@ It is a joint project by
     Dataset Generation:
     -------
     
-    In each of the datasets, we have used only those fields that are mentioned explicitly here. We have manipulated the numerical score values, so as to normalize them in a way to be conducive to the a-priori algorithm and have appended special characters in order to differentiate in between the numerical fields. Whenever a value was absent, it was replaced with a blank.
+    In each of the datasets, we have used only those fields that are mentioned explicitly here. We have manipulated the numerical score values, so as to normalize them in a way to be conducive to the a-priori algorithm. Each of the division is an integral division, so as to bucketise the values. We have also  appended special characters in order to differentiate in between the numerical fields. Whenever a value was absent, it was replaced with a blank.
     
     ####SAT Results: [2010 data](https://data.cityofnewyork.us/Education/SAT-College-Board-2010-School-Level-Results/zt9s-n5aj) and [2012 data](https://data.cityofnewyork.us/Education/SAT-Results/f9bf-2cp4)
 
@@ -49,9 +49,9 @@ It is a joint project by
   
     ######Particulars:
       - *schoolID* - initial 2 digits removed
-      - *readscore* - value mod 50, append "**-r**"
-      - *mathScore* - value mod 50, append "**-m**"
-      - *writeScore* - value mod 50, append "**-w**"
+      - *readscore* - value divided by 50, append "**-r**"
+      - *mathScore* - value divided by 50, append "**-m**"
+      - *writeScore* - value divided by 50, append "**-w**"
       - *year* - year of the dataset
     
     Appended the datasets from the two years together.
@@ -65,7 +65,7 @@ It is a joint project by
     
     ######Particulars:
       - *schoolID* - initial 2 digits removed
-      - *all others* - value mod 10, append "**-a**"(asian), "**-b**"(black), "**-h**"(hispanic), "**-wh**"(white), "**-male**", "**-f**"(female)
+      - *all others* - value divided by 10, append "**-a**"(asian), "**-b**"(black), "**-h**"(hispanic), "**-wh**"(white), "**-male**", "**-f**"(female)
       - *year* - as it is
 
     ####Progress Report: [data](https://data.cityofnewyork.us/Education/School-Progress-Report-Multi-year-2007-2011/5fsg-d8c9)
