@@ -20,7 +20,7 @@ It is a joint project by
     File List
     ----
     - run.py - main source code
-    - final.csv - contains the INTEGRATED dataset in the csv format.
+    - INTEGRATED-DATASET.csv - contains the INTEGRATED dataset in the csv format.
     - README.md - markdown syntax file
     - README.txt - text version of README
     - example-run.txt - Contains the output from an example run
@@ -33,7 +33,7 @@ It is a joint project by
     The commandline usage is as follows:
     
     ```sh
-    python run.py INTEGRATED_DATASET.csv min_supp min_conf
+    python run.py INTEGRATED-DATASET.csv min_supp min_conf
     ```
 
     Implementation
