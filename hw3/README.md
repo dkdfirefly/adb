@@ -1,7 +1,7 @@
 Association Rule Mining
 =========
 
-ARM[read here](https://github.com/dkdfirefly/adb/blob/master/hw3/README.md) is a tool that uses Apriori algorithm to find association rules from any given dataset.
+ARM [(read here)](https://github.com/dkdfirefly/adb/blob/master/hw3/README.md) is a tool that uses Apriori algorithm to find association rules from any given dataset.
 
 It is a joint project by
   - Sarah Panda - sp3206
