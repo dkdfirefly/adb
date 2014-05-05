@@ -13,8 +13,9 @@ It is a joint project by
     ----------------
 
     > The idea was to come up with interesting association rules using the NYC open datasets.
-    > We have chosen the education field in particular and have tried to combine the demographic information
-    > along with school progress and SAT results to derive these results.
+    > We have chosen the education sector in particular and have tried to combine the demographic information
+    > along with school progress and SAT results to derive these results. Datasets from two years have been used 
+    > in order to demonstrate this relation.
     
     File List
     ----
@@ -33,7 +34,6 @@ It is a joint project by
     
     ```sh
     python run.py INTEGRATED_DATASET.csv min_supp min_conf
-    
     ```
 
     Implementation
@@ -41,22 +41,56 @@ It is a joint project by
     Dataset Generation:
     -------
     
-    The first section of the code, as well as the mappings.txt file specifies the fieldnames for different types of properties we wish to retrieve for a given query, with reference to the corresponding fields in the JSON results. This specification has 3 sections. 
-    > First, we specify what categories we are going to look for (i.e. allowed results from within /type/object/type property). 
-    > Second, we specify for each of the above mentioned categories, what are the properties we want to show.
-    > Third defines an ordered dictionary of subproperties of the properties defined in the previous step, which are compound in nature.
+    In each of the datasets, we have used only those fields that are mentioned explicitly here. We have manipulated the numerical score values, so as to normalize them in a way to be conducive to the a-priori algorithm and have appended special characters in order to differentiate in between the numerical fields. Whenever a value was absent, it was replaced with a blank.
     
-    When a user query is specified, first the query is passed to the Freebase search API. The results are sequentially traversed until at least one category of the topic in the result(also found using Freebase Search API) matches with our predefined set of allowed categories. 
-    
-    For each of the category the result belongs to, the corresponding property values are extracted from the JSON output and printed in the infobox format.
+    ####SAT Results: [2010 data](https://data.cityofnewyork.us/Education/SAT-College-Board-2010-School-Level-Results/zt9s-n5aj) and [2012 data](https://data.cityofnewyork.us/Education/SAT-Results/f9bf-2cp4)
 
-    **Note:**
-
-    - We have grouped the properties by type, that is League-Team, League-Person and Person-Team properties are not mixed. However, all the person properties are grouped under a single header. The preference order is League followed by sports team and person at last
-    - The data validity for each of the queried terms is done using try-catch statements checking for KeyError on return values.
-    - A general framework is used for handling the printing for compound value types, based on compound values specified. This is a bit different from the reference implementation, but it made sense to have a general method, than to specify separately for all of them.
-    - The ordering is maintained only at the level of the compound values and not for the property level.
+    ######Fields: SchoolID, readScore, MathScore, writeScore, year
+  
+    ######Particulars:
+      - *schoolID* - initial 2 digits removed
+      - *readscore* - value mod 50, append "**-r**"
+      - *mathScore* - value mod 50, append "**-m**"
+      - *writeScore* - value mod 50, append "**-w**"
+      - *year* - year of the dataset
     
+    Appended the datasets from the two years together.
+
+    ####Demographic: [data](https://data.cityofnewyork.us/Education/School-Demographics-and-Accountability-Snapshot-20/ihfw-zy9j)
+
+    
+    Filtered only years - 09-10, 11-12, in order to match with other datasets used.
+    
+    ######Fields: SchoolID, Asian-per, Black-per, Hispanic-per, White-per, Male-per, Female-per, year
+    
+    ######Particulars:
+      - *schoolID* - initial 2 digits removed
+      - *all others* - value mod 10, append "**-a**"(asian), "**-b**"(black), "**-h**"(hispanic), "**-wh**"(white), "**-male**", "**-f**"(female)
+      - *year* - as it is
+
+    ####Progress Report: [data](https://data.cityofnewyork.us/Education/School-Progress-Report-Multi-year-2007-2011/5fsg-d8c9)
+
+    Filtered only years: 2010-11, 2008-09, in order to match with other datasets used. Each record was broken down to 2 records - corresponding to each individual year.
+    
+    ######Fields: SchoolID, Grade, Year
+    
+    ######Particulars:
+      - *schoolID* - as it is
+      - *grade* - Grade for the following year
+      - *year* - 201011 or 200809
+
+    Dataset Integration:
+    -------
+    
+    The objective was to compare the effect of a particular year's progress report on the following year's SAT scores and the effect of a school's demographic on the score distribution. In the process, we also obtained interesting rules for dependence of reading, writing and math scores in SAT on each other.
+
+    **Join Steps:**
+    
+    - Left outer join of progress report with demographic based on schoolID and matching years. (*merge1*)
+    - Left outer join of the *merge1* dataset with SAT results based on schoolID for one year. (*merge2*)
+    - Left outer join of the *merge2* dataset with SAT results based on schoolID for another year. (*INTEGRATED_DATASET*)
+    
+
     A-priori algorithm:
     -------
     
