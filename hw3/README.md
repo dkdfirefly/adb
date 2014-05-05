@@ -103,8 +103,7 @@ It is a joint project by
     
     **Note**
     
-    - We have grouped author and business person type of results in case both of them are present for a particular person, unlike the reference implementation.
-    - Sorting is by the name of the person in the alphabetical order.
+    - *Neglected Fields* - Blank Fields, those with only a space, a newline, fields with 'N/A' and those with field length lesser than threshold have been neglected for all purposes of this algorithm.
     
     
     Function description
@@ -121,9 +120,6 @@ It is a joint project by
     - **processInput** - Process input dataset
 
     
-    Neglected Fields
-    ------------------
-    Blank Fields, those with only a space, a newline, fields with 'N/A' and those with field length lesser than threshold have been neglected for all purposes of this algorithm.
     
 
     License
