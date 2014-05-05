@@ -12,35 +12,33 @@ It is a joint project by
     Design Principle
     ----------------
 
-    > Freebase is a pool of structured information about various topics. 
-    > Our project uses Freebase API to get desired results in JSON format. Only a subset of all information
-    > is shown in the infobox, which is in accordance with the fields mentioned in the project description.
+    > The idea was to come up with interesting association rules using the NYC open datasets.
+    > We have chosen the education field in particular and have tried to combine the demographic information
+    > along with school progress and SAT results to derive these results.
     
     File List
     ----
-    - project_main.py - main source code
+    - run.py - main source code
     - final.csv - contains the INTEGRATED dataset in the csv format.
     - README.md - markdown syntax file
     - README.txt - text version of README
-    - output.txt - includes infobox for all queries given in the project description
+    - example-run.txt - Contains the output from an example run
 
     Usage
     -----------
     
     No special package installations are required. The code has been tested on a local Linux machine as well as on the clic machine.
     
-    Any of the following formats would work:
+    The commandline usage is as follows:
     
     ```sh
-    python project_main.py --key <Freebase API key> -q <query> -t <infobox|question>
-    python project_main.py --key <Freebase API key> -f <file of queries> -t <infobox|question>
-    python project_main.py --key <Freebase API key>
+    python run.py INTEGRATED_DATASET.csv min_supp min_conf
     
     ```
 
     Implementation
     ---------------
-    Part 1:
+    Dataset Generation:
     -------
     
     The first section of the code, as well as the mappings.txt file specifies the fieldnames for different types of properties we wish to retrieve for a given query, with reference to the corresponding fields in the JSON results. This specification has 3 sections. 
@@ -59,7 +57,7 @@ It is a joint project by
     - A general framework is used for handling the printing for compound value types, based on compound values specified. This is a bit different from the reference implementation, but it made sense to have a general method, than to specify separately for all of them.
     - The ordering is maintained only at the level of the compound values and not for the property level.
     
-    Part 2:
+    A-priori algorithm:
     -------
     
     Questions in the form of 'Who created X?' are supported by this section. X could be either the name of a book or an organization, as only these two types are supported currently. The Freebase MQL read API is used to find the author/founder of the subject in the question. 
@@ -79,19 +77,19 @@ It is a joint project by
     ---------------------
     Though more detailed description is available in the code documentation, this is the brief idea.
     
-    - **main** - check the input arguments and calls the appropriate functions
-    - **getSubProp** - Fetches the subproperty values from the top level categories
-    - **getSubPropValues** - Gets the specified value fields for both regular and compound properties, and handles their printing as well.
-    - **getJSONResults** - This function handles forming the query URL and hits the Freebase search API to retrieve top JSON
-    results.
-    - **createInfoBox** -  handles infobox type of queries; after fetching the JSON results, gets the appropriate subproperty values.
-    - **ansQues** -  handles the question answering part; queries the appropriate mql read api after getting the JSON results.
-    - There are a few other helper function, but they are mainly for formatting issues and signal handling kind of stuff.
+    - **apriori_join** - Perform join step of apriori
+    - **apriori_prune** - Perform prune step of apriori
+    - **calcConf** - Calculate confidence for different permutations
+    - **calcSupport** - Calculate support for candidates
+    - **main** - Get the freq itemsets and high conf association rules for provided dataset
+    - **printFreqItems** - Print the frequent itemsets with support higher than min_support
+    - **printHighConf** - Print rules with confidence higher than min_conf
+    - **processInput** - Process input dataset
+
     
-    
-    Error Handling
+    Neglected Fields
     ------------------
-    We do not claim to have handled all the edge cases, but most of the common ones like argument errors, no matches found have been handled gracefully. As long as the queries are well formed and there are related results, there should not be an issue.
+    Blank Fields, those with only a space, a newline, fields with 'N/A' and those with field length lesser than threshold have been neglected for all purposes of this algorithm.
     
 
     License
