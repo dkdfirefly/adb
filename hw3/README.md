@@ -100,6 +100,14 @@ It is a joint project by
     
     **Data Structures:**
     
+    These are the main ones:
+    
+    - candGroup : list of list(candK) of list(cand) => The entire candidate structure
+    - candK : list of list(cand) => candidate set of length K
+    - cand : list => The actual candidate
+    - support : Dictionary => Key: tuple of sorted cand, Value: list of intersected sets
+    - conf : Dictionary => Key: tuple with sorted left and right association pair, Value: tuple of conf and support value.
+    
     
     **Note**
     
