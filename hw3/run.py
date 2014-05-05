@@ -3,10 +3,10 @@ import itertools
 import operator
 import sys
 
-"""
-  Perform join step of apriori
-"""
 def apriori_join(candGroup,candK,k):
+  """
+    Perform join step of apriori
+  """
   for candInd1 in range(len(candGroup[k-1])):
       for candInd2 in range(candInd1+1, len(candGroup[k-1])):
           # check if all terms till the last one in cand match
@@ -19,10 +19,10 @@ def apriori_join(candGroup,candK,k):
              candK.append(temp)
   candGroup.append(candK)
 
-"""
-  Perform prune step of apriori
-"""
 def apriori_prune(candGroup,candK,k):
+  """
+    Perform prune step of apriori
+  """
   #prune
   candK = copy.deepcopy(candGroup[-1])
   candK_1 = candGroup[-2]
@@ -35,10 +35,10 @@ def apriori_prune(candGroup,candK,k):
                    candGroup[-1].remove(cand)
 
 
-"""
-  Calculate support for candidates
-"""
 def calcSupport(candK,candGroup,support,lineNum):
+  """
+    Calculate support for candidates
+  """
   #support
   global loop
   loop= 0
@@ -54,10 +54,10 @@ def calcSupport(candK,candGroup,support,lineNum):
       loop = 1
 
 
-"""
-  Calculate confidence for different permutations
-"""
 def calcConf(candK,candGroup,support,conf,lineNum):
+  """
+    Calculate confidence for different permutations
+  """
   #confidence
   global loop
   loop = 0
@@ -73,28 +73,28 @@ def calcConf(candK,candGroup,support,conf,lineNum):
           conf[(tuple(sorted(left)),tuple(sorted(right)))] = (confVal*100.0, suppVal)
           loop = 1
 
-"""
-  Print the frequent itemsets with support higher than min_support
-"""
 def printFreqItems(support,lineNum,outputFile):
+  """
+    Print the frequent itemsets with support higher than min_support
+  """
   outputFile.write('==Frequent itemsets (min_sup=' + str(min_support*100.0) + '%)\n')
   for cand in sorted(support, key = lambda x: len(support[x]), reverse = True):
     outputFile.write(str(list(cand)) + ', ' + str(len(support[tuple(sorted(cand))])*100.0/lineNum) + '%\n')
 
-"""
-  Print rules with confidence higher than min_conf
-"""
 def printHighConf(conf,outputFile):
+  """
+    Print rules with confidence higher than min_conf
+  """
   outputFile.write('\n')
   outputFile.write('==High-confidence association rules (min_conf=' + str(min_conf*100.0) + '%)\n')
   for left, right in sorted(conf.items(), key=lambda (k, v): v[0], reverse = True):
     if len(list(left[1])) == 1:
       outputFile.write(str(list(left[0])) + ' => ' + str(list(left[1])) + ' (Conf: ' + str(right[0]) + '%, Supp: ' + str(right[1]) + '%)\n')
 
-"""
-  Process input dataset
-"""
 def processInput(fileName):
+  """
+    Process input dataset
+  """
   sample = []
   file = open(fileName)
   i=0
@@ -110,10 +110,10 @@ def processInput(fileName):
         sample.append(temp)
   return sample
 
-"""
-  Get the freq itemsets and high conf association rules for provided dataset
-"""
 def main(argv):
+  """
+    Get the freq itemsets and high conf association rules for provided dataset
+  """
 
   global min_support
   global min_conf 
