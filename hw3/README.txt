@@ -31,6 +31,7 @@ File List
   - README.md - markdown syntax file
   - README.txt - text version of README
   - example-run.txt - Contains the output from an example run
+  - data/FINAL.db - sqlite db file which was used for integrating the datasets.
 
 Usage
 -----------
@@ -103,6 +104,9 @@ Dataset Integration:
   - Left outer join of the *merge1* dataset with SAT results based on schoolID and for one year. (*merge2*)
   - Left outer join of the *merge2* dataset with SAT results based on schoolID and for another year. (*INTEGRATED_DATASET*)
     
+  **Note:**
+
+    SQLite was used for performing all the above operations and the associated .db file is also included along with the submission.
 
 A-priori algorithm:
 -------
