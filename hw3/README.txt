@@ -1,4 +1,4 @@
-SAT Results:(2010 and 2012)
+SAT Results:(2010 - https://data.cityofnewyork.us/Education/SAT-College-Board-2010-School-Level-Results/zt9s-n5aj and 2012 - https://data.cityofnewyork.us/Education/SAT-Results/f9bf-2cp4)
 ============
 
 SchoolID, School_name, readScore, MathScore, writeScore
@@ -15,7 +15,7 @@ no. of test takers - not used
 
 added year as last column, and appended the two years together.
 
-Demographic
+Demographic (https://data.cityofnewyork.us/Education/School-Demographics-and-Accountability-Snapshot-20/ihfw-zy9j)
 ============
 
 all num counts removed, ell removed, fl removed.
@@ -28,7 +28,7 @@ filtered only year - 09-10, 11-12
 total_enrollment - value mod 500, append "-t"
 all other races - value mod 10, append "-a"(asian), "-b"(black), "-h"(hispanic), "-wh"(white), "-male", "-f"(female)
 
-Progress Report
+Progress Report (https://data.cityofnewyork.us/Education/School-Progress-Report-Multi-year-2007-2011/5fsg-d8c9)
 ================
 taking only years: 2010-11, 2008-09
 broken down to 2 records - corresponding to each year.
