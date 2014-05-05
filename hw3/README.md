@@ -87,19 +87,19 @@ It is a joint project by
     **Join Steps:**
     
     - Left outer join of progress report with demographic based on schoolID and matching years. (*merge1*)
-    - Left outer join of the *merge1* dataset with SAT results based on schoolID for one year. (*merge2*)
-    - Left outer join of the *merge2* dataset with SAT results based on schoolID for another year. (*INTEGRATED_DATASET*)
+    - Left outer join of the *merge1* dataset with SAT results based on schoolID and for one year. (*merge2*)
+    - Left outer join of the *merge2* dataset with SAT results based on schoolID and for another year. (*INTEGRATED_DATASET*)
     
 
     A-priori algorithm:
     -------
     
-    Questions in the form of 'Who created X?' are supported by this section. X could be either the name of a book or an organization, as only these two types are supported currently. The Freebase MQL read API is used to find the author/founder of the subject in the question. 
+    - The algorithm has been implemented exactly as mentioned in Section 2.1.1 of the paper - Rakesh Agrawal and Ramakrishnan Srikant: [Fast Algorithms for Mining Association Rules in Large Databases](http://www.cs.columbia.edu/~gravano/Qual/Papers/agrawal94.pdf), VLDB 1994.
+    - Each of the following steps are executed in order: *join*, *prune*, thresholding by *min_support*, thresholding by *min_conf*.
+    - This continues till the max size of the input record, or till when we have no more candidate sets.
     
-    The specific fields used are:
+    **Data Structures:**
     
-    - /organization/organization_founder/organization_founded for BusinessPerson type of questions
-    - /book/author/works_written for Author type of questions
     
     **Note**
     
